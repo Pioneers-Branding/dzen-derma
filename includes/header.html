@@ -1,0 +1,50 @@
+<!-- ═══════ Floating Pill Navbar v3 ═══════ -->
+<nav id="pill-nav" class="pnav" aria-label="Main navigation">
+    <!-- Left: Book Now -->
+    <div class="pnav__left">
+        <a href="#" class="pnav__cta">
+            Book
+            <img src="nemonic1.png" class="btn-icon" alt="icon" />
+        </a>
+    </div>
+
+    <!-- Center: logo -->
+    <a href="index.html" class="pnav__logo" aria-label="Home">
+        <img src="photos/logo1.png" alt="D'Zen Derma" />
+    </a>
+
+    <!-- Right: hamburger -->
+    <div class="pnav__right">
+        <button class="pnav__burger" id="pnav-burger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="pnav-overlay" id="pnav-overlay"></div>
+<aside class="pnav-drawer" id="pnav-drawer" aria-label="Menu">
+    <button class="pnav-drawer__close" id="pnav-close" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+    </button>
+    <ul class="pnav-drawer__list">
+        <li><a href="#">Who we are <span>→</span></a></li>
+        <li><a href="#">Treatments <span>→</span></a></li>
+        <li><a href="#">Concerns <span>→</span></a></li>
+        <li><a href="#">Medicine &amp; Wellness Programmes <span>→</span></a></li>
+        <li><a href="#">Signature Treatments <span>→</span></a></li>
+        <li><a href="#">Bridal Programs <span>→</span></a></li>
+        <li><a href="#">Men's Aesthetics <span>→</span></a></li>
+        <li><a href="#">Workshops &amp; Training <span>→</span></a></li>
+        <li><a href="#">Press &amp; Media <span>→</span></a></li>
+    </ul>
+</aside>
+
+<!-- Injection point for VS Code Live Server: without a closing body tag here,
+     Live Server injects its reload script before every closing svg tag instead,
+     inside the icons, which breaks the layout. Browsers ignore this stray tag
+     when the partial is inserted into the page. -->
+</body>

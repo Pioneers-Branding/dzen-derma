@@ -1,0 +1,1120 @@
+/* =========================================================
+   D'Zen Derma - v2 Extract Scripts
+   Contains controllers for Navbar and Hero Slider sections
+   ========================================================= */
+
+(function () {
+    'use strict';
+
+    /* =========================================================
+       FLOATING PILL NAVBAR v3 — Controller
+       ========================================================= */
+    const nav = document.getElementById('pill-nav');
+    if (nav) {
+        const burger  = document.getElementById('pnav-burger');
+        const closeBtn = document.getElementById('pnav-close');
+        const drawer  = document.getElementById('pnav-drawer');
+        const overlay = document.getElementById('pnav-overlay');
+
+        /* ── Mobile drawer ── */
+        function openDrawer() {
+            drawer?.classList.add('is-open');
+            overlay?.classList.add('is-open');
+            burger?.classList.add('is-active');
+        }
+        function closeDrawer() {
+            drawer?.classList.remove('is-open');
+            overlay?.classList.remove('is-open');
+            burger?.classList.remove('is-active');
+        }
+
+        /* Burger animates into an X while open, so it toggles */
+        burger?.addEventListener('click', () => {
+            if (drawer?.classList.contains('is-open')) closeDrawer();
+            else openDrawer();
+        });
+        closeBtn?.addEventListener('click', closeDrawer);
+        overlay?.addEventListener('click', closeDrawer);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+        /* ── Scroll: opaque + hide/reveal ── */
+        let lastY = 0;
+        let ticking = false;
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                const y = window.scrollY;
+                // Scrolled state (more opaque)
+                nav.classList.toggle('is-scrolled', y > 30);
+                lastY = y;
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    /* =========================================================
+       HERO SLIDER — Interactive Slider Controller
+       ========================================================= */
+    const slider = document.querySelector('.hero-slider');
+    if (slider) {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        const prevBtn = document.querySelector('.hero-nav-btn.prev-btn');
+        const nextBtn = document.querySelector('.hero-nav-btn.next-btn');
+        let currentSlide = 0;
+        const slideCount = slides.length;
+
+        if (slideCount > 0) {
+            function goToSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (dots && dots[i]) {
+                        dots[i].classList.remove('active');
+                    }
+                });
+                
+                if (slides[index]) {
+                    slides[index].classList.add('active');
+                }
+                
+                if (dots && dots[index]) {
+                    dots[index].classList.add('active');
+                }
+                currentSlide = index;
+
+                // Video backgrounds: only the visible slide should play, otherwise
+                // it keeps streaming behind the other slides. Rewind so it starts
+                // from the top whenever its slide comes round again.
+                slides.forEach(function (slide, i) {
+                    const vid = slide.querySelector('video');
+                    if (!vid) return;
+                    if (i === index) {
+                        vid.currentTime = 0;
+                        const playing = vid.play();
+                        // Rejects when the browser blocks autoplay — the poster
+                        // stays up, which is an acceptable fallback.
+                        if (playing && playing.catch) playing.catch(function () { });
+                    } else {
+                        vid.pause();
+                    }
+                });
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % slideCount;
+                goToSlide(next);
+            }
+
+            function prevSlide() {
+                const prev = (currentSlide - 1 + slideCount) % slideCount;
+                goToSlide(prev);
+            }
+
+            // Auto-sliding disabled per request — the hero advances only when the
+            // visitor uses the dots or arrows. resetAutoplay() stays as a no-op so
+            // the handlers below are untouched; restoring autoplay means putting
+            // the two setInterval calls back and nothing else.
+            let slideInterval = null;
+
+            function resetAutoplay() {
+                // clearInterval(slideInterval);
+                // slideInterval = setInterval(nextSlide, 6000);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () {
+                    prevSlide();
+                    resetAutoplay();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () {
+                    nextSlide();
+                    resetAutoplay();
+                });
+            }
+
+            if (dots && dots.length > 0) {
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function () {
+                        goToSlide(index);
+                        resetAutoplay();
+                    });
+                });
+            }
+            
+            // Hover pause/resume removed along with autoplay — there is nothing to
+            // pause, and the mouseleave half would have restarted the interval and
+            // brought auto-sliding back the first time the cursor left the hero.
+        }
+    }
+
+    /* =========================================================
+       ABOUT V2 — Scroll Reveal Animation
+       ========================================================= */
+    const reveals = document.querySelectorAll('.about-v2__reveal');
+    if (reveals.length > 0) {
+        if (!('IntersectionObserver' in window)) {
+            reveals.forEach(r => r.classList.add('is-visible'));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+            reveals.forEach((reveal) => observer.observe(reveal));
+        }
+    }
+
+    /* =========================================================
+       FOUNDER TAB SLIDER — Doctors/Team Slider
+       ========================================================= */
+    const tabs = document.querySelectorAll('.founder-tab');
+    const cards = document.querySelectorAll('.founder-card');
+    const founderSlider = document.querySelector('.founder-slider');
+    
+    if (tabs.length > 0 && cards.length > 0) {
+        let currentIndex = 0;
+        let autoTimer = null;
+        const INTERVAL = 3000;
+
+        function goTo(index) {
+            tabs.forEach(function (t) { 
+                t.classList.remove('active'); 
+                t.setAttribute('aria-selected', 'false'); 
+            });
+            cards.forEach(function (c) { 
+                c.classList.remove('active'); 
+            });
+            
+            if (tabs[index]) {
+                tabs[index].classList.add('active');
+                tabs[index].setAttribute('aria-selected', 'true');
+            }
+            if (cards[index]) {
+                cards[index].classList.add('active');
+            }
+            currentIndex = index;
+        }
+
+        function next() {
+            goTo((currentIndex + 1) % cards.length);
+        }
+
+        function startAuto() {
+            // Auto-rotation disabled per request
+            // stopAuto();
+            // autoTimer = setInterval(next, INTERVAL);
+        }
+
+        function stopAuto() {
+            if (autoTimer) { 
+                clearInterval(autoTimer); 
+                autoTimer = null; 
+            }
+        }
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                const targetSlide = parseInt(this.dataset.slide || this.getAttribute('data-slide'), 10);
+                goTo(targetSlide);
+                startAuto();
+            });
+        });
+
+        if (founderSlider) {
+            founderSlider.addEventListener('mouseenter', stopAuto);
+            founderSlider.addEventListener('mouseleave', startAuto);
+        }
+
+        startAuto();
+    }
+
+    /* =========================================================
+       TM TAB SLIDER — Team Cards Tabs Controller
+       ========================================================= */
+    const tmTabs = document.querySelectorAll('.tm-tab');
+    const tmCards = document.querySelectorAll('.tm-card');
+
+    if (tmTabs.length > 0 && tmCards.length > 0) {
+        tmTabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                const targetSlide = parseInt(this.dataset.tmSlide || this.getAttribute('data-tm-slide'), 10);
+                
+                tmTabs.forEach(function (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tmCards.forEach(function (c) {
+                    c.classList.remove('active');
+                });
+
+                if (tmTabs[targetSlide]) {
+                    tmTabs[targetSlide].classList.add('active');
+                    tmTabs[targetSlide].setAttribute('aria-selected', 'true');
+                }
+                if (tmCards[targetSlide]) {
+                    tmCards[targetSlide].classList.add('active');
+                }
+            });
+        });
+    }
+
+    /* =========================================================
+       CLINIC LOCATION TABS — Delhi / Gurgaon Switcher
+       ========================================================= */
+    const clinicTabs = document.querySelectorAll('.clinic-tab');
+    const clinicCols = document.querySelectorAll('.clinic-locations-grid .clinic-loc-col');
+
+    if (clinicTabs.length > 0 && clinicCols.length > 0) {
+        clinicTabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                const targetClinic = parseInt(this.dataset.clinic || this.getAttribute('data-clinic'), 10);
+
+                clinicTabs.forEach(function (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                clinicCols.forEach(function (c) {
+                    c.classList.remove('active');
+                });
+
+                if (clinicTabs[targetClinic]) {
+                    clinicTabs[targetClinic].classList.add('active');
+                    clinicTabs[targetClinic].setAttribute('aria-selected', 'true');
+                }
+                if (clinicCols[targetClinic]) {
+                    clinicCols[targetClinic].classList.add('active');
+                }
+            });
+        });
+    }
+
+    /* =========================================================
+       CARD ROWS (Our Expertise, Concerns) — Mouse drag to scroll
+       ========================================================= */
+    // Touch and trackpads scroll these rows natively; a mouse can't, so let it drag.
+    const enableDragScroll = (track, cardSelector) => {
+        let isDown = false;
+        let moved = false;
+        let startX = 0;
+        let startScroll = 0;
+
+        track.addEventListener('pointerdown', (e) => {
+            if (e.pointerType !== 'mouse' || e.button !== 0) return;
+            isDown = true;
+            moved = false;
+            startX = e.clientX;
+            startScroll = track.scrollLeft;
+            // Snapping fights the drag, so hold it off until release
+            track.style.scrollSnapType = 'none';
+            track.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('pointermove', (e) => {
+            if (!isDown) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 5) moved = true;
+            track.scrollLeft = startScroll - dx;
+        });
+
+        const endDrag = () => {
+            if (!isDown) return;
+            isDown = false;
+            track.style.cursor = '';
+            // Snap to the nearest card from where the drag ended
+            const cards = track.querySelectorAll(cardSelector);
+            const base = cards[0] ? cards[0].offsetLeft : 0;
+            let target = track.scrollLeft;
+            let best = Infinity;
+            cards.forEach((card) => {
+                const pos = card.offsetLeft - base;
+                const dist = Math.abs(pos - track.scrollLeft);
+                if (dist < best) { best = dist; target = pos; }
+            });
+            track.scrollTo({ left: target, behavior: 'smooth' });
+            setTimeout(() => { track.style.scrollSnapType = ''; }, 500);
+        };
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+
+        // A drag shouldn't count as a click on a link underneath
+        track.addEventListener('click', (e) => {
+            if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+        }, true);
+
+        // Stop the browser's native image/link ghost-drag from hijacking the gesture
+        track.addEventListener('dragstart', (e) => e.preventDefault());
+    };
+
+    const archTrack = document.getElementById('service-arch-track');
+    if (archTrack) enableDragScroll(archTrack, '.service-arch-card');
+    document.querySelectorAll('.concerns-section .concerns-grid').forEach((grid) => {
+        enableDragScroll(grid, '.concern-item');
+    });
+
+    /* =========================================================
+       FELLOW DOCTORS TRAINING — Scroll Reveal Animation
+       ========================================================= */
+    const trainerReveals = document.querySelectorAll('.trainer-v2__reveal');
+    if (trainerReveals.length > 0) {
+        const isInViewport = (el) => {
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            return rect.top < vh * 0.85 && rect.bottom > 0;
+        };
+
+        // Reveal elements already in viewport on load
+        trainerReveals.forEach((el) => {
+            if (isInViewport(el)) {
+                el.classList.add('is-visible');
+            }
+        });
+
+        // Safety fallback: reveal all after 1.5s in case observer misses them
+        setTimeout(() => {
+            trainerReveals.forEach((el) => {
+                if (!el.classList.contains('is-visible')) {
+                    el.classList.add('is-visible');
+                }
+            });
+        }, 1500);
+
+        if (!('IntersectionObserver' in window)) {
+            trainerReveals.forEach((el) => el.classList.add('is-visible'));
+        } else {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -4% 0px' });
+
+            trainerReveals.forEach((el) => observer.observe(el));
+        }
+    }
+
+    /* =========================================================
+       TESTIMONIALS MODERN SECTION — Modal & Responsive Scaling
+       ========================================================= */
+    const reviewsData = [
+        {
+            name: "Priya Sharma",
+            treatment: "Acne Scar Treatment",
+            location: "Mumbai",
+            quote: "My acne scars faded in 8 weeks — and the team actually listened to me. For the first time in years, I recognised the person in the mirror.",
+            img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Rohan Mehta",
+            treatment: "Pigmentation Care",
+            location: "Delhi",
+            quote: "Even-tone I never thought possible. Three sessions in, my skin looked rested and more even. Truly professional expertise.",
+            img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Ananya Reddy",
+            treatment: "Acne Journey",
+            location: "Hyderabad",
+            quote: "Felt heard for the first time. They mapped a 12-week plan around my wedding and didn't push a single product I didn't need.",
+            img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Kavya Iyer",
+            treatment: "Routine Builder",
+            location: "Bengaluru",
+            quote: "They built a plan around my life, not the other way around. The 4-step routine actually fits my 6am yoga schedule.",
+            img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Dr. Amit Patel",
+            treatment: "Anti-Aging Care",
+            location: "Ahmedabad",
+            quote: "As a medical professional, I was skeptical. But D'Zen's science-backed integrative approach blew me away. Superb results.",
+            img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Meera Jasmine",
+            treatment: "HydraFacial Glow",
+            location: "Chennai",
+            quote: "The instant glow after the signature HydraFacial was unbelievable. Perfect for my shoot days. The sanctuary is so calming.",
+            img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Vikram Malhotra",
+            treatment: "Hair Restoration",
+            location: "Pune",
+            quote: "Highly professional team. The hair thinning treatments have shown noticeable density results within 3 months. Life-changing.",
+            img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Siddharth Roy",
+            treatment: "Laser Grooming",
+            location: "Kolkata",
+            quote: "Virtually painless laser sessions. The technology they use is state-of-the-art. Highly recommend D'Zen to everyone.",
+            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Neha Sen",
+            treatment: "Skin Tightening",
+            location: "Gurgaon",
+            quote: "The sagging skin around my jawline is visibly firmer. No downtime, no pain. Just pure expertise from the doctors.",
+            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Aarav Kapoor",
+            treatment: "Eczema Wellness",
+            location: "Mumbai",
+            quote: "Their wellness counseling combined with skin treatments healed my stress eczema. They treat the root cause, not just symptoms.",
+            img: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Ritu Verma",
+            treatment: "Scar Revision",
+            location: "Jaipur",
+            quote: "After my accident scar, I lost all self-esteem. The laser scar revision sessions have smoothed it out so much it is barely visible.",
+            img: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=600&fit=crop&q=80"
+        },
+        {
+            name: "Aditi Rao",
+            treatment: "Brightening Peel",
+            location: "Kochi",
+            quote: "My hyperpigmentation is completely gone. My skin feels fresh, breathing, and renewed. Thank you D'Zen Derma!",
+            img: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&h=600&fit=crop&q=80"
+        }
+    ];
+
+    const testimonialModal = document.getElementById('testimonial-modal');
+    if (testimonialModal) {
+        const modalImg = document.getElementById('modal-img');
+        const modalQuote = document.getElementById('modal-quote');
+        const modalAuthor = document.getElementById('modal-author');
+        const modalTreatment = document.getElementById('modal-treatment');
+        const modalLocation = document.getElementById('modal-location');
+
+        const testimonialCards = document.querySelectorAll('.testimonial-card:not(.empty-card)');
+        const btnClose = document.getElementById('modal-btn-close');
+        const overlayClose = document.getElementById('modal-overlay-close');
+        const btnOpenFirst = document.getElementById('open-first-testimonial-btn');
+        const testimonialWrapper = document.querySelector('.testimonials-card-wall-wrapper');
+
+        function openModal(index) {
+            const data = reviewsData[index];
+            if (!data) return;
+
+            if (modalImg) {
+                modalImg.src = data.img;
+                modalImg.alt = data.name;
+            }
+            if (modalQuote) modalQuote.textContent = "“" + data.quote + "”";
+            if (modalAuthor) modalAuthor.textContent = data.name;
+            if (modalTreatment) modalTreatment.textContent = data.treatment;
+            if (modalLocation) modalLocation.textContent = data.location;
+
+            testimonialModal.classList.add('is-active');
+            testimonialModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            testimonialModal.classList.remove('is-active');
+            testimonialModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        testimonialCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'), 10);
+                openModal(index);
+            });
+        });
+
+        if (btnClose) btnClose.addEventListener('click', closeModal);
+        if (overlayClose) overlayClose.addEventListener('click', closeModal);
+
+        if (btnOpenFirst) {
+            btnOpenFirst.addEventListener('click', function (e) {
+                e.preventDefault();
+                openModal(0);
+            });
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && testimonialModal.classList.contains('is-active')) {
+                closeModal();
+            }
+        });
+
+        function adjustScale() {
+            if (testimonialWrapper) {
+                const viewportWidth = window.innerWidth;
+                const scale = viewportWidth < 1340 ? (viewportWidth / 1340) : 1;
+                testimonialWrapper.style.setProperty('--testimonials-scale', scale);
+            }
+        }
+
+        window.addEventListener('resize', adjustScale);
+        adjustScale();
+        window.addEventListener('load', adjustScale);
+    }
+
+    /* =========================================================
+       SIGNATURE SERVICES — Scroll-linked Panel Reveal
+       ========================================================= */
+    const sigPanels = document.querySelectorAll('.sig-panel');
+    if (sigPanels.length > 0) {
+        let isMobile = window.matchMedia('(max-width: 900px)').matches;
+
+        function revealSigPanels() {
+            const vh = window.innerHeight;
+
+            sigPanels.forEach(function (panel) {
+                const rect = panel.getBoundingClientRect();
+                const panelMid = rect.top + rect.height / 2;
+
+                if (panelMid < vh * 0.88 && rect.bottom > 0) {
+                    panel.classList.add('is-visible');
+                } else if (!isMobile && rect.top > vh * 1.1) {
+                    panel.classList.remove('is-visible');
+                }
+            });
+        }
+
+        revealSigPanels();
+
+        let sigTicking = false;
+        window.addEventListener('scroll', function () {
+            if (!sigTicking) {
+                requestAnimationFrame(function () {
+                    revealSigPanels();
+                    sigTicking = false;
+                });
+                sigTicking = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', function () {
+            isMobile = window.matchMedia('(max-width: 900px)').matches;
+            revealSigPanels();
+        }, { passive: true });
+    }
+
+    /* =========================================================
+       SIGNATURE SERVICES — Blob Hole Reveal (scroll-driven)
+       A cream curtain over the section has a blob-shaped hole that
+       grows from the centre as the section scrolls into view.
+       ========================================================= */
+    (function () {
+        const zone = document.getElementById('sigServicesZone');
+        const curtain = document.getElementById('sigReveal');
+        const lens = document.getElementById('sigRevealLens');
+        // Curvy wave above the zone — carries the same blob mask so the circle
+        // cuts through it too, instead of leaving a brown band above the opening.
+        const wave = document.getElementById('sigWaveSep');
+        if (!zone || !curtain) return;
+
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+            curtain.classList.add('is-done');
+            if (lens) lens.classList.add('is-done');
+            // No curtain at all → .sig-wave-cut is hidden by its own
+            // prefers-reduced-motion rule; nothing to drive here.
+            return;
+        }
+
+        // Reveal completes over this many viewport-heights of scrolling once the
+        // section top hits the top of the screen. Kept short so the hole finishes
+        // opening while the intro heading is still on screen — the heading is
+        // revealed early, then you scroll through the rest of the intro panel.
+        // Matched to START_OFFSET so the circle finishes opening right as the
+        // section pins (rect.top = 0). The circle therefore rises from 0.78vh to
+        // 0.22vh while it grows, instead of doing all its growing at the top.
+        const REVEAL_DISTANCE = 0.70; // × viewport height
+
+        let ticking = false;
+
+        // Two separate curves so the blur and the enlarging can be tuned apart:
+        //  • reveal  → drives the BLUR clearing (kept as-is; timing is perfect)
+        //  • grow    → drives the HOLE SIZE; gentler so the enlarging is steady
+        //              and unhurried instead of snapping open early.
+        function easeReveal(t) {
+            return 1 - Math.pow(1 - t, 3); // easeOutCubic — blur
+        }
+        function easeGrow(t) {
+            // easeInOutSine — slow, smooth growth across the whole scroll
+            return 0.5 - 0.5 * Math.cos(Math.PI * t);
+        }
+
+        function setProgress(v) {
+            const s = v.toFixed(4);
+            const blur = easeReveal(v).toFixed(4);
+            const grow = easeGrow(v).toFixed(4);
+            curtain.style.setProperty('--sig-reveal', blur);
+            curtain.style.setProperty('--sig-grow', grow);
+            if (lens) {
+                lens.style.setProperty('--sig-reveal', blur);
+                lens.style.setProperty('--sig-grow', grow);
+            }
+            // The wave carries the same blob mask, so it needs --sig-grow to keep
+            // its hole exactly in step with the curtain's.
+            if (wave) wave.style.setProperty('--sig-grow', grow);
+        }
+
+        function setDone(done) {
+            curtain.classList.toggle('is-done', done);
+            if (lens) lens.classList.toggle('is-done', done);
+        }
+
+        // rect.top at which the growth begins, in vh. The circle is anchored
+        // --sig-cy (0.22vh) below the zone's top edge, so its screen position at
+        // the start is START_OFFSET + 0.22 = 0.78vh — low on the screen, which is
+        // where the growth should begin. At 0 the growth only started once the
+        // section pinned, by which point the circle had already ridden up to
+        // 0.22vh and was level with the header.
+        const START_OFFSET = 0.70; // × vh — how early (rect.top above this → closed)
+
+        function updateReveal() {
+            const rect = zone.getBoundingClientRect();
+            const vh = window.innerHeight;
+            const distance = vh * REVEAL_DISTANCE;
+
+            // Progress from the zone's top hitting the viewport top (rect.top = 0)
+            // through REVEAL_DISTANCE·vh of further scrolling.
+            const scrolledPast = vh * START_OFFSET - rect.top;
+            let progress = scrolledPast / distance;
+            progress = Math.min(Math.max(progress, 0), 1);
+
+            // Section still below the viewport (not reached) → closed & mounted.
+            if (rect.top > vh) {
+                setDone(false);
+                setProgress(0);
+                return;
+            }
+
+            // Section fully scrolled PAST (above the viewport) → stay open/hidden,
+            // never re-mount the curtain (otherwise it flashes back at the zone's
+            // bottom edge as you scroll into the next section).
+            if (rect.bottom < 0) {
+                setProgress(1);
+                setDone(true);
+                return;
+            }
+
+            setProgress(progress);
+
+            // Fully open → unmount so it never blocks anything.
+            setDone(progress >= 1);
+        }
+
+        updateReveal();
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    updateReveal();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', updateReveal, { passive: true });
+    })();
+
+    /* =========================================================
+       TESTIMONIALS — Tabs (Video / Google Reviews) + click-to-play
+       ========================================================= */
+    (function () {
+        const tabs = document.querySelector('.tst-tabs');
+        if (!tabs) return;
+
+        const tabBtns = tabs.querySelectorAll('.tst-tab');
+        const panelVideo = document.getElementById('tstPanelVideo');
+        const panelReviews = document.getElementById('tstPanelReviews');
+
+        function activate(name) {
+            tabs.setAttribute('data-active', name);
+            tabBtns.forEach(function (btn) {
+                const isActive = btn.getAttribute('data-tab') === name;
+                btn.classList.toggle('is-active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+            if (panelVideo && panelReviews) {
+                const showVideo = name === 'video';
+                panelVideo.classList.toggle('is-active', showVideo);
+                panelReviews.classList.toggle('is-active', !showVideo);
+                panelVideo.hidden = !showVideo;
+                panelReviews.hidden = showVideo;
+            }
+        }
+
+        tabBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                activate(btn.getAttribute('data-tab'));
+            });
+        });
+
+        // default state
+        activate('video');
+
+        // Click-to-play: swap poster for an autoplaying embed
+        document.querySelectorAll('.tst-video-card').forEach(function (card) {
+            card.addEventListener('click', function () {
+                if (card.classList.contains('is-playing')) return;
+                const src = card.getAttribute('data-video');
+                if (!src) return;
+                const iframe = document.createElement('iframe');
+                const sep = src.indexOf('?') === -1 ? '?' : '&';
+                iframe.src = src + sep + 'autoplay=1&rel=0&playsinline=1';
+                iframe.setAttribute('allow',
+                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('title', 'Client testimonial video');
+                card.appendChild(iframe);
+                card.classList.add('is-playing');
+            });
+        });
+    })();
+
+    /* =========================================================
+       FLOATING BOTTOM ACTION BAR — Scroll Controller
+       ========================================================= */
+    // The bar lives in the shared footer, which include.js fetches asynchronously
+    // on http(s). Wait for it to be inserted instead of giving up straight away,
+    // otherwise it stays hidden off-screen on the live site.
+    (function waitForBar(init) {
+        const existing = document.getElementById('bottomActionBar');
+        if (existing) { init(existing); return; }
+        const observer = new MutationObserver(function () {
+            const bar = document.getElementById('bottomActionBar');
+            if (bar) { observer.disconnect(); init(bar); }
+        });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+    })(function (bar) {
+        // The shared footer injects the bar deep inside the page (e.g. within <main>),
+        // where a transformed or clipped ancestor can cut it down to just "Book Now".
+        // Move it to <body> so it is positioned against the screen on every page.
+        if (bar.parentElement !== document.body) {
+            document.body.appendChild(bar);
+        }
+
+        const MOBILE_BREAKPOINT = 768;
+        const HIDE_THRESHOLD = 200; // pixels scrolled before we even consider showing
+        let isVisible = false;
+        let lastScrollY = window.pageYOffset;
+        let ticking = false;
+
+        const isMobile = function () {
+            return window.innerWidth < MOBILE_BREAKPOINT;
+        };
+
+        // On mobile, the bar is always visible
+        function applyMobileState() {
+            if (isMobile()) {
+                bar.classList.add('is-visible');
+                isVisible = true;
+            }
+        }
+        applyMobileState();
+
+        // Desktop: show when scrolling down, hide when scrolling up
+        function update() {
+            if (isMobile()) {
+                ticking = false;
+                return;
+            }
+
+            const currentY = window.pageYOffset;
+            const delta = currentY - lastScrollY;
+
+            // Hides itself when user is at the top of the page
+            if (currentY <= HIDE_THRESHOLD) {
+                if (isVisible) {
+                    bar.classList.remove('is-visible');
+                    isVisible = false;
+                }
+            }
+            // Visible only when scrolling down (delta > 0) past threshold
+            else if (delta > 2) {
+                if (!isVisible) {
+                    bar.classList.add('is-visible');
+                    isVisible = true;
+                }
+            }
+            // Hide when scrolling up
+            else if (delta < -2) {
+                if (isVisible) {
+                    bar.classList.remove('is-visible');
+                    isVisible = false;
+                }
+            }
+
+            lastScrollY = currentY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(update);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(applyMobileState, 120);
+        });
+    });
+
+    /* =========================================================
+       GENERAL SCROLL REVEAL OBSERVER
+       ========================================================= */
+    const revealItems = document.querySelectorAll('.reveal');
+    if (revealItems.length > 0) {
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            revealItems.forEach(function(el) {
+                revealObserver.observe(el);
+            });
+        } else {
+            revealItems.forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }
+    }
+
+    /* =========================================================
+       PHILOSOPHY SECTION - DYNAMIC EQUILIBRIUM SCALES (OPTION 12)
+       ========================================================= */
+    let currentOpt12Slide = 0;
+    const totalOpt12Slides = 3;
+
+    function switchOpt12(idx) {
+        currentOpt12Slide = (idx + totalOpt12Slides) % totalOpt12Slides;
+
+        // Update tabs
+        const pills = document.querySelectorAll('.opt12-selector-pill');
+        const pillsContainer = document.querySelector('.opt12-principles-selector');
+
+        pills.forEach((p, i) => {
+            if (i === currentOpt12Slide) {
+                p.classList.add('is-active');
+                p.setAttribute('aria-selected', 'true');
+                
+                // Smoothly auto-center active pill within its container ONLY without scrolling the window
+                if (pillsContainer) {
+                    const targetScroll = p.offsetLeft - (pillsContainer.clientWidth / 2) + (p.clientWidth / 2);
+                    pillsContainer.scrollTo({
+                        left: Math.max(0, targetScroll),
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                p.classList.remove('is-active');
+                p.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // Slide the track
+        const track = document.getElementById('opt12-track');
+        if (track) {
+            track.style.transform = `translateX(-${currentOpt12Slide * 33.333333}%)`;
+        }
+    }
+    window.switchOpt12 = switchOpt12;
+
+    // Add touch / drag swipe support for Option 12 slider & selector
+    (function () {
+        const viewport = document.getElementById('opt12-viewport');
+        if (viewport) {
+            let startX = 0;
+            let isDown = false;
+
+            viewport.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX;
+            });
+            window.addEventListener('mouseup', (e) => {
+                if (!isDown) return;
+                isDown = false;
+                const endX = e.pageX;
+                const diff = endX - startX;
+                if (diff > 50) switchOpt12(currentOpt12Slide - 1);
+                else if (diff < -50) switchOpt12(currentOpt12Slide + 1);
+            });
+
+            // Touch events
+            viewport.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = endX - startX;
+                if (diff > 45) switchOpt12(currentOpt12Slide - 1);
+                else if (diff < -45) switchOpt12(currentOpt12Slide + 1);
+            }, { passive: true });
+        }
+
+        // Horizontal drag-to-scroll for principles selector pills
+        const pillsContainer = document.querySelector('.opt12-principles-selector');
+        if (pillsContainer) {
+            let isPillsDown = false;
+            let startPillsX = 0;
+            let scrollLeft = 0;
+
+            pillsContainer.addEventListener('mousedown', (e) => {
+                isPillsDown = true;
+                startPillsX = e.pageX - pillsContainer.offsetLeft;
+                scrollLeft = pillsContainer.scrollLeft;
+            });
+            window.addEventListener('mouseup', () => {
+                isPillsDown = false;
+            });
+            pillsContainer.addEventListener('mousemove', (e) => {
+                if (!isPillsDown) return;
+                e.preventDefault();
+                const x = e.pageX - pillsContainer.offsetLeft;
+                const walk = (x - startPillsX) * 1.5;
+                pillsContainer.scrollLeft = scrollLeft - walk;
+            });
+        }
+    })();
+
+    /* =========================================================
+       SCRIBBLE UNDERLINE — draw-in on scroll
+       ========================================================= */
+    (function () {
+        const scribbles = document.querySelectorAll('.scribble');
+        if (!scribbles.length) return;
+
+        // No observer support → leave underlines visible (CSS default), skip animation.
+        if (!('IntersectionObserver' in window)) return;
+
+        // Flag the page as animation-capable: this hides the strokes so they can draw in.
+        document.documentElement.classList.add('scribble-anim');
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-drawn');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6, rootMargin: '0px 0px -8% 0px' });
+
+        scribbles.forEach((el) => observer.observe(el));
+    })();
+
+    /* =========================================================
+       INSTAGRAM REEL / VIDEO MODAL LIGHTBOX CONTROLLER
+       ========================================================= */
+    (function () {
+        const modal = document.getElementById('instaVideoModal');
+        if (!modal) return;
+
+        const videoEl = document.getElementById('instaModalVideo');
+        const titleEl = document.getElementById('instaModalTitle');
+        const captionEl = document.getElementById('instaModalCaption');
+        const tagEl = document.getElementById('instaModalTag');
+        const linkEl = document.getElementById('instaModalLink');
+        const closeBtn = document.getElementById('instaModalClose');
+        const soundBtn = document.getElementById('instaModalSound');
+        const cards = document.querySelectorAll('.insta-card[data-video-src]');
+
+        if (!cards.length) return;
+
+        function openModal(card) {
+            const videoSrc = card.getAttribute('data-video-src');
+            const title = card.getAttribute('data-video-title') || 'D\'Zen Derma';
+            const caption = card.getAttribute('data-video-caption') || '';
+            const tag = card.getAttribute('data-video-tag') || 'REEL';
+            const instaUrl = card.getAttribute('data-insta-url') || 'https://www.instagram.com/dzenderma/';
+
+            if (videoEl && videoSrc) {
+                videoEl.src = videoSrc;
+                videoEl.muted = false;
+                videoEl.play().catch(() => {
+                    videoEl.muted = true;
+                    videoEl.play();
+                });
+            }
+
+            if (titleEl) titleEl.textContent = title;
+            if (captionEl) captionEl.textContent = caption;
+            if (tagEl) tagEl.textContent = tag;
+            if (linkEl) linkEl.href = instaUrl;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            if (videoEl) {
+                videoEl.pause();
+                videoEl.currentTime = 0;
+            }
+            document.body.style.overflow = '';
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(card);
+            });
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(card);
+                }
+            });
+        });
+
+        closeBtn?.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Sound toggle
+        soundBtn?.addEventListener('click', () => {
+            if (!videoEl) return;
+            videoEl.muted = !videoEl.muted;
+            soundBtn.innerHTML = videoEl.muted ? '🔇' : '🔊';
+        });
+
+        // Click on video to toggle play/pause
+        videoEl?.addEventListener('click', () => {
+            if (videoEl.paused) videoEl.play();
+            else videoEl.pause();
+        });
+    })();
+})();
+
