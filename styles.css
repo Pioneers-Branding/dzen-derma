@@ -3412,7 +3412,7 @@ html body #brand-philosophy .nemonic-icon {
     -webkit-backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
-    min-height: 480px;
+    min-height: 0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
     text-decoration: none;
     outline: none;
@@ -3471,7 +3471,7 @@ html body #brand-philosophy .nemonic-icon {
 
 /* Card Content Area */
 .blog-card-content {
-    padding: 28px 24px !important;
+    padding: 26px 24px 22px !important;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -3527,7 +3527,7 @@ html body #brand-philosophy .nemonic-icon {
     font-size: 13.5px !important;
     line-height: 1.6 !important;
     color: #2B2B2B !important;
-    margin: 0 0 24px 0 !important;
+    margin: 0 0 14px 0 !important;
     flex-grow: 1;
     opacity: 0.85;
 }
