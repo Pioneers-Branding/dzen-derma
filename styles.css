@@ -6427,7 +6427,9 @@ html body .tm-card__quote {
    OUR CLINICS (LOCATIONS) SECTION STYLES
    ========================================================= */
 /* Same content width as "The Visionaries Behind D’Zen Derma" (.doctors-v2__container) */
-.clinic-locations-section>.container {
+.clinic-locations-section>.container,
+.contact-section>.container,
+.ct-locations>.container {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
