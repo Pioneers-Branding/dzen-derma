@@ -150,6 +150,36 @@
             transform: translateY(-2px) !important;
             box-shadow: 0 12px 30px rgba(43, 26, 18, 0.32) !important;
         }
+
+        /* Form Validation States */
+        .contact-form-card .form-control.is-invalid {
+            border-color: #B9382C !important;
+            background-color: #FFFDFC !important;
+        }
+
+        .contact-form-card .form-control.is-invalid:focus {
+            border-color: #B9382C !important;
+            box-shadow: 0 0 0 4px rgba(185, 56, 44, 0.15) !important;
+        }
+
+        .contact-form-card .form-control.is-valid {
+            border-color: #3B7A57 !important;
+        }
+
+        .contact-form-card .invalid-feedback {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: #B9382C;
+            margin-top: 6px;
+            padding-left: 6px;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .contact-form-card .form-control.is-invalid ~ .invalid-feedback {
+            display: block;
+        }
     </style>
 </head>
 
@@ -297,38 +327,63 @@
                                 </p>
                             </div>
 
-                            <form action="#" method="POST" id="contactForm">
+                            <form action="#" method="POST" id="contactForm" novalidate>
                                 <div class="row g-3 g-md-4">
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Full Name"
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Your Full Name"
+                                                pattern="[A-Za-z\s]{2,}"
+                                                title="Full name should contain only letters and spaces"
+                                                autocomplete="name"
                                                 required>
                                             <label for="name">Your Full Name</label>
+                                            <div class="invalid-feedback" id="nameError">
+                                                Full name should contain only letters and spaces (min 2 characters).
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Your Email"
+                                                autocomplete="email"
                                                 required>
                                             <label for="email">Email Address</label>
+                                            <div class="invalid-feedback" id="emailError">
+                                                Please enter a valid email address.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number"
+                                            <input type="tel" class="form-control" id="phone" name="phone"
+                                                placeholder="Phone Number"
+                                                inputmode="numeric"
+                                                pattern="[0-9]{10}"
+                                                minlength="10"
+                                                maxlength="10"
+                                                title="Please enter a 10-digit phone number"
+                                                autocomplete="tel"
                                                 required>
-                                            <label for="phone">Phone Number</label>
+                                            <label for="phone">Phone Number (10 Digits)</label>
+                                            <div class="invalid-feedback" id="phoneError">
+                                                Phone number must contain only numbers and be exactly 10 digits.
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="Leave a message here"
-                                                id="message" required></textarea>
+                                                id="message" name="message" minlength="5" required></textarea>
                                             <label for="message">How can we assist you?</label>
+                                            <div class="invalid-feedback" id="messageError">
+                                                Please enter your message (at least 5 characters).
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-12 mt-4 pt-1">
-                                        <button type="submit" class="dz-cta w-100 justify-content-center">
+                                        <button type="submit" class="dz-cta w-100 justify-content-center" id="submitBtn">
                                             <span>Send Message</span>
                                             <img src="nemonic1.png" class="btn-icon" alt="" />
                                         </button>
@@ -345,6 +400,29 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <!-- Success Confirmation Card -->
+                            <div id="contactFormSuccess" class="text-center py-5" hidden>
+                                <div style="width: 68px; height: 68px; background: rgba(196, 146, 74, 0.14); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 22px; border: 1px solid rgba(196, 146, 74, 0.35);">
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#A9762F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="d-block text-uppercase mb-2"
+                                    style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #A9762F;">
+                                    MESSAGE RECEIVED
+                                </span>
+                                <h3 class="mb-3"
+                                    style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: 30px; color: #2B1A12;">
+                                    Thank You
+                                </h3>
+                                <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(75, 43, 32, 0.78); max-width: 440px; margin: 0 auto 26px; line-height: 1.6;">
+                                    Your enquiry has been submitted successfully. Our patient care team will get back to you within 24 hours.
+                                </p>
+                                <button type="button" id="resetContactFormBtn" class="dz-cta" style="padding: 13px 30px; font-size: 13.5px;">
+                                    <span>Send Another Message</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -500,6 +578,198 @@
         <!-- Project script controller -->
         <script src="include/include.js?v=5"></script>
         <script src="script.js?v=3.2"></script>
+
+        <!-- Contact Form Interactive Validation -->
+        <script>
+            (function () {
+                var form = document.getElementById('contactForm');
+                var successCard = document.getElementById('contactFormSuccess');
+                var resetBtn = document.getElementById('resetContactFormBtn');
+
+                if (!form) return;
+
+                var nameInput = document.getElementById('name');
+                var emailInput = document.getElementById('email');
+                var phoneInput = document.getElementById('phone');
+                var messageInput = document.getElementById('message');
+
+                // 1. Full Name Validation: Text only (letters & spaces), min 2 chars
+                function cleanName(val) {
+                    return val.replace(/[^A-Za-z\s]/g, '');
+                }
+
+                function validateName(showError) {
+                    var val = nameInput.value.trim();
+                    var isValid = val.length >= 2 && /^[A-Za-z\s]+$/.test(val);
+                    if (showError) {
+                        if (!isValid) {
+                            nameInput.classList.add('is-invalid');
+                            nameInput.classList.remove('is-valid');
+                        } else {
+                            nameInput.classList.remove('is-invalid');
+                            nameInput.classList.add('is-valid');
+                        }
+                    } else if (isValid) {
+                        nameInput.classList.remove('is-invalid');
+                    }
+                    return isValid;
+                }
+
+                nameInput.addEventListener('input', function () {
+                    var cleaned = cleanName(this.value);
+                    if (this.value !== cleaned) {
+                        this.value = cleaned;
+                    }
+                    if (this.classList.contains('is-invalid')) {
+                        validateName(true);
+                    }
+                });
+
+                nameInput.addEventListener('blur', function () {
+                    if (this.value.trim().length > 0) {
+                        validateName(true);
+                    }
+                });
+
+                // 2. Phone Number Validation: Numbers only, exactly 10 digits
+                function cleanPhone(val) {
+                    return val.replace(/\D/g, '').slice(0, 10);
+                }
+
+                function validatePhone(showError) {
+                    var val = phoneInput.value.trim();
+                    var isValid = /^[0-9]{10}$/.test(val);
+                    if (showError) {
+                        if (!isValid) {
+                            phoneInput.classList.add('is-invalid');
+                            phoneInput.classList.remove('is-valid');
+                        } else {
+                            phoneInput.classList.remove('is-invalid');
+                            phoneInput.classList.add('is-valid');
+                        }
+                    } else if (isValid) {
+                        phoneInput.classList.remove('is-invalid');
+                    }
+                    return isValid;
+                }
+
+                phoneInput.addEventListener('input', function () {
+                    var cleaned = cleanPhone(this.value);
+                    if (this.value !== cleaned) {
+                        this.value = cleaned;
+                    }
+                    if (this.classList.contains('is-invalid')) {
+                        validatePhone(true);
+                    }
+                });
+
+                phoneInput.addEventListener('blur', function () {
+                    if (this.value.trim().length > 0) {
+                        validatePhone(true);
+                    }
+                });
+
+                // 3. Email Validation
+                function validateEmail(showError) {
+                    var val = emailInput.value.trim();
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    var isValid = emailRegex.test(val);
+                    if (showError) {
+                        if (!isValid) {
+                            emailInput.classList.add('is-invalid');
+                            emailInput.classList.remove('is-valid');
+                        } else {
+                            emailInput.classList.remove('is-invalid');
+                            emailInput.classList.add('is-valid');
+                        }
+                    } else if (isValid) {
+                        emailInput.classList.remove('is-invalid');
+                    }
+                    return isValid;
+                }
+
+                emailInput.addEventListener('input', function () {
+                    if (this.classList.contains('is-invalid')) {
+                        validateEmail(true);
+                    }
+                });
+
+                emailInput.addEventListener('blur', function () {
+                    if (this.value.trim().length > 0) {
+                        validateEmail(true);
+                    }
+                });
+
+                // 4. Message Validation
+                function validateMessage(showError) {
+                    var val = messageInput.value.trim();
+                    var isValid = val.length >= 5;
+                    if (showError) {
+                        if (!isValid) {
+                            messageInput.classList.add('is-invalid');
+                            messageInput.classList.remove('is-valid');
+                        } else {
+                            messageInput.classList.remove('is-invalid');
+                            messageInput.classList.add('is-valid');
+                        }
+                    } else if (isValid) {
+                        messageInput.classList.remove('is-invalid');
+                    }
+                    return isValid;
+                }
+
+                messageInput.addEventListener('input', function () {
+                    if (this.classList.contains('is-invalid')) {
+                        validateMessage(true);
+                    }
+                });
+
+                messageInput.addEventListener('blur', function () {
+                    if (this.value.trim().length > 0) {
+                        validateMessage(true);
+                    }
+                });
+
+                // 5. Submit Handler
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var isNameOk = validateName(true);
+                    var isEmailOk = validateEmail(true);
+                    var isPhoneOk = validatePhone(true);
+                    var isMessageOk = validateMessage(true);
+
+                    if (!isNameOk || !isEmailOk || !isPhoneOk || !isMessageOk) {
+                        var firstInvalid = form.querySelector('.is-invalid');
+                        if (firstInvalid) {
+                            firstInvalid.focus();
+                        }
+                        return;
+                    }
+
+                    // On successful validation: show confirmation
+                    form.hidden = true;
+                    if (successCard) {
+                        successCard.hidden = false;
+                        successCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', function () {
+                        form.reset();
+                        [nameInput, emailInput, phoneInput, messageInput].forEach(function (inp) {
+                            inp.classList.remove('is-invalid', 'is-valid');
+                        });
+                        form.hidden = false;
+                        if (successCard) {
+                            successCard.hidden = true;
+                        }
+                        nameInput.focus();
+                    });
+                }
+            })();
+        </script>
 
         <!-- Floating Bottom Action Bar -->
         <div class="bottom-action-bar" id="bottomActionBar" aria-label="Quick actions">
