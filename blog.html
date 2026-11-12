@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Blogs &amp; Insights — D'Zen Derma</title>
+    <meta name="description"
+        content="Explore doctor-written blogs and clinical perspectives on skin health, modern aesthetics, hair restoration, functional medicine, and longevity from D'Zen Derma." />
+    <link rel="canonical" href="https://dzenderma.com/blog.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Dr. Aarushi Passi Bhandari" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="D'Zen Derma" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://dzenderma.com/blog.html" />
+    <meta property="og:title" content="Blogs &amp; Insights | D'Zen Derma" />
+    <meta property="og:description"
+        content="Doctor-written perspectives on skin, hair, wellness and ageing well — from inside the D'Zen clinic." />
+    <meta property="og:image" content="images/home/Beauty-Beyond-the-Surface.webp" />
+
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "D'Zen Derma Blogs",
+      "url": "https://dzenderma.com/blog.html",
+      "description": "Doctor-written perspectives on skin science, modern aesthetics, hair health, and beauty from the inside out.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "D'Zen Derma",
+        "url": "https://dzenderma.com/"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dzenderma.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://dzenderma.com/blog.html" }
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Base styles and variable sheets -->
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles.css?v=11.4" />
+
+    <style>
+        /* Container standard width matching index.html */
+        .container {
+            max-width: 1280px !important;
+            width: 100% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+
+        /* Clean opaque navbar */
+        .pnav {
+            background: #ffffff !important;
+            border-bottom: 1px solid rgba(180, 140, 90, 0.14) !important;
+            box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        .pnav .pnav__logo img {
+            filter: none !important;
+        }
+
+        .pnav .pnav__burger {
+            background: rgba(75, 43, 32, 0.06) !important;
+        }
+
+        .pnav .pnav__burger span {
+            background: #3A2418 !important;
+        }
+
+        /* ── Featured Hero Card ── */
+        .blog-featured-hero {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid rgba(196, 146, 74, 0.22);
+            box-shadow: 0 24px 60px -15px rgba(43, 26, 18, 0.08);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .blog-featured-hero:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 32px 70px -15px rgba(43, 26, 18, 0.12);
+            border-color: rgba(196, 146, 74, 0.45);
+        }
+
+        .blog-featured-img-wrap {
+            position: relative;
+            height: 100%;
+            min-height: 380px;
+            overflow: hidden;
+            border-radius: 24px 0 0 24px;
+        }
+
+        @media (max-width: 991.98px) {
+            .blog-featured-img-wrap {
+                min-height: 280px;
+                border-radius: 24px 24px 0 0;
+            }
+        }
+
+        .blog-featured-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .blog-featured-hero:hover .blog-featured-img {
+            transform: scale(1.06);
+        }
+
+        .blog-badge-gold {
+            display: inline-block;
+            background: #FAF8F5;
+            color: #A9762F;
+            border: 1px solid rgba(196, 146, 74, 0.32);
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 999px;
+        }
+
+        /* ── Search & Filter Controls ── */
+        .blog-search-box {
+            position: relative;
+            max-width: 440px;
+            width: 100%;
+        }
+
+        .blog-search-box input {
+            width: 100%;
+            height: 52px;
+            border-radius: 999px;
+            border: 1px solid rgba(196, 146, 74, 0.28);
+            background: #ffffff;
+            padding: 0 24px 0 48px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 14.5px;
+            color: #2B1A12;
+            outline: none;
+            box-shadow: 0 6px 20px rgba(43, 26, 18, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .blog-search-box input:focus {
+            border-color: #C4924A;
+            box-shadow: 0 0 0 4px rgba(196, 146, 74, 0.14);
+        }
+
+        .blog-search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A9762F;
+            pointer-events: none;
+        }
+
+        .blog-filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .blog-filter-btn {
+            background: #ffffff;
+            border: 1px solid rgba(196, 146, 74, 0.25);
+            border-radius: 999px;
+            padding: 9px 22px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #4B2B20;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(43, 26, 18, 0.03);
+        }
+
+        .blog-filter-btn:hover {
+            border-color: #C4924A;
+            color: #A9762F;
+            transform: translateY(-2px);
+        }
+
+        .blog-filter-btn.active {
+            background: #4B2B20 !important;
+            color: #FAF9F6 !important;
+            border-color: #4B2B20 !important;
+            box-shadow: 0 6px 18px rgba(75, 43, 32, 0.25) !important;
+        }
+
+        /* ── Blog Grid Layout ── */
+        .blog-card-grid-custom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 991.98px) {
+            .blog-card-grid-custom {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .blog-card-grid-custom {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .blog-card-inner {
+            background: #ffffff;
+            border: 1px solid rgba(196, 146, 74, 0.2);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(43, 26, 18, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-card-inner:hover {
+            transform: translateY(-8px);
+            border-color: rgba(196, 146, 74, 0.45);
+            box-shadow: 0 20px 45px rgba(43, 26, 18, 0.1);
+        }
+
+        .blog-card-img-holder {
+            position: relative;
+            padding-top: 60%;
+            overflow: hidden;
+            background: #FAF8F5;
+        }
+
+        .blog-card-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .blog-card-inner:hover .blog-card-thumb {
+            transform: scale(1.08);
+        }
+
+        .blog-tag-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #A9762F;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(196, 146, 74, 0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .blog-card-body-custom {
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-meta-custom {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: #8B4513;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .blog-title-custom {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: #2B1A12;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            transition: color 0.25s ease;
+        }
+
+        .blog-card-inner:hover .blog-title-custom {
+            color: #A9762F;
+        }
+
+        .blog-excerpt-custom {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 13.5px;
+            color: rgba(43, 26, 18, 0.72);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .blog-author-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px solid rgba(196, 146, 74, 0.15);
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 12px;
+            color: rgba(43, 26, 18, 0.65);
+        }
+
+        .blog-read-link {
+            color: #A9762F;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .blog-card-inner:hover .blog-read-link {
+            transform: translateX(3px);
+        }
+
+        /* ── Consultation CTA Banner ── */
+        .blog-cta-banner {
+            background: linear-gradient(135deg, #4B2B20 0%, #351C14 100%), url('photos/contour-texture.webp') repeat;
+            background-blend-mode: multiply;
+            border-radius: 28px;
+            padding: 56px 40px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(43, 26, 18, 0.15);
+        }
+
+        /* ── Newsletter Card ── */
+        .blog-newsletter-card {
+            background: #ffffff;
+            border-radius: 26px;
+            border: 1px solid rgba(196, 146, 74, 0.22);
+            box-shadow: 0 20px 50px rgba(43, 26, 18, 0.06);
+            padding: 50px 32px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body style="background-color: #FDF8F3; color: #2B1A12;">
+
+    <div id="site-header"></div>
+
+    <main>
+
+        <!-- ═══════ Breadcrumb Hero Header ═══════ -->
+        <section class="breadcrumb-header position-relative d-flex align-items-center justify-content-center"
+            style="background: linear-gradient(35deg, #4b2b20 0%, #8b4513 100%), url('photos/contour-texture.webp') repeat; background-blend-mode: multiply; padding-top: 105px; padding-bottom: 60px; border-bottom: none; overflow: hidden;">
+
+            <div class="container position-relative text-center" style="z-index: 2;">
+                <span class="section-subtitle"
+                    style="font-family: 'Inter', system-ui, sans-serif !important; font-size: 11px !important; font-weight: 600 !important; letter-spacing: 3.4px !important; text-transform: uppercase !important; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; opacity: 0.85 !important; display: block; margin-bottom: 0;">
+                    D'ZEN JOURNAL &amp; STORIES
+                </span>
+                <div class="nemonic-separator mt-2 mb-4">
+                    <div class="nemonic-line" style="background-color: rgba(255, 255, 255, 0.4);"></div>
+                    <img src="logo-header.png" alt="nemonic" class="nemonic-icon"
+                        style="filter: brightness(0) invert(1);" />
+                    <div class="nemonic-line" style="background-color: rgba(255, 255, 255, 0.4);"></div>
+                </div>
+                <h1 class="page-title mb-3"
+                    style="font-family: 'Playfair Display', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; font-size: clamp(30px, 4.2vw, 52px) !important; margin: 0; line-height: 1.2; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);">
+                    Our Blogs &amp; Insights
+                </h1>
+                <p class="mx-auto mt-2"
+                    style="font-family: 'Inter', system-ui, sans-serif; font-size: clamp(14px, 1.8vw, 16px); color: rgba(255, 255, 255, 0.85); max-width: 680px; line-height: 1.6;">
+                    Doctor-written perspectives on skin science, modern aesthetics, hair health, and beauty from the inside out.
+                </p>
+            </div>
+
+            <!-- Curvy Bottom Separator -->
+            <div class="position-absolute w-100" style="bottom: -1px; left: 0; z-index: 2;">
+                <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+                    style="display: block; width: 100%; height: clamp(55px, 6vw, 95px) !important">
+                    <path fill="#FDF8F3" d="M0,50 C400,110 1040,-10 1440,50 L1440,100 L0,100 Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ═══════ Featured Article Section ═══════ -->
+        <section class="py-5" style="background-color: #FDF8F3;">
+            <div class="container">
+                <div class="text-center mb-4 pb-2">
+                    <span class="d-block text-uppercase mb-2"
+                        style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #A9762F;">
+                        EDITOR'S PICK
+                    </span>
+                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3vw, 36px); color: #2B1A12; margin: 0;">
+                        Featured Perspective
+                    </h2>
+                </div>
+
+                <div class="blog-featured-hero">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-lg-6">
+                            <div class="blog-featured-img-wrap">
+                                <img src="images/home/Beauty-Beyond-the-Surface.webp"
+                                    alt="Beauty Beyond the Surface" class="blog-featured-img" loading="eager" />
+                                <span class="position-absolute" style="top: 20px; left: 20px; z-index: 2;">
+                                    <span class="blog-badge-gold" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px);">
+                                        FEATURED STORY
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center">
+                            <div class="p-4 p-md-5">
+                                <div class="d-flex align-items-center gap-3 mb-3 text-uppercase"
+                                    style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; color: #A9762F; letter-spacing: 1px;">
+                                    <span>Functional Wellness</span>
+                                    <span>•</span>
+                                    <span>Nov 2026</span>
+                                    <span>•</span>
+                                    <span>8 Min Read</span>
+                                </div>
+                                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 400; color: #2B1A12; line-height: 1.3; margin-bottom: 16px;">
+                                    Beauty Beyond the Surface: Gut Health, Lifestyle &amp; Skin
+                                </h3>
+                                <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(43, 26, 18, 0.75); line-height: 1.7; margin-bottom: 24px;">
+                                    Understanding the biochemical connection between microbiome balance, stress cortisol spikes, and stubborn skin breakouts — and why genuine skin health starts deep beneath the epidermal surface.
+                                </p>
+                                <div class="d-flex align-items-center justify-content-between pt-3 border-top"
+                                    style="border-color: rgba(196, 146, 74, 0.2) !important;">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(196, 146, 74, 0.3);">
+                                            <img src="photos/dr-arushi-1-opt.webp" alt="Dr. Aarushi" style="width: 100%; height: 100%; object-fit: cover;" />
+                                        </div>
+                                        <div>
+                                            <span class="d-block" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: #2B1A12;">
+                                                Dr. Aarushi Passi Bhandari
+                                            </span>
+                                            <span class="d-block" style="font-size: 11px; color: rgba(43, 26, 18, 0.6);">
+                                                Founder &amp; Chief Aesthetic Physician
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="#articles-grid" class="dz-cta" style="padding: 10px 22px; font-size: 12.5px;">
+                                        <span>Read Article</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════ Controls: Filter Tabs & Search ═══════ -->
+        <section class="py-4" style="background-color: #FDF8F3;" id="articles-grid">
+            <div class="container">
+                <div class="row align-items-center g-3 mb-4">
+                    <div class="col-lg-4">
+                        <div class="blog-search-box mx-auto mx-lg-0">
+                            <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="blogSearchInput" placeholder="Search topics, treatments..." />
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="blog-filter-pills justify-content-lg-end">
+                            <button type="button" class="blog-filter-btn active" data-category="all">All Articles</button>
+                            <button type="button" class="blog-filter-btn" data-category="skin">Skin &amp; Aesthetics</button>
+                            <button type="button" class="blog-filter-btn" data-category="hair">Hair &amp; Scalp</button>
+                            <button type="button" class="blog-filter-btn" data-category="wellness">Functional Wellness</button>
+                            <button type="button" class="blog-filter-btn" data-category="longevity">Longevity</button>
+                            <button type="button" class="blog-filter-btn" data-category="notes">Doctor's Notes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══════ Articles Grid ═══════ -->
+                <div class="blog-card-grid-custom" id="blogGridContainer">
+
+                    <!-- Article 1 -->
+                    <article class="blog-card-item" data-category="wellness" data-title="Beauty Beyond the Surface"
+                        data-excerpt="Understanding the connection between gut health, lifestyle and skin breakouts.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Beauty-Beyond-the-Surface.webp"
+                                    alt="Beauty Beyond the Surface" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Functional Wellness</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Nov 2026</span>
+                                    <span>•</span>
+                                    <span>8 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Beauty Beyond the Surface</h3>
+                                <p class="blog-excerpt-custom">Understanding the biological connection between gut health, microbiome diversity, lifestyle habits, and skin clarity.</p>
+                                <div class="blog-author-strip">
+                                    <span>Dr. Aarushi Passi Bhandari</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card-item" data-category="skin" data-title="The New Era of Aesthetics"
+                        data-excerpt="Why modern aesthetic care is moving towards subtlety, individuality and thoughtful enhancement.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/The-New-Era-of-Aesthetics.webp"
+                                    alt="The New Era of Aesthetics" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Oct 2026</span>
+                                    <span>•</span>
+                                    <span>5 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">The New Era of Aesthetics</h3>
+                                <p class="blog-excerpt-custom">Why modern aesthetic care is moving towards restraint, celebrating natural anatomical individuality and thoughtful enhancement.</p>
+                                <div class="blog-author-strip">
+                                    <span>Dr. Aarushi Passi Bhandari</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card-item" data-category="longevity" data-title="The Art of Balance"
+                        data-excerpt="Rethinking beauty through self-acceptance, well-being and cellular longevity.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/The-Art-of-Balance.webp"
+                                    alt="The Art of Balance" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Longevity</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Sept 2026</span>
+                                    <span>•</span>
+                                    <span>6 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">The Art of Balance</h3>
+                                <p class="blog-excerpt-custom">Rethinking beauty through inner alignment, hormonal harmony, cellular wellness, and intelligent medical aesthetics.</p>
+                                <div class="blog-author-strip">
+                                    <span>D'Zen Medical Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="blog-card-item" data-category="skin" data-title="Hydrafacial vs Medifacial"
+                        data-excerpt="How the two treatments differ, and how a doctor decides which one suits your skin on the day.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Korean-Skin.webp"
+                                    alt="Hydrafacial vs Medifacial" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Aug 2026</span>
+                                    <span>•</span>
+                                    <span>5 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Hydrafacial or Medifacial: What Does Your Skin Need?</h3>
+                                <p class="blog-excerpt-custom">Comparing vortex-fusion dermal infusion with custom active peels, and how clinicians diagnose what your skin requires.</p>
+                                <div class="blog-author-strip">
+                                    <span>Clinical Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="blog-card-item" data-category="hair" data-title="Hair Fall or Hair Thinning"
+                        data-excerpt="The difference between everyday shedding and thinning that needs medical attention.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Hair-Fall.webp"
+                                    alt="Hair Fall or Hair Thinning" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Hair &amp; Scalp</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>July 2026</span>
+                                    <span>•</span>
+                                    <span>6 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Hair Fall or Hair Thinning? Reading the Early Signs</h3>
+                                <p class="blog-excerpt-custom">The clinical difference between telogen shedding and progressive follicle miniaturization, and when to seek trichology care.</p>
+                                <div class="blog-author-strip">
+                                    <span>Trichology Specialists</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="blog-card-item" data-category="longevity" data-title="Collagen After 30 What Actually Makes a Difference"
+                        data-excerpt="Supplements, serums and in-clinic treatments — separating what helps from what sells.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Skin-Longevity.webp"
+                                    alt="Collagen After 30" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Longevity</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>June 2026</span>
+                                    <span>•</span>
+                                    <span>6 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Collagen After 30: What Actually Makes a Difference</h3>
+                                <p class="blog-excerpt-custom">Supplements, topical peptides, biostimulator injectables, and energy devices — separating clinical evidence from hype.</p>
+                                <div class="blog-author-strip">
+                                    <span>Dr. Aarushi Passi Bhandari</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 7 -->
+                    <article class="blog-card-item" data-category="skin" data-title="Laser Hair Reduction on Indian Skin"
+                        data-excerpt="Wavelengths, skin types, sessions and aftercare — a clear guide before your first appointment.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Unwanted-Hair.webp"
+                                    alt="Laser Hair Reduction on Indian Skin" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>May 2026</span>
+                                    <span>•</span>
+                                    <span>5 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Laser Hair Reduction on Indian Skin: What to Know First</h3>
+                                <p class="blog-excerpt-custom">Understanding melanin dynamics, Alexandrite vs. Diode vs. Nd:YAG wavelengths, and cooling mechanisms for safe treatments.</p>
+                                <div class="blog-author-strip">
+                                    <span>Laser Unit</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 8 -->
+                    <article class="blog-card-item" data-category="wellness" data-title="Your Gut and Your Skin Stubborn Breakouts"
+                        data-excerpt="Why persistent acne sometimes starts in the gut and what to look at beyond topical treatments.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Acne-Scars.webp"
+                                    alt="Your Gut and Your Skin" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Functional Wellness</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>April 2026</span>
+                                    <span>•</span>
+                                    <span>7 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Your Gut and Skin: The Link Behind Stubborn Breakouts</h3>
+                                <p class="blog-excerpt-custom">Why persistent hormonal cystic acne often starts with gut permeability and systemic inflammation, not merely clogged pores.</p>
+                                <div class="blog-author-strip">
+                                    <span>Integrative Wellness Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 9 -->
+                    <article class="blog-card-item" data-category="notes" data-title="In Conversation Dr Aarushi on Restraint in Aesthetics"
+                        data-excerpt="Why the most important skill in aesthetic medicine is knowing when not to treat.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="photos/training-4.webp"
+                                    alt="In Conversation: Dr. Aarushi" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Doctor's Notes</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>March 2026</span>
+                                    <span>•</span>
+                                    <span>8 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">In Conversation: Dr. Aarushi on Restraint in Aesthetics</h3>
+                                <p class="blog-excerpt-custom">A candid perspective on resisting overfilled facial trends, prioritizing anatomy-first assessments, and knowing when to say no.</p>
+                                <div class="blog-author-strip">
+                                    <span>Dr. Aarushi Passi Bhandari</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 10 -->
+                    <article class="blog-card-item" data-category="skin" data-title="Pigmentation and Melasma Solutions"
+                        data-excerpt="Targeting stubborn pigmentation through a multi-modal clinical protocol.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Pigmentation.webp"
+                                    alt="Pigmentation and Melasma" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Feb 2026</span>
+                                    <span>•</span>
+                                    <span>6 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Tackling Melasma &amp; Pigmentation on South Asian Skin</h3>
+                                <p class="blog-excerpt-custom">Why heat-based lasers can trigger rebound melasma, and how gentle low-fluence toning with chemical peeling produces lasting clarity.</p>
+                                <div class="blog-author-strip">
+                                    <span>Dermatology Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 11 -->
+                    <article class="blog-card-item" data-category="wellness" data-title="Why Stress and Poor Sleep Show Up on Your Face First"
+                        data-excerpt="Cortisol, inflammation and cellular repair — the inside story of tired-looking skin.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="images/home/Energy-Vitality.webp"
+                                    alt="Stress and Poor Sleep" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Functional Wellness</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Jan 2026</span>
+                                    <span>•</span>
+                                    <span>5 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Why Stress &amp; Sleep Deprivation Show Up on Your Face First</h3>
+                                <p class="blog-excerpt-custom">How chronic cortisol elevation breaks down collagen cross-links, impairs nighttime skin barrier recovery, and creates persistent dark circles.</p>
+                                <div class="blog-author-strip">
+                                    <span>Wellness Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Article 12 -->
+                    <article class="blog-card-item" data-category="notes" data-title="Behind the Scenes How a DZen Treatment Plan Is Built"
+                        data-excerpt="From first consultation to final session — the thinking behind a personalised plan.">
+                        <a href="#" class="blog-card-inner">
+                            <div class="blog-card-img-holder">
+                                <img src="photos/training-1.webp"
+                                    alt="How a Treatment Plan Is Built" class="blog-card-thumb" loading="lazy" />
+                                <span class="blog-tag-badge">Doctor's Notes</span>
+                            </div>
+                            <div class="blog-card-body-custom">
+                                <div class="blog-meta-custom">
+                                    <span>Dec 2025</span>
+                                    <span>•</span>
+                                    <span>7 Min Read</span>
+                                </div>
+                                <h3 class="blog-title-custom">Behind the Scenes: How a Personalized Plan Is Built</h3>
+                                <p class="blog-excerpt-custom">Walk through our 4-step clinical workflow: 3D biometric imaging, metabolic biomarker review, phased interventions, and maintenance.</p>
+                                <div class="blog-author-strip">
+                                    <span>Clinical Team</span>
+                                    <span class="blog-read-link">Read &rarr;</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+
+                </div>
+
+                <!-- Empty State Message -->
+                <div id="blogEmptyState" class="text-center py-5" hidden>
+                    <div style="width: 60px; height: 60px; background: rgba(196, 146, 74, 0.12); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A9762F" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: #2B1A12;">No articles found</h4>
+                    <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.65); max-width: 400px; margin: 0 auto 20px;">
+                        We couldn't find any articles matching your search. Try different keywords or reset filters.
+                    </p>
+                    <button type="button" id="resetBlogFiltersBtn" class="dz-cta" style="padding: 10px 24px; font-size: 13px;">
+                        <span>Show All Articles</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════ In-Between Section Separator ═══════ -->
+        <div class="position-relative" style="overflow: hidden; height: 60px; background-color: #FDF8F3;">
+            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+                style="display: block; width: 100%; height: 100%;">
+                <path fill="#FAF7F2" d="M0,20 C480,60 960,-10 1440,30 L1440,60 L0,60 Z"></path>
+            </svg>
+        </div>
+
+        <!-- ═══════ Doctor Consultation Banner ═══════ -->
+        <section class="py-5" style="background-color: #FAF7F2;">
+            <div class="container">
+                <div class="blog-cta-banner">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-8">
+                            <span class="d-block text-uppercase mb-2"
+                                style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #E8C99A;">
+                                PERSONALIZED CARE
+                            </span>
+                            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3.2vw, 38px); color: #ffffff; line-height: 1.25; margin-bottom: 14px;">
+                                Ready to Consult with Our Dermatologists?
+                            </h2>
+                            <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.65; max-width: 640px; margin-bottom: 0;">
+                                Whether addressing stubborn pigmentation, exploring preventative ageing protocols, or discussing hair health, experience clinical excellence at our Lajpat Nagar (Delhi) or Golf Course Road (Gurgaon) clinics.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="../newthree.html#book" class="dz-cta"
+                                style="background: linear-gradient(35deg, #A9762F 0%, #C4924A 100%) !important; border-color: rgba(255, 255, 255, 0.4) !important; padding: 16px 32px; font-size: 14px;">
+                                <span>Book a Consultation</span>
+                                <img src="nemonic1.png" class="btn-icon" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════ Newsletter Section ═══════ -->
+        <section class="py-5" style="background-color: #FAF7F2;">
+            <div class="container">
+                <div class="blog-newsletter-card max-w-2xl mx-auto" style="max-width: 680px;">
+                    <span class="d-block text-uppercase mb-2"
+                        style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #A9762F;">
+                        STAY INFORMED
+                    </span>
+                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.8vw, 32px); color: #2B1A12; margin-bottom: 12px;">
+                        Receive Our Clinical Insights
+                    </h2>
+                    <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.72); max-width: 500px; margin: 0 auto 26px; line-height: 1.6;">
+                        Doctor-authored articles, seasonal skin protocols, and wellness advice delivered to your inbox once a month. No spam, ever.
+                    </p>
+
+                    <form id="blogNewsletterForm" class="d-flex flex-column flex-sm-row gap-2 justify-content-center mx-auto"
+                        style="max-width: 480px;" novalidate>
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email address" required
+                            style="flex-grow: 1; height: 50px; border-radius: 999px; border: 1px solid rgba(196, 146, 74, 0.3); padding: 0 20px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; background: #FAF8F5;" />
+                        <button type="submit" class="dz-cta justify-content-center" style="padding: 12px 28px; font-size: 13.5px; height: 50px;">
+                            <span>Subscribe</span>
+                            <img src="nemonic1.png" class="btn-icon" alt="" />
+                        </button>
+                    </form>
+                    <p id="newsletterSuccess" class="mt-3 mb-0"
+                        style="font-family: 'Inter', sans-serif; font-size: 13px; color: #3B7A57; font-weight: 500;" hidden>
+                        &check; Thank you for subscribing! You will receive our next edition.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="site-footer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="include/include.js?v=5"></script>
+    <script src="script.js?v=3.2"></script>
+
+    <!-- Interactive Filtering & Search Script -->
+    <script>
+        (function () {
+            var filterBtns = document.querySelectorAll('.blog-filter-btn');
+            var searchInput = document.getElementById('blogSearchInput');
+            var cardItems = document.querySelectorAll('.blog-card-item');
+            var emptyState = document.getElementById('blogEmptyState');
+            var resetBtn = document.getElementById('resetBlogFiltersBtn');
+
+            var currentCategory = 'all';
+            var currentQuery = '';
+
+            function filterArticles() {
+                var visibleCount = 0;
+
+                cardItems.forEach(function (card) {
+                    var category = card.getAttribute('data-category') || '';
+                    var title = (card.getAttribute('data-title') || '').toLowerCase();
+                    var excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
+
+                    var matchesCategory = (currentCategory === 'all') || (category === currentCategory);
+                    var matchesQuery = !currentQuery || title.includes(currentQuery) || excerpt.includes(currentQuery);
+
+                    if (matchesCategory && matchesQuery) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (emptyState) {
+                    emptyState.hidden = (visibleCount > 0);
+                }
+            }
+
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(function (b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    currentCategory = this.getAttribute('data-category');
+                    filterArticles();
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    currentQuery = this.value.trim().toLowerCase();
+                    filterArticles();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function () {
+                    currentCategory = 'all';
+                    currentQuery = '';
+                    if (searchInput) searchInput.value = '';
+                    filterBtns.forEach(function (b) {
+                        b.classList.toggle('active', b.getAttribute('data-category') === 'all');
+                    });
+                    filterArticles();
+                });
+            }
+
+            // Newsletter form
+            var newsForm = document.getElementById('blogNewsletterForm');
+            var newsSuccess = document.getElementById('newsletterSuccess');
+            if (newsForm && newsSuccess) {
+                newsForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var email = document.getElementById('newsletterEmail');
+                    if (email && email.checkValidity() && email.value.trim()) {
+                        newsForm.hidden = true;
+                        newsSuccess.hidden = false;
+                    } else if (email) {
+                        email.focus();
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <!-- Floating Bottom Action Bar -->
+    <div class="bottom-action-bar" id="bottomActionBar" aria-label="Quick actions">
+        <a href="../newthree.html#book" class="bottom-action-btn" aria-label="Book appointment">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" width="22" height="22">
+                <rect x="3" y="4" width="18" height="18" rx="4" ry="4" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+                <path d="M9 15.5l2 2 4-4" />
+            </svg>
+            <span class="btn-label">Book Now</span>
+        </a>
+        <div class="bottom-action-divider"></div>
+        <a href="tel:+919773771610" class="bottom-action-btn" aria-label="Call us">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" width="22" height="22">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span class="btn-label">Call Now</span>
+        </a>
+        <div class="bottom-action-divider"></div>
+        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation." class="bottom-action-btn" target="_blank" rel="noopener"
+            aria-label="Chat on WhatsApp">
+            <svg class="bottom-action-wa" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <path fill="#25D366"
+                    d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.21-3.59.94.96-3.5-.23-.36a9.43 9.43 0 0 1-1.45-5.03C2.54 6.79 6.8 2.53 12.05 2.53c2.54 0 4.93.99 6.72 2.79a9.43 9.43 0 0 1 2.78 6.72c0 5.24-4.27 9.46-9.51 9.46zm8.09-17.55A11.36 11.36 0 0 0 12.04.6C5.74.6.61 5.72.61 12.02c0 2.01.53 3.98 1.53 5.71L.52 23.4l5.8-1.52a11.4 11.4 0 0 0 5.72 1.46h.01c6.3 0 11.42-5.13 11.43-11.43a11.36 11.36 0 0 0-3.35-8.07z" />
+            </svg>
+            <span class="btn-label">WhatsApp</span>
+        </a>
+    </div>
+
+</body>
+
+</html>
