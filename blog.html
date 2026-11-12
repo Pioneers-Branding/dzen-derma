@@ -343,28 +343,35 @@
             flex-grow: 1;
         }
 
-        .blog-author-strip {
-            display: flex;
+        .blog-card-inner .blog-card-link {
+            font-family: 'Inter', system-ui, sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            color: #4B2B20 !important;
+            letter-spacing: 0.12em !important;
+            text-transform: uppercase !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
             align-items: center;
-            justify-content: space-between;
-            padding-top: 14px;
-            border-top: 1px solid rgba(196, 146, 74, 0.15);
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 12px;
-            color: rgba(43, 26, 18, 0.65);
+            margin-top: auto;
+            position: relative;
+            width: fit-content;
+            padding-bottom: 5px;
         }
 
-        .blog-read-link {
-            color: #A9762F;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: transform 0.2s ease;
+        .blog-card-inner .blog-card-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 38px;
+            height: 1.5px;
+            background-color: #C58E45;
+            transition: width 0.35s ease;
         }
 
-        .blog-card-inner:hover .blog-read-link {
-            transform: translateX(3px);
+        .blog-card-inner:hover .blog-card-link::after {
+            width: 100%;
         }
 
         /* ── Consultation CTA Banner ── */
@@ -416,10 +423,7 @@
                     style="font-family: 'Playfair Display', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; font-size: clamp(30px, 4.2vw, 52px) !important; margin: 0; line-height: 1.2; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);">
                     Our Blogs &amp; Insights
                 </h1>
-                <p class="mx-auto mt-2"
-                    style="font-family: 'Inter', system-ui, sans-serif; font-size: clamp(14px, 1.8vw, 16px); color: rgba(255, 255, 255, 0.85); max-width: 680px; line-height: 1.6;">
-                    Doctor-written perspectives on skin science, modern aesthetics, hair health, and beauty from the inside out.
-                </p>
+
             </div>
 
             <!-- Curvy Bottom Separator -->
@@ -439,7 +443,8 @@
                         style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #A9762F;">
                         EDITOR'S PICK
                     </span>
-                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3vw, 36px); color: #2B1A12; margin: 0;">
+                    <h2
+                        style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3vw, 36px); color: #2B1A12; margin: 0;">
                         Featured Perspective
                     </h2>
                 </div>
@@ -448,10 +453,11 @@
                     <div class="row g-0 align-items-stretch">
                         <div class="col-lg-6">
                             <div class="blog-featured-img-wrap">
-                                <img src="images/home/Beauty-Beyond-the-Surface.webp"
-                                    alt="Beauty Beyond the Surface" class="blog-featured-img" loading="eager" />
+                                <img src="images/home/Beauty-Beyond-the-Surface.webp" alt="Beauty Beyond the Surface"
+                                    class="blog-featured-img" loading="eager" />
                                 <span class="position-absolute" style="top: 20px; left: 20px; z-index: 2;">
-                                    <span class="blog-badge-gold" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px);">
+                                    <span class="blog-badge-gold"
+                                        style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(4px);">
                                         FEATURED STORY
                                     </span>
                                 </span>
@@ -467,28 +473,37 @@
                                     <span>•</span>
                                     <span>8 Min Read</span>
                                 </div>
-                                <h3 style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 400; color: #2B1A12; line-height: 1.3; margin-bottom: 16px;">
+                                <h3
+                                    style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 2.5vw, 32px); font-weight: 400; color: #2B1A12; line-height: 1.3; margin-bottom: 16px;">
                                     Beauty Beyond the Surface: Gut Health, Lifestyle &amp; Skin
                                 </h3>
-                                <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(43, 26, 18, 0.75); line-height: 1.7; margin-bottom: 24px;">
-                                    Understanding the biochemical connection between microbiome balance, stress cortisol spikes, and stubborn skin breakouts — and why genuine skin health starts deep beneath the epidermal surface.
+                                <p
+                                    style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(43, 26, 18, 0.75); line-height: 1.7; margin-bottom: 24px;">
+                                    Understanding the biochemical connection between microbiome balance, stress cortisol
+                                    spikes, and stubborn skin breakouts — and why genuine skin health starts deep
+                                    beneath the epidermal surface.
                                 </p>
                                 <div class="d-flex align-items-center justify-content-between pt-3 border-top"
                                     style="border-color: rgba(196, 146, 74, 0.2) !important;">
                                     <div class="d-flex align-items-center gap-2">
-                                        <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(196, 146, 74, 0.3);">
-                                            <img src="photos/dr-arushi-1-opt.webp" alt="Dr. Aarushi" style="width: 100%; height: 100%; object-fit: cover;" />
+                                        <div
+                                            style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1px solid rgba(196, 146, 74, 0.3);">
+                                            <img src="photos/dr-arushi-1-opt.webp" alt="Dr. Aarushi"
+                                                style="width: 100%; height: 100%; object-fit: cover;" />
                                         </div>
                                         <div>
-                                            <span class="d-block" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: #2B1A12;">
+                                            <span class="d-block"
+                                                style="font-family: 'Inter', system-ui, sans-serif; font-size: 12.5px; font-weight: 600; color: #2B1A12;">
                                                 Dr. Aarushi Passi Bhandari
                                             </span>
-                                            <span class="d-block" style="font-size: 11px; color: rgba(43, 26, 18, 0.6);">
+                                            <span class="d-block"
+                                                style="font-size: 11px; color: rgba(43, 26, 18, 0.6);">
                                                 Founder &amp; Chief Aesthetic Physician
                                             </span>
                                         </div>
                                     </div>
-                                    <a href="#articles-grid" class="dz-cta" style="padding: 10px 22px; font-size: 12.5px;">
+                                    <a href="#articles-grid" class="dz-cta"
+                                        style="padding: 10px 22px; font-size: 12.5px;">
                                         <span>Read Article</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
@@ -516,10 +531,13 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="blog-filter-pills justify-content-lg-end">
-                            <button type="button" class="blog-filter-btn active" data-category="all">All Articles</button>
-                            <button type="button" class="blog-filter-btn" data-category="skin">Skin &amp; Aesthetics</button>
+                            <button type="button" class="blog-filter-btn active" data-category="all">All
+                                Articles</button>
+                            <button type="button" class="blog-filter-btn" data-category="skin">Skin &amp;
+                                Aesthetics</button>
                             <button type="button" class="blog-filter-btn" data-category="hair">Hair &amp; Scalp</button>
-                            <button type="button" class="blog-filter-btn" data-category="wellness">Functional Wellness</button>
+                            <button type="button" class="blog-filter-btn" data-category="wellness">Functional
+                                Wellness</button>
                             <button type="button" class="blog-filter-btn" data-category="longevity">Longevity</button>
                             <button type="button" class="blog-filter-btn" data-category="notes">Doctor's Notes</button>
                         </div>
@@ -534,8 +552,8 @@
                         data-excerpt="Understanding the connection between gut health, lifestyle and skin breakouts.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Beauty-Beyond-the-Surface.webp"
-                                    alt="Beauty Beyond the Surface" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Beauty-Beyond-the-Surface.webp" alt="Beauty Beyond the Surface"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Functional Wellness</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -545,11 +563,9 @@
                                     <span>8 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Beauty Beyond the Surface</h3>
-                                <p class="blog-excerpt-custom">Understanding the biological connection between gut health, microbiome diversity, lifestyle habits, and skin clarity.</p>
-                                <div class="blog-author-strip">
-                                    <span>Dr. Aarushi Passi Bhandari</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Understanding the biological connection between gut
+                                    health, microbiome diversity, lifestyle habits, and skin clarity.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -559,8 +575,8 @@
                         data-excerpt="Why modern aesthetic care is moving towards subtlety, individuality and thoughtful enhancement.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/The-New-Era-of-Aesthetics.webp"
-                                    alt="The New Era of Aesthetics" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/The-New-Era-of-Aesthetics.webp" alt="The New Era of Aesthetics"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -570,11 +586,9 @@
                                     <span>5 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">The New Era of Aesthetics</h3>
-                                <p class="blog-excerpt-custom">Why modern aesthetic care is moving towards restraint, celebrating natural anatomical individuality and thoughtful enhancement.</p>
-                                <div class="blog-author-strip">
-                                    <span>Dr. Aarushi Passi Bhandari</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Why modern aesthetic care is moving towards restraint,
+                                    celebrating natural anatomical individuality and thoughtful enhancement.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -584,8 +598,8 @@
                         data-excerpt="Rethinking beauty through self-acceptance, well-being and cellular longevity.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/The-Art-of-Balance.webp"
-                                    alt="The Art of Balance" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/The-Art-of-Balance.webp" alt="The Art of Balance"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Longevity</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -595,11 +609,9 @@
                                     <span>6 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">The Art of Balance</h3>
-                                <p class="blog-excerpt-custom">Rethinking beauty through inner alignment, hormonal harmony, cellular wellness, and intelligent medical aesthetics.</p>
-                                <div class="blog-author-strip">
-                                    <span>D'Zen Medical Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Rethinking beauty through inner alignment, hormonal
+                                    harmony, cellular wellness, and intelligent medical aesthetics.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -609,8 +621,8 @@
                         data-excerpt="How the two treatments differ, and how a doctor decides which one suits your skin on the day.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Korean-Skin.webp"
-                                    alt="Hydrafacial vs Medifacial" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Korean-Skin.webp" alt="Hydrafacial vs Medifacial"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -620,11 +632,9 @@
                                     <span>5 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Hydrafacial or Medifacial: What Does Your Skin Need?</h3>
-                                <p class="blog-excerpt-custom">Comparing vortex-fusion dermal infusion with custom active peels, and how clinicians diagnose what your skin requires.</p>
-                                <div class="blog-author-strip">
-                                    <span>Clinical Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Comparing vortex-fusion dermal infusion with custom
+                                    active peels, and how clinicians diagnose what your skin requires.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -634,8 +644,8 @@
                         data-excerpt="The difference between everyday shedding and thinning that needs medical attention.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Hair-Fall.webp"
-                                    alt="Hair Fall or Hair Thinning" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Hair-Fall.webp" alt="Hair Fall or Hair Thinning"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Hair &amp; Scalp</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -645,22 +655,21 @@
                                     <span>6 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Hair Fall or Hair Thinning? Reading the Early Signs</h3>
-                                <p class="blog-excerpt-custom">The clinical difference between telogen shedding and progressive follicle miniaturization, and when to seek trichology care.</p>
-                                <div class="blog-author-strip">
-                                    <span>Trichology Specialists</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">The clinical difference between telogen shedding and
+                                    progressive follicle miniaturization, and when to seek trichology care.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 6 -->
-                    <article class="blog-card-item" data-category="longevity" data-title="Collagen After 30 What Actually Makes a Difference"
+                    <article class="blog-card-item" data-category="longevity"
+                        data-title="Collagen After 30 What Actually Makes a Difference"
                         data-excerpt="Supplements, serums and in-clinic treatments — separating what helps from what sells.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Skin-Longevity.webp"
-                                    alt="Collagen After 30" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Skin-Longevity.webp" alt="Collagen After 30"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Longevity</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -670,22 +679,21 @@
                                     <span>6 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Collagen After 30: What Actually Makes a Difference</h3>
-                                <p class="blog-excerpt-custom">Supplements, topical peptides, biostimulator injectables, and energy devices — separating clinical evidence from hype.</p>
-                                <div class="blog-author-strip">
-                                    <span>Dr. Aarushi Passi Bhandari</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Supplements, topical peptides, biostimulator injectables,
+                                    and energy devices — separating clinical evidence from hype.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 7 -->
-                    <article class="blog-card-item" data-category="skin" data-title="Laser Hair Reduction on Indian Skin"
+                    <article class="blog-card-item" data-category="skin"
+                        data-title="Laser Hair Reduction on Indian Skin"
                         data-excerpt="Wavelengths, skin types, sessions and aftercare — a clear guide before your first appointment.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Unwanted-Hair.webp"
-                                    alt="Laser Hair Reduction on Indian Skin" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Unwanted-Hair.webp" alt="Laser Hair Reduction on Indian Skin"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -694,23 +702,23 @@
                                     <span>•</span>
                                     <span>5 Min Read</span>
                                 </div>
-                                <h3 class="blog-title-custom">Laser Hair Reduction on Indian Skin: What to Know First</h3>
-                                <p class="blog-excerpt-custom">Understanding melanin dynamics, Alexandrite vs. Diode vs. Nd:YAG wavelengths, and cooling mechanisms for safe treatments.</p>
-                                <div class="blog-author-strip">
-                                    <span>Laser Unit</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <h3 class="blog-title-custom">Laser Hair Reduction on Indian Skin: What to Know First
+                                </h3>
+                                <p class="blog-excerpt-custom">Understanding melanin dynamics, Alexandrite vs. Diode vs.
+                                    Nd:YAG wavelengths, and cooling mechanisms for safe treatments.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 8 -->
-                    <article class="blog-card-item" data-category="wellness" data-title="Your Gut and Your Skin Stubborn Breakouts"
+                    <article class="blog-card-item" data-category="wellness"
+                        data-title="Your Gut and Your Skin Stubborn Breakouts"
                         data-excerpt="Why persistent acne sometimes starts in the gut and what to look at beyond topical treatments.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Acne-Scars.webp"
-                                    alt="Your Gut and Your Skin" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Acne-Scars.webp" alt="Your Gut and Your Skin"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Functional Wellness</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -720,22 +728,21 @@
                                     <span>7 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Your Gut and Skin: The Link Behind Stubborn Breakouts</h3>
-                                <p class="blog-excerpt-custom">Why persistent hormonal cystic acne often starts with gut permeability and systemic inflammation, not merely clogged pores.</p>
-                                <div class="blog-author-strip">
-                                    <span>Integrative Wellness Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Why persistent hormonal cystic acne often starts with gut
+                                    permeability and systemic inflammation, not merely clogged pores.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 9 -->
-                    <article class="blog-card-item" data-category="notes" data-title="In Conversation Dr Aarushi on Restraint in Aesthetics"
+                    <article class="blog-card-item" data-category="notes"
+                        data-title="In Conversation Dr Aarushi on Restraint in Aesthetics"
                         data-excerpt="Why the most important skill in aesthetic medicine is knowing when not to treat.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="photos/training-4.webp"
-                                    alt="In Conversation: Dr. Aarushi" class="blog-card-thumb" loading="lazy" />
+                                <img src="photos/training-4.webp" alt="In Conversation: Dr. Aarushi"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Doctor's Notes</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -744,12 +751,11 @@
                                     <span>•</span>
                                     <span>8 Min Read</span>
                                 </div>
-                                <h3 class="blog-title-custom">In Conversation: Dr. Aarushi on Restraint in Aesthetics</h3>
-                                <p class="blog-excerpt-custom">A candid perspective on resisting overfilled facial trends, prioritizing anatomy-first assessments, and knowing when to say no.</p>
-                                <div class="blog-author-strip">
-                                    <span>Dr. Aarushi Passi Bhandari</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <h3 class="blog-title-custom">In Conversation: Dr. Aarushi on Restraint in Aesthetics
+                                </h3>
+                                <p class="blog-excerpt-custom">A candid perspective on resisting overfilled facial
+                                    trends, prioritizing anatomy-first assessments, and knowing when to say no.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -759,8 +765,8 @@
                         data-excerpt="Targeting stubborn pigmentation through a multi-modal clinical protocol.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Pigmentation.webp"
-                                    alt="Pigmentation and Melasma" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Pigmentation.webp" alt="Pigmentation and Melasma"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Skin &amp; Aesthetics</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -769,23 +775,23 @@
                                     <span>•</span>
                                     <span>6 Min Read</span>
                                 </div>
-                                <h3 class="blog-title-custom">Tackling Melasma &amp; Pigmentation on South Asian Skin</h3>
-                                <p class="blog-excerpt-custom">Why heat-based lasers can trigger rebound melasma, and how gentle low-fluence toning with chemical peeling produces lasting clarity.</p>
-                                <div class="blog-author-strip">
-                                    <span>Dermatology Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <h3 class="blog-title-custom">Tackling Melasma &amp; Pigmentation on South Asian Skin
+                                </h3>
+                                <p class="blog-excerpt-custom">Why heat-based lasers can trigger rebound melasma, and
+                                    how gentle low-fluence toning with chemical peeling produces lasting clarity.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 11 -->
-                    <article class="blog-card-item" data-category="wellness" data-title="Why Stress and Poor Sleep Show Up on Your Face First"
+                    <article class="blog-card-item" data-category="wellness"
+                        data-title="Why Stress and Poor Sleep Show Up on Your Face First"
                         data-excerpt="Cortisol, inflammation and cellular repair — the inside story of tired-looking skin.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="images/home/Energy-Vitality.webp"
-                                    alt="Stress and Poor Sleep" class="blog-card-thumb" loading="lazy" />
+                                <img src="images/home/Energy-Vitality.webp" alt="Stress and Poor Sleep"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Functional Wellness</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -794,23 +800,24 @@
                                     <span>•</span>
                                     <span>5 Min Read</span>
                                 </div>
-                                <h3 class="blog-title-custom">Why Stress &amp; Sleep Deprivation Show Up on Your Face First</h3>
-                                <p class="blog-excerpt-custom">How chronic cortisol elevation breaks down collagen cross-links, impairs nighttime skin barrier recovery, and creates persistent dark circles.</p>
-                                <div class="blog-author-strip">
-                                    <span>Wellness Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <h3 class="blog-title-custom">Why Stress &amp; Sleep Deprivation Show Up on Your Face
+                                    First</h3>
+                                <p class="blog-excerpt-custom">How chronic cortisol elevation breaks down collagen
+                                    cross-links, impairs nighttime skin barrier recovery, and creates persistent dark
+                                    circles.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
 
                     <!-- Article 12 -->
-                    <article class="blog-card-item" data-category="notes" data-title="Behind the Scenes How a DZen Treatment Plan Is Built"
+                    <article class="blog-card-item" data-category="notes"
+                        data-title="Behind the Scenes How a DZen Treatment Plan Is Built"
                         data-excerpt="From first consultation to final session — the thinking behind a personalised plan.">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
-                                <img src="photos/training-1.webp"
-                                    alt="How a Treatment Plan Is Built" class="blog-card-thumb" loading="lazy" />
+                                <img src="photos/training-1.webp" alt="How a Treatment Plan Is Built"
+                                    class="blog-card-thumb" loading="lazy" />
                                 <span class="blog-tag-badge">Doctor's Notes</span>
                             </div>
                             <div class="blog-card-body-custom">
@@ -820,11 +827,9 @@
                                     <span>7 Min Read</span>
                                 </div>
                                 <h3 class="blog-title-custom">Behind the Scenes: How a Personalized Plan Is Built</h3>
-                                <p class="blog-excerpt-custom">Walk through our 4-step clinical workflow: 3D biometric imaging, metabolic biomarker review, phased interventions, and maintenance.</p>
-                                <div class="blog-author-strip">
-                                    <span>Clinical Team</span>
-                                    <span class="blog-read-link">Read &rarr;</span>
-                                </div>
+                                <p class="blog-excerpt-custom">Walk through our 4-step clinical workflow: 3D biometric
+                                    imaging, metabolic biomarker review, phased interventions, and maintenance.</p>
+                                <span class="blog-card-link">Read Article</span>
                             </div>
                         </a>
                     </article>
@@ -833,17 +838,21 @@
 
                 <!-- Empty State Message -->
                 <div id="blogEmptyState" class="text-center py-5" hidden>
-                    <div style="width: 60px; height: 60px; background: rgba(196, 146, 74, 0.12); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                    <div
+                        style="width: 60px; height: 60px; background: rgba(196, 146, 74, 0.12); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A9762F" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                     </div>
-                    <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: #2B1A12;">No articles found</h4>
-                    <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.65); max-width: 400px; margin: 0 auto 20px;">
+                    <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: #2B1A12;">No
+                        articles found</h4>
+                    <p
+                        style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.65); max-width: 400px; margin: 0 auto 20px;">
                         We couldn't find any articles matching your search. Try different keywords or reset filters.
                     </p>
-                    <button type="button" id="resetBlogFiltersBtn" class="dz-cta" style="padding: 10px 24px; font-size: 13px;">
+                    <button type="button" id="resetBlogFiltersBtn" class="dz-cta"
+                        style="padding: 10px 24px; font-size: 13px;">
                         <span>Show All Articles</span>
                     </button>
                 </div>
@@ -868,11 +877,15 @@
                                 style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #E8C99A;">
                                 PERSONALIZED CARE
                             </span>
-                            <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3.2vw, 38px); color: #ffffff; line-height: 1.25; margin-bottom: 14px;">
+                            <h2
+                                style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(26px, 3.2vw, 38px); color: #ffffff; line-height: 1.25; margin-bottom: 14px;">
                                 Ready to Consult with Our Dermatologists?
                             </h2>
-                            <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.65; max-width: 640px; margin-bottom: 0;">
-                                Whether addressing stubborn pigmentation, exploring preventative ageing protocols, or discussing hair health, experience clinical excellence at our Lajpat Nagar (Delhi) or Golf Course Road (Gurgaon) clinics.
+                            <p
+                                style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.65; max-width: 640px; margin-bottom: 0;">
+                                Whether addressing stubborn pigmentation, exploring preventative ageing protocols, or
+                                discussing hair health, experience clinical excellence at our Lajpat Nagar (Delhi) or
+                                Golf Course Road (Gurgaon) clinics.
                             </p>
                         </div>
                         <div class="col-lg-4 text-lg-end">
@@ -895,24 +908,30 @@
                         style="font-family: 'Inter', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2.6px; color: #A9762F;">
                         STAY INFORMED
                     </span>
-                    <h2 style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.8vw, 32px); color: #2B1A12; margin-bottom: 12px;">
+                    <h2
+                        style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(24px, 2.8vw, 32px); color: #2B1A12; margin-bottom: 12px;">
                         Receive Our Clinical Insights
                     </h2>
-                    <p style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.72); max-width: 500px; margin: 0 auto 26px; line-height: 1.6;">
-                        Doctor-authored articles, seasonal skin protocols, and wellness advice delivered to your inbox once a month. No spam, ever.
+                    <p
+                        style="font-family: 'Inter', system-ui, sans-serif; font-size: 14px; color: rgba(43, 26, 18, 0.72); max-width: 500px; margin: 0 auto 26px; line-height: 1.6;">
+                        Doctor-authored articles, seasonal skin protocols, and wellness advice delivered to your inbox
+                        once a month. No spam, ever.
                     </p>
 
-                    <form id="blogNewsletterForm" class="d-flex flex-column flex-sm-row gap-2 justify-content-center mx-auto"
+                    <form id="blogNewsletterForm"
+                        class="d-flex flex-column flex-sm-row gap-2 justify-content-center mx-auto"
                         style="max-width: 480px;" novalidate>
                         <input type="email" id="newsletterEmail" placeholder="Enter your email address" required
                             style="flex-grow: 1; height: 50px; border-radius: 999px; border: 1px solid rgba(196, 146, 74, 0.3); padding: 0 20px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; background: #FAF8F5;" />
-                        <button type="submit" class="dz-cta justify-content-center" style="padding: 12px 28px; font-size: 13.5px; height: 50px;">
+                        <button type="submit" class="dz-cta justify-content-center"
+                            style="padding: 12px 28px; font-size: 13.5px; height: 50px;">
                             <span>Subscribe</span>
                             <img src="nemonic1.png" class="btn-icon" alt="" />
                         </button>
                     </form>
                     <p id="newsletterSuccess" class="mt-3 mb-0"
-                        style="font-family: 'Inter', sans-serif; font-size: 13px; color: #3B7A57; font-weight: 500;" hidden>
+                        style="font-family: 'Inter', sans-serif; font-size: 13px; color: #3B7A57; font-weight: 500;"
+                        hidden>
                         &check; Thank you for subscribing! You will receive our next edition.
                     </p>
                 </div>
@@ -1033,8 +1052,8 @@
             <span class="btn-label">Call Now</span>
         </a>
         <div class="bottom-action-divider"></div>
-        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation." class="bottom-action-btn" target="_blank" rel="noopener"
-            aria-label="Chat on WhatsApp">
+        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation."
+            class="bottom-action-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
             <svg class="bottom-action-wa" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <path fill="#25D366"
                     d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.21-3.59.94.96-3.5-.23-.36a9.43 9.43 0 0 1-1.45-5.03C2.54 6.79 6.8 2.53 12.05 2.53c2.54 0 4.93.99 6.72 2.79a9.43 9.43 0 0 1 2.78 6.72c0 5.24-4.27 9.46-9.51 9.46zm8.09-17.55A11.36 11.36 0 0 0 12.04.6C5.74.6.61 5.72.61 12.02c0 2.01.53 3.98 1.53 5.71L.52 23.4l5.8-1.52a11.4 11.4 0 0 0 5.72 1.46h.01c6.3 0 11.42-5.13 11.43-11.43a11.36 11.36 0 0 0-3.35-8.07z" />
