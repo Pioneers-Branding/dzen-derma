@@ -1,8 +1,27 @@
 # ============================================================
-# Speed settings for Apache / LiteSpeed (e.g. Hostinger shared hosting)
+# Apache / LiteSpeed Configuration (D'Zen Derma)
 # Every block is wrapped in <IfModule>, so a server without the
 # module simply ignores it instead of erroring.
 # ============================================================
+
+# ---- Clean URLs: Remove .html extension ----
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Redirect /index.html to root /
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\s/index\.html [NC]
+    RewriteRule ^index\.html$ / [R=301,L,NE]
+
+    # 2. Redirect any request ending in .html to its clean URL (e.g. /about-dzen.html -> /about-dzen)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\s/([^.\s]+)\.html [NC]
+    RewriteRule ^ %1 [R=301,L,NE]
+
+    # 3. Internally map clean URL to .html file if it exists on disk
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
 
 # ---- Compression: text files are sent gzip/brotli-compressed ----
 <IfModule mod_brotli.c>
