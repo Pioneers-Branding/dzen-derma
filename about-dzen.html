@@ -105,7 +105,15 @@
             height: 100%;
         }
 
+        /* Container standard width matching index.html (1280px) */
+        .container,
         .adz .container {
+            max-width: 1280px !important;
+            width: 100% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
             position: relative;
             z-index: 2;
         }
@@ -116,6 +124,10 @@
             grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
             align-items: center;
             gap: clamp(40px, 6vw, 84px);
+            width: 100%;
+            max-width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .adz-split--flip {
@@ -201,7 +213,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin-top: 32px;
+            margin-top: 20px;
         }
 
         html body .adz .dz-cta.dz-cta--ghost {
@@ -293,8 +305,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: clamp(36px, 4.5vw, 56px);
+            gap: 10px;
             width: 100%;
+            max-width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .adz-story .adz-copy {
@@ -593,7 +608,7 @@
 
         .adz-quote {
             position: relative;
-            margin: 28px 0 0;
+            margin: 3px 0 0;
             padding: 4px 0 4px 26px;
             border-left: 2px solid var(--adz-gold);
             font-family: 'Playfair Display', Georgia, serif;
@@ -886,6 +901,68 @@
                 height: clamp(340px, 80vw, 480px);
             }
 
+            /* Mobile: About Clinic - text & specs first, 4-image collage, then "Explore the Clinic" CTA */
+            #about-clinic .adz-split {
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            #about-clinic .adz-split .adz-copy {
+                display: contents;
+            }
+
+            #about-clinic .adz-copy>* {
+                order: 1;
+            }
+
+            #about-clinic .section-subtitle,
+            #about-clinic .section-title {
+                text-align: center;
+                width: 100%;
+            }
+
+            #about-clinic .section-subtitle {
+                display: block;
+            }
+
+            #about-clinic .adz-lead {
+                text-align: center;
+                width: 100%;
+                max-width: 54ch;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #about-clinic .adz-locs {
+                max-width: 520px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #about-clinic .adz-clinic-media {
+                order: 2;
+                max-width: 520px;
+                width: 100%;
+                margin-top: 36px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #about-clinic .adz-copy>.adz-actions,
+            #about-clinic .adz-actions {
+                order: 3;
+                width: 100%;
+                margin-top: 16px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            html body #about-clinic .adz-actions .footer-cta-btn {
+                margin: 0 auto !important;
+            }
+
             .adz-copy .nemonic-separator {
                 justify-content: center;
             }
@@ -1063,92 +1140,49 @@
                             is to protect, restore, and gently elevate your innate beauty through evidence-based
                             medicine, millimeter precision, and profound anatomical respect.
                         </p>
-                        <p class="adz-body mt-3">
-                            Our philosophy bridges two foundational pillars: <em>Derma</em>, the rigorous clinical
-                            discipline of evidence-based medical dermatology, FDA-cleared technologies, and
-                            physician-led safety; and <em>Zen</em>, the restorative art of unhurried presence, mindful
-                            listening, and calm aesthetic restraint. Together, they shape an elevated standard of care
-                            where clinical excellence feels tranquil, deeply personalized, and enduring.
-                        </p>
                     </div>
 
                     <!-- 4 Minimal Editorial Pillars (Matching Reference Section Example) -->
                     <div class="hf-minimal-steps-grid" role="region" aria-label="Our Clinical Pillars">
                         <!-- Pillar 01 -->
                         <div class="hf-minimal-step-item">
-                            <span class="adz-icon adz-pillar-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                                    <rect x="8" y="2" width="8" height="4" rx="1" />
-                                    <path d="m9 14 2 2 4-4" />
-                                </svg>
-                            </span>
                             <h3 class="hf-minimal-step-title">Careful Assessment First</h3>
                             <div class="hf-minimal-step-divider"></div>
                             <p class="hf-minimal-step-desc">
-                                Every clinical journey begins with an unhurried, doctor-led consultation. We evaluate
-                                your unique facial architecture, cellular skin barrier, and personal goals, ensuring
-                                every recommendation is guided by medical necessity and your authentic aesthetic vision.
+                                Every journey begins with an unhurried, doctor-led assessment of your facial anatomy,
+                                skin health, and personal goals.
                             </p>
                         </div>
 
                         <!-- Pillar 02 -->
                         <div class="hf-minimal-step-item">
-                            <span class="adz-icon adz-pillar-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M6 18h8" />
-                                    <path d="M3 22h18" />
-                                    <path d="M14 22a7 7 0 1 0 0-14h-1" />
-                                    <path d="M9 14h2" />
-                                    <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
-                                    <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
-                                </svg>
-                            </span>
+
                             <h3 class="hf-minimal-step-title">Medical-Grade Technology</h3>
                             <div class="hf-minimal-step-divider"></div>
                             <p class="hf-minimal-step-desc">
-                                We exclusively employ gold-standard, FDA-cleared platforms selected strictly for proven
-                                clinical outcomes. Each platform affords our physicians calibrated control over depth,
-                                thermal energy, and recovery timelines for predictable, superior results.
+                                Gold-standard, FDA-cleared platforms selected strictly for tissue safety, clinical
+                                precision, and predictable outcomes.
                             </p>
                         </div>
 
                         <!-- Pillar 03 -->
                         <div class="hf-minimal-step-item">
-                            <span class="adz-icon adz-pillar-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="m9 12 2 2 4-4" />
-                                </svg>
-                            </span>
+
                             <h3 class="hf-minimal-step-title">Restraint-First Safety</h3>
                             <div class="hf-minimal-step-divider"></div>
                             <p class="hf-minimal-step-desc">
-                                True aesthetic mastery lies in knowing when not to treat. Our doctor-led protocols
-                                prioritize conservative refinement and tissue longevity, guarding against
-                                over-correction and preserving the natural dynamism of your expressions.
+                                Aesthetic mastery means knowing when not to treat—prioritizing conservative refinement
+                                and natural expression.
                             </p>
                         </div>
 
                         <!-- Pillar 04 -->
                         <div class="hf-minimal-step-item">
-                            <span class="adz-icon adz-pillar-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                                </svg>
-                            </span>
                             <h3 class="hf-minimal-step-title">Plans Made for You</h3>
                             <div class="hf-minimal-step-divider"></div>
                             <p class="hf-minimal-step-desc">
-                                No two skins share the same biology, lifestyle, or healing timeline. We reject
-                                standardized packages in favor of individualized care protocols that evolve alongside
-                                your skin, ensuring subtle, graceful refinement at every stage of life.
+                                No standardized packages. Tailored clinical protocols that evolve alongside your skin
+                                for subtle, lasting refinement.
                             </p>
                         </div>
                     </div>
@@ -1204,7 +1238,7 @@
                         </div>
 
                         <div class="adz-actions">
-                            <a href="about-clinic.html" class="dz-cta footer-cta-btn">
+                            <a href="#" class="dz-cta footer-cta-btn">
                                 <span>Explore the Clinic</span>
                                 <img src="nemonic1.png" class="btn-icon" alt="" />
                             </a>
@@ -1245,7 +1279,7 @@
                         <img src="photos/Aarushi-Passi.webp"
                             alt="Dr. Aarushi Passi Bhandari, founder and medical director of D'Zen Derma"
                             loading="lazy" />
-                        <figcaption>Founder &middot; Medical Direction</figcaption>
+                        <figcaption>Medical Director</figcaption>
                     </figure>
 
                     <div class="adz-copy">
@@ -1255,9 +1289,8 @@
                             <img src="logo-header.png" alt="" aria-hidden="true" class="nemonic-icon" />
                             <div class="nemonic-line"></div>
                         </div>
-                        <h2 class="section-title mb-0" id="dr-aarushi-title">Dr. Aarushi Passi <span
-                                class="scribble">Bhandari</span></h2>
-                        <p class="adz-founder__role">Aesthetic Physician &middot; Medical Director</p>
+                        <h2 class="section-title mb-0" id="dr-aarushi-title">Dr. Aarushi Passi</h2>
+                        <p class="adz-founder__role">Aesthetic Physician, Medical Innovation</p>
                         <p class="adz-lead">
                             Dr. Aarushi brings a patient-focused approach to aesthetic medicine, emphasising careful
                             assessment, appropriate treatment selection and natural-looking outcomes.
@@ -1275,11 +1308,11 @@
                         </blockquote>
 
                         <div class="adz-actions">
-                            <a href="../newthree.html#book" class="dz-cta">
+                            <a href="contact" class="dz-cta">
                                 <span>Book a Consultation</span>
                                 <img src="nemonic1.png" class="btn-icon" alt="" />
                             </a>
-                            <a href="workshops-training.html" class="dz-cta dz-cta--ghost">
+                            <a href="#" class="dz-cta dz-cta--ghost">
                                 <span>Workshops &amp; Training</span>
                             </a>
                         </div>
@@ -1298,7 +1331,7 @@
                     <figure class="adz-portrait">
                         <img src="photos/Rahul-Bhandari.png"
                             alt="Rahul Bhandari, founder of D'Zen Derma leading brand and experience" loading="lazy" />
-                        <figcaption>Founder &middot; Brand &amp; Experience</figcaption>
+                        <figcaption>Founder</figcaption>
                     </figure>
 
                     <div class="adz-copy">
@@ -1310,7 +1343,7 @@
                         </div>
                         <h2 class="section-title mb-0" id="rahul-bhandari-title">Rahul <span
                                 class="scribble">Bhandari</span></h2>
-                        <p class="adz-founder__role">Brand Strategy &middot; Experience Design</p>
+                        <p class="adz-founder__role">Vision, Brand Strategy, Expansion</p>
                         <p class="adz-lead">
                             Focused on brand strategy and experience design, Rahul helps shape the thoughtful
                             environment and patient experience that define D'Zen Derma.
@@ -1326,7 +1359,7 @@
                         </blockquote>
 
                         <div class="adz-actions">
-                            <a href="our-philosophy.html" class="dz-cta">
+                            <a href="#" class="dz-cta">
                                 <span>Our Philosophy</span>
                                 <img src="nemonic1.png" class="btn-icon" alt="" />
                             </a>
@@ -1371,7 +1404,7 @@
 
     <!-- Floating Bottom Action Bar -->
     <div class="bottom-action-bar" id="bottomActionBar" aria-label="Quick actions">
-        <a href="../newthree.html#book" class="bottom-action-btn" aria-label="Book appointment">
+        <a href="contact" class="bottom-action-btn" aria-label="Book appointment">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round" width="22" height="22">
                 <rect x="3" y="4" width="18" height="18" rx="4" ry="4" />
@@ -1392,8 +1425,8 @@
             <span class="btn-label">Call Now</span>
         </a>
         <div class="bottom-action-divider"></div>
-        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation." class="bottom-action-btn" target="_blank" rel="noopener"
-            aria-label="Chat on WhatsApp">
+        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation."
+            class="bottom-action-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
             <svg class="bottom-action-wa" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <path fill="#25D366"
                     d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.21-3.59.94.96-3.5-.23-.36a9.43 9.43 0 0 1-1.45-5.03C2.54 6.79 6.8 2.53 12.05 2.53c2.54 0 4.93.99 6.72 2.79a9.43 9.43 0 0 1 2.78 6.72c0 5.24-4.27 9.46-9.51 9.46zm8.09-17.55A11.36 11.36 0 0 0 12.04.6C5.74.6.61 5.72.61 12.02c0 2.01.53 3.98 1.53 5.71L.52 23.4l5.8-1.52a11.4 11.4 0 0 0 5.72 1.46h.01c6.3 0 11.42-5.13 11.43-11.43a11.36 11.36 0 0 0-3.35-8.07z" />

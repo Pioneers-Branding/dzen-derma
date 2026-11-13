@@ -4524,8 +4524,8 @@ html body #brand-philosophy .nemonic-icon {
     }
 
     .pnav__cta:hover {
-        background: #e0a65a !important;
-        color: #1a0d07 !important;
+        background: linear-gradient(35deg, #4b2b20 0%, #8b4513 100%);
+        color: #FAF9F6 !important;
     }
 
     .pnav__icon:hover {
