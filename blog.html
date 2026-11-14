@@ -273,6 +273,109 @@
         .blog-card-inner:hover .blog-card-link::after {
             width: 100%;
         }
+
+        /* ── Category Filter Bar ── */
+        .blog-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(196, 146, 74, 0.22);
+        }
+
+        .blog-filter-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(22px, 2.4vw, 30px);
+            color: #2B1A12;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 991.98px) {
+            .blog-filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+        }
+
+        /* ── Category Tabs ── */
+        .blog-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        @media (max-width: 991.98px) {
+            .blog-tabs {
+                justify-content: flex-start;
+                width: 100%;
+            }
+        }
+
+        .blog-tab {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #4B2B20;
+            background: #ffffff;
+            border: 1px solid rgba(196, 146, 74, 0.35);
+            border-radius: 999px;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .blog-tab:hover {
+            border-color: #C58E45;
+            color: #8B4513;
+        }
+
+        .blog-tab.is-active {
+            background: linear-gradient(35deg, #4b2b20 0%, #8b4513 100%);
+            border-color: transparent;
+            color: #ffffff;
+        }
+
+        .blog-tab:focus-visible {
+            outline: 2px solid #C58E45;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 640px) {
+            .blog-tabs {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 6px;
+                scrollbar-width: none;
+            }
+
+            .blog-filter-bar {
+                margin-bottom: 28px;
+            }
+
+            .blog-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .blog-tab {
+                flex: 0 0 auto;
+                padding: 9px 18px;
+            }
+        }
+
+        .blog-card-item.is-hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -373,10 +476,21 @@
         <!-- ═══════ Articles Grid ═══════ -->
         <section class="pb-5" style="background-color: #FDF8F3;" id="articles-grid">
             <div class="container">
+                <div class="blog-filter-bar">
+                <h2 class="blog-filter-title">Filter by Category</h2>
+                <div class="blog-tabs" role="tablist" aria-label="Blog categories">
+                    <button type="button" class="blog-tab is-active" role="tab" aria-selected="true" data-filter="latest">Latest</button>
+                    <button type="button" class="blog-tab" role="tab" aria-selected="false" data-filter="brand">Brand</button>
+                    <button type="button" class="blog-tab" role="tab" aria-selected="false" data-filter="skin">Skin</button>
+                    <button type="button" class="blog-tab" role="tab" aria-selected="false" data-filter="hair">Hair</button>
+                    <button type="button" class="blog-tab" role="tab" aria-selected="false" data-filter="wellness">Wellness</button>
+                </div>
+                </div>
+
                 <div class="blog-card-grid-custom" id="blogGridContainer">
 
                     <!-- Article 1 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="wellness">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Beauty-Beyond-the-Surface.webp" alt="Beauty Beyond the Surface"
@@ -397,7 +511,7 @@
                     </article>
 
                     <!-- Article 2 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="brand">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/The-New-Era-of-Aesthetics.webp" alt="The New Era of Aesthetics"
@@ -418,7 +532,7 @@
                     </article>
 
                     <!-- Article 3 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="wellness">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/The-Art-of-Balance.webp" alt="The Art of Balance"
@@ -439,7 +553,7 @@
                     </article>
 
                     <!-- Article 4 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="skin">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Korean-Skin.webp" alt="Hydrafacial vs Medifacial"
@@ -460,7 +574,7 @@
                     </article>
 
                     <!-- Article 5 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="hair">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Hair-Fall.webp" alt="Hair Fall or Hair Thinning"
@@ -481,7 +595,7 @@
                     </article>
 
                     <!-- Article 6 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="skin">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Skin-Longevity.webp" alt="Collagen After 30"
@@ -502,7 +616,7 @@
                     </article>
 
                     <!-- Article 7 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="hair">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Unwanted-Hair.webp" alt="Laser Hair Reduction on Indian Skin"
@@ -524,7 +638,7 @@
                     </article>
 
                     <!-- Article 8 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="skin">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Acne-Scars.webp" alt="Your Gut and Your Skin"
@@ -545,7 +659,7 @@
                     </article>
 
                     <!-- Article 9 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="brand">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="photos/training-4.webp" alt="In Conversation: Dr. Aarushi"
@@ -567,7 +681,7 @@
                     </article>
 
                     <!-- Article 10 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="skin">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Pigmentation.webp" alt="Pigmentation and Melasma"
@@ -589,7 +703,7 @@
                     </article>
 
                     <!-- Article 11 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="wellness">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="images/home/Energy-Vitality.webp" alt="Stress and Poor Sleep"
@@ -612,7 +726,7 @@
                     </article>
 
                     <!-- Article 12 -->
-                    <article class="blog-card-item">
+                    <article class="blog-card-item" data-category="brand">
                         <a href="#" class="blog-card-inner">
                             <div class="blog-card-img-holder">
                                 <img src="photos/training-1.webp" alt="How a Treatment Plan Is Built"
@@ -642,8 +756,30 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="include/include.js?v=5"></script>
+    <script src="include/include.js?v=6"></script>
     <script src="script.js?v=3.2"></script>
+
+    <!-- Blog category tabs -->
+    <script>
+        (function () {
+            var tabs = document.querySelectorAll('.blog-tab');
+            var cards = document.querySelectorAll('#blogGridContainer .blog-card-item');
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    var filter = tab.getAttribute('data-filter');
+                    tabs.forEach(function (t) {
+                        var active = t === tab;
+                        t.classList.toggle('is-active', active);
+                        t.setAttribute('aria-selected', active ? 'true' : 'false');
+                    });
+                    cards.forEach(function (card) {
+                        var show = filter === 'latest' || card.getAttribute('data-category') === filter;
+                        card.classList.toggle('is-hidden', !show);
+                    });
+                });
+            });
+        })();
+    </script>
 
     <!-- Floating Bottom Action Bar -->
     <div class="bottom-action-bar" id="bottomActionBar" aria-label="Quick actions">

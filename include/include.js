@@ -52,7 +52,160 @@
     </ul>
 </aside>`;
 
-    const EMBEDDED_FOOTER = `<!-- ═══════════════════════════════════════════════════════════
+    const EMBEDDED_FOOTER = `<style>
+    /* Shared clinic locations section (loaded on every page via footer include) */
+    .clinic-locations-section .container {
+        max-width: 1280px !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+</style>
+
+<!-- ═══════ Clinic Locations Section ═══════ -->
+<section class="clinic-locations-section" id="locations" aria-labelledby="locations-heading"
+    style="padding-top: 25px !important;">
+    <div class="container">
+        <div class="section-header text-center mb-4 mb-lg-4">
+            <span class="section-subtitle">OUR CLINICS</span>
+            <div class="nemonic-separator">
+                <div class="nemonic-line"></div>
+                <img loading="lazy" decoding="async" src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                <div class="nemonic-line"></div>
+            </div>
+            <h2 id="locations-heading" class="section-title">Two Locations. One Philosophy</h2>
+            <p class="section-desc mx-auto" style="max-width: 760px; color: #5C4A3A;">
+                Experience D’Zen Derma in South Delhi and Gurugram, where clinical expertise meets personalised
+                aesthetic and wellness care.
+            </p>
+        </div>
+
+        <!-- Tab Pills for Mobile View -->
+        <div class="clinic-tabs" role="tablist" aria-label="Select Clinic Location">
+            <div class="clinic-tabs__pill">
+                <button class="clinic-tab active" role="tab" aria-selected="true" data-clinic="0">
+                    <img loading="lazy" decoding="async" class="clinic-tab__img"
+                        src="images/delhi-location-img.jpg" alt="Delhi Clinic" />
+                    <span class="clinic-tab__info">
+                        <span class="clinic-tab__name">New Delhi</span>
+                        <span class="clinic-tab__role">Lajpat Nagar</span>
+                    </span>
+                </button>
+                <button class="clinic-tab" role="tab" aria-selected="false" data-clinic="1">
+                    <img loading="lazy" decoding="async" class="clinic-tab__img"
+                        src="images/gurgaon-location-img.png" alt="Gurgaon Clinic" />
+                    <span class="clinic-tab__info">
+                        <span class="clinic-tab__name">Gurgaon</span>
+                        <span class="clinic-tab__role">Golf Course Rd</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row g-4 justify-content-center clinic-locations-grid">
+            <!-- Delhi Clinic -->
+            <div class="col-lg-6 col-md-6 clinic-loc-col active" data-clinic-index="0">
+                <article class="clinic-loc-card">
+                    <div class="clinic-loc-card__media">
+                        <img loading="lazy" decoding="async" src="images/delhi-location-img.jpg"
+                            alt="D'Zen Derma Clinic, Lajpat Nagar, New Delhi" class="clinic-loc-card__img" />
+                    </div>
+                    <div class="clinic-loc-card__body">
+                        <span class="clinic-loc-card__eyebrow">NEW DELHI</span>
+                        <h3 class="clinic-loc-card__title">D'Zen Derma, Lajpat Nagar</h3>
+                        <ul class="clinic-loc-card__info">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>18A, Ring Rd, Near Havells, Vikram Vihar, Lajpat Nagar 4, New Delhi</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <a href="tel:+919773771610">+91-9773771610</a>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-10 6L2 7" />
+                                </svg>
+                                <a href="mailto:care@dzenderma.com">care@dzenderma.com</a>
+                            </li>
+                        </ul>
+                        <div class="clinic-loc-card__actions">
+                            <a href="https://www.google.com/maps/place/D'Zen+Derma+by+Dr.+Aarushi+Passi:+Cosmetic+%26+Integrative+Skin+Clinic+in+Lajpat+Nagar,+Delhi/@28.5607867,77.2357829,728m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390ce3e6ec57fafb:0xdad55619fcec33ab!8m2!3d28.5607867!4d77.2383578!16s%2Fg%2F11vxtv92jj?entry=ttu&amp;g_ep=EgoyMDI2MTEwOC4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank" rel="noopener" class="dz-cta">
+                                <span>Get Directions</span>
+                                <img loading="lazy" decoding="async" src="nemonic1.png" class="btn-icon"
+                                    style="width: 14px; height: 14px; object-fit: contain;" alt="icon" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Gurgaon Clinic -->
+            <div class="col-lg-6 col-md-6 clinic-loc-col" data-clinic-index="1">
+                <article class="clinic-loc-card">
+                    <div class="clinic-loc-card__media">
+                        <img loading="lazy" decoding="async" src="images/gurgaon-location-img.png"
+                            alt="D'Zen Derma Clinic, Golf Course Road, Gurgaon" class="clinic-loc-card__img" />
+
+                    </div>
+                    <div class="clinic-loc-card__body">
+                        <span class="clinic-loc-card__eyebrow">GURUGRAM</span>
+                        <h3 class="clinic-loc-card__title">D'Zen Derma, Golf Course Road</h3>
+                        <ul class="clinic-loc-card__info">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>Golf Course Road, Near DLF Phase 1, Sector 28, Gurugram, Haryana</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <a href="tel:+919773771610">+91-9773771610</a>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-10 6L2 7" />
+                                </svg>
+                                <a href="mailto:care@dzenderma.com">care@dzenderma.com</a>
+                            </li>
+                        </ul>
+                        <div class="clinic-loc-card__actions">
+                            <a href="https://www.google.com/maps/place/D'Zen+Derma+by+Dr.+Aarushi+Passi:+Cosmetic+%26+Integrative+Skin+Clinic+in+Gurgaon/@28.4719351,77.0908131,729m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390d1960b0f6defd:0x3b2b5d165c87cb08!8m2!3d28.4719304!4d77.093388!16s%2Fg%2F11ll_3fb86?entry=ttu&amp;g_ep=EgoyMDI2MTEwOC4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank" rel="noopener" class="dz-cta">
+                                <span>Get Directions</span>
+                                <img loading="lazy" decoding="async" src="nemonic1.png" class="btn-icon"
+                                    style="width: 14px; height: 14px; object-fit: contain;" alt="icon" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ═══════════════════════════════════════════════════════════
      CTA + FOOTER OVERLAP SECTION
      ═══════════════════════════════════════════════════════════ -->
 <div class="footer-stack-root">
@@ -317,10 +470,43 @@
         }
     }
 
+    // Clinic location tabs (Delhi / Gurgaon) — delegated so it works after the footer is injected
+    function initClinicTabs() {
+        // If the page already has its own locations section, drop the footer copy to avoid duplicates
+        const footer = document.getElementById('site-footer');
+        const footerSection = footer && footer.querySelector('.clinic-locations-section');
+        if (footerSection) {
+            const pageHasOwn = Array.prototype.some.call(
+                document.querySelectorAll('.clinic-locations-section'),
+                function (s) { return !footer.contains(s); }
+            );
+            if (pageHasOwn) footerSection.remove();
+        }
+
+        if (document._hasClinicTabListener) return;
+        document._hasClinicTabListener = true;
+
+        document.addEventListener('click', function (e) {
+            const tab = e.target.closest('.clinic-tab');
+            if (!tab) return;
+            const section = tab.closest('.clinic-locations-section');
+            if (!section) return;
+
+            const target = parseInt(tab.getAttribute('data-clinic'), 10);
+            section.querySelectorAll('.clinic-tab').forEach(function (t, i) {
+                t.classList.toggle('active', i === target);
+                t.setAttribute('aria-selected', i === target ? 'true' : 'false');
+            });
+            section.querySelectorAll('.clinic-locations-grid .clinic-loc-col').forEach(function (c, i) {
+                c.classList.toggle('active', i === target);
+            });
+        });
+    }
+
     // Run loader
     function initIncludes() {
         loadPartial('site-header', 'header.html', initPillNav);
-        loadPartial('site-footer', 'footer.html');
+        loadPartial('site-footer', 'footer.html', initClinicTabs);
     }
 
     // Run immediately if containers are already in DOM, else on DOMContentLoaded
