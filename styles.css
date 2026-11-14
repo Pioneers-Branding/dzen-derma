@@ -8951,7 +8951,7 @@ body.hf-page:where(.dz-hf-layout) .container {
 /* ── Section Wrapper & Typography ── */
 :where(.dz-hf-layout) .hf-section {
     position: relative;
-    padding: 50px 0px;
+    padding: 30px 0px 50px;
     max-width: 100%;
 }
 
@@ -13724,7 +13724,7 @@ html body:where(.dz-page-oxy-facial, .dz-page-mesotherapy, .dz-page-hifu, .dz-pa
 /* Each section ends on its own wave (or a straight edge into a dark band) */
 :where(.dz-page-botox) #overview {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 50px 0 0;
+    padding: 30px 0 0px !important;
     position: relative;
 }
 
@@ -13762,7 +13762,7 @@ html body:where(.dz-page-botox) #process .hf-minimal-step-desc {
 
 :where(.dz-page-botox) #benefits {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 35px 0 60px;
+    padding: 35px 0 0px;
     position: relative;
 }
 

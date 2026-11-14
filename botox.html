@@ -42,34 +42,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is Botox?",
+      "name": "How long does Botox take to show results?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Botox is an injectable treatment that temporarily reduces the activity of selected muscles. It is commonly used to soften certain expression lines and wrinkles."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Botox a surgical treatment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Botox is a non-surgical injectable treatment performed using a fine needle."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Botox treatment hurt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most people experience only brief discomfort during the injections. The sensation can vary depending on the treatment area and individual sensitivity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does Botox take to work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The effects develop gradually after treatment. The timing can vary between individuals and treatment areas."
+        "text": "Visible results usually start from around day 3, with the full effect generally seen by day 14. Timing varies by treatment area and individual response."
       }
     },
     {
@@ -77,47 +53,95 @@
       "name": "How long do Botox results last?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Results are temporary. How long they remain visible depends on factors such as the treatment area, muscle activity and individual response."
+        "text": "Results typically last around 6 months, though this varies by individual, treatment area and muscle activity."
       }
     },
     {
       "@type": "Question",
-      "name": "Is there downtime after Botox?",
+      "name": "Will Botox make my face look frozen or expressionless?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Botox generally involves minimal downtime. Some people may experience temporary redness, swelling or small injection-site marks."
+        "text": "Our objective is not to eliminate every line or alter natural expression. Dosage and injection points are planned around your anatomy and muscle activity to achieve subtle, balanced results that preserve individuality."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Botox look natural?",
+      "name": "Is Botox painful?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "When appropriately planned and administered, Botox can provide a subtle and natural-looking improvement while preserving normal facial expression."
+        "text": "Injections are administered using a fine needle, and most people feel only brief, mild discomfort. The procedure usually takes around 15–30 minutes, depending on the areas treated."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Botox be used for every wrinkle?",
+      "name": "What is the difference between Botox and fillers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Botox primarily works on wrinkles associated with muscle movement. Wrinkles caused mainly by skin laxity, volume loss or other factors may require a different treatment approach."
+        "text": "Botox relaxes the movement of targeted muscles to soften dynamic wrinkles. It is not a filler and does not add volume to the face. Fillers restore volume and contour, and the two are commonly used together for a comprehensive approach to facial rejuvenation."
       }
     },
     {
       "@type": "Question",
-      "name": "When can I return to my normal activities?",
+      "name": "Can Botox be used for jawline slimming?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Many people can resume normal daily activities shortly after treatment. Specific post-treatment precautions should be followed according to the guidance provided by your doctor."
+        "text": "Yes. Masseter reduction may reduce prominent masseter muscle bulk for a slimmer-looking jawline. Suitability is assessed during your consultation."
       }
     },
     {
       "@type": "Question",
-      "name": "Is Botox suitable for everyone?",
+      "name": "Can Botox help with excessive underarm and palm sweating?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Botox may not be appropriate for every individual. A consultation is important to assess your medical history, facial anatomy, treatment goals and suitability before proceeding."
+        "text": "Yes. Botox can be used for underarm hyperhidrosis and palmar (palm) hyperhidrosis, helping manage excessive sweating in the treated areas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there any downtime after Botox?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no downtime in most cases. Some people may notice temporary redness, swelling or mild tenderness at the injection sites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Botox safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At D’Zen Derma, Botulinum Toxin A is administered exclusively by qualified medical specialists using established, authentic brands. Certain medical conditions, medications, pregnancy or breastfeeding may affect eligibility, so your suitability is assessed at consultation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I apply makeup or go to the gym right after getting Botox treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You are usually advised to avoid applying makeup over the injection sites and to avoid strenuous exercise for the rest of the day. Your doctor will give you specific aftercare guidance after treatment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Botox suitable for men?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Botox is suitable for both men and women, and treatment is planned around individual anatomy and goals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a Botox appointment take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The procedure usually takes around 15–30 minutes, depending on the areas being treated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will I need a follow-up after Botox?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your doctor may recommend a review after approximately two weeks to assess your response."
       }
     }
   ]
@@ -167,6 +191,993 @@
         }
     </script>
 
+    <!-- Botox page components -->
+    <style>
+        #overview {
+            padding-top: clamp(28px, 3.5vw, 40px) !important;
+        }
+
+        .bx-tagline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: clamp(18px, 1.8vw, 22px);
+            color: #8B4513;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        /* Arch holding a YouTube Short (9:16), matching laser-hair-removal.html */
+        body.hf-page .sig-oval-frame.sig-oval-frame--video {
+            width: 100% !important;
+            max-width: none !important;
+            height: auto !important;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto !important;
+            border-radius: 20px !important;
+            background: #2B1A12;
+        }
+
+        /* Desktop/laptop: full column width makes the 9:16 video too tall beside the text */
+        @media (min-width: 992px) {
+            body.hf-page .sig-oval-frame.sig-oval-frame--video {
+                max-width: 300px !important;
+            }
+        }
+
+        .sig-oval-frame--video iframe,
+        .sig-oval-frame--video .bx-video-poster {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Poster shown until the real video embed is added */
+        .bx-video-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bx-video-poster::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(43, 26, 18, 0.05) 0%, rgba(43, 26, 18, 0.5) 100%);
+        }
+
+        .bx-video-poster:hover img {
+            transform: scale(1.05);
+        }
+
+        .bx-video__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            color: #8B4513;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.22);
+            transition: transform 0.3s ease;
+        }
+
+        .bx-video-poster:hover .bx-video__play {
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .bx-video__play svg {
+            width: 24px;
+            height: 24px;
+            margin-left: 4px;
+        }
+
+        /* Quick treatment overview */
+        .bx-overview-head .nemonic-separator {
+            justify-content: flex-start;
+        }
+
+        .bx-overview-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            column-gap: 32px;
+            row-gap: 6px;
+        }
+
+        .dz-page-botox .bx-overview-list .hf-result-editorial-item {
+            align-items: flex-start;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #2B2B2B;
+            padding: 8px 0;
+        }
+
+        .dz-page-botox .bx-overview-list .hf-result-editorial-item svg {
+            flex: 0 0 auto;
+            color: #8B5E2A;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 991.98px) {
+            .bx-overview-head {
+                text-align: center;
+            }
+
+            .bx-overview-head .nemonic-separator {
+                justify-content: center;
+            }
+
+            .bx-overview-head+.bx-overview-list,
+            .bx-overview-list+.mt-4 {
+                max-width: 640px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .bx-overview-list+.mt-4 {
+                text-align: center;
+            }
+        }
+
+        /* Mobile/tablet order: heading → points → image → Book Consultation */
+        @media (max-width: 991.98px) {
+            .bx-overview-row {
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: stretch;
+                row-gap: 28px;
+            }
+
+            .bx-overview-row > * {
+                margin-top: 0;
+            }
+
+            /* Let the content column's children join the row so they can be ordered around the image */
+            .bx-overview-content {
+                display: contents;
+            }
+
+            .bx-overview-head,
+            .bx-overview-list,
+            .bx-overview-cta {
+                padding-left: calc(var(--bs-gutter-x) * 0.5);
+                padding-right: calc(var(--bs-gutter-x) * 0.5);
+            }
+
+            .bx-overview-head {
+                order: 1;
+                margin-bottom: 0 !important;
+            }
+
+            .bx-overview-list {
+                order: 2;
+            }
+
+            .bx-overview-media {
+                order: 3;
+            }
+
+            .bx-overview-cta {
+                order: 4;
+                margin-top: 0 !important;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .bx-overview-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* What can Botox address */
+        .bx-address-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .bx-address-card {
+            background: #ffffff;
+            border: 1px solid rgba(196, 146, 74, 0.25);
+            border-radius: 22px;
+            padding: 28px 24px;
+            box-shadow: 0 10px 30px rgba(43, 26, 18, 0.05);
+        }
+
+        .bx-address-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #2B1A12;
+            margin: 0 0 14px;
+        }
+
+        .bx-address-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bx-address-card li {
+            position: relative;
+            padding: 8px 0 8px 22px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.55;
+            color: rgba(43, 26, 18, 0.8);
+            border-top: 1px solid rgba(196, 146, 74, 0.15);
+        }
+
+        .bx-address-card li:first-child {
+            border-top: none;
+        }
+
+        .bx-address-card li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #C58E45;
+        }
+
+        @media (max-width: 1199.98px) {
+            .bx-address-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bx-address-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Why D'Zen: horizontal scroll — 4 visible + 20% peek of the 5th */
+        .dz-page-botox .hf-why-minimal-grid.bx-why-grid {
+            --bx-why-gap: 28px;
+            --bx-why-visible: 4.2;
+            display: flex;
+            gap: var(--bx-why-gap);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            max-width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0 8px;
+            cursor: grab;
+        }
+
+        .dz-page-botox .hf-why-minimal-grid.bx-why-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dz-page-botox .hf-why-minimal-grid.bx-why-grid.is-dragging {
+            cursor: grabbing;
+            scroll-snap-type: none;
+            user-select: none;
+        }
+
+        .dz-page-botox .bx-why-grid .hf-why-minimal-item {
+            flex: 0 0 calc((100% - (var(--bx-why-visible) - 0.2) * var(--bx-why-gap)) / var(--bx-why-visible));
+            width: auto;
+            scroll-snap-align: start;
+        }
+
+        /* Equal title height so the divider lines align */
+        .dz-page-botox .bx-why-grid .hf-why-minimal-title {
+            min-height: 2.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 991.98px) {
+            .dz-page-botox .hf-why-minimal-grid.bx-why-grid {
+                --bx-why-gap: 22px;
+                --bx-why-visible: 2.2;
+                padding: 0 16px 8px;
+                scroll-padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .dz-page-botox .hf-why-minimal-grid.bx-why-grid {
+                --bx-why-visible: 1.2;
+            }
+
+            .dz-page-botox .bx-why-grid .hf-why-minimal-title {
+                min-height: 0;
+            }
+        }
+
+        /* ── Treatment Journey (same design as laser-hair-removal.html "Your D'Zen Treatment Journey") ── */
+        .lhr-protocol-section {
+            background: linear-gradient(35deg, #4b2b20 0%, #8b4513 100%) !important;
+            color: #FAF9F6 !important;
+            position: relative;
+            padding: 50px 0 0;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .lhr-protocol-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 65% 60% at 50% -8%, rgba(198, 119, 119, 0.16) 0%, transparent 68%),
+                radial-gradient(ellipse 40% 40% at 80% 110%, rgba(143, 113, 74, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lhr-protocol-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-size: 560px 560px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            mix-blend-mode: overlay;
+        }
+
+        .lhr-protocol-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .lhr-protocol-section * {
+            color: #FAF9F6 !important;
+            -webkit-text-fill-color: #FAF9F6 !important;
+        }
+
+        .lhr-protocol-section .hf-eyebrow {
+            color: #FAF9F6 !important;
+            -webkit-text-fill-color: #FAF9F6 !important;
+            opacity: 0.95 !important;
+        }
+
+        .lhr-protocol-section .nemonic-line {
+            background: rgba(250, 249, 246, 0.45) !important;
+        }
+
+        .lhr-protocol-section .nemonic-icon {
+            filter: brightness(0) invert(1) !important;
+        }
+
+        .lhr-protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(20px, 2.6vw, 36px);
+            margin-top: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .lhr-step-card {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .lhr-step-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 4.8;
+            border-radius: 120px 120px 14px 14px;
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: rgba(250, 249, 246, 0.08);
+            border: 1px solid rgba(232, 201, 154, 0.35);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .lhr-step-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(75, 43, 32, 0) 65%, rgba(75, 43, 32, 0.15) 100%);
+            pointer-events: none;
+        }
+
+        .lhr-step-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .lhr-step-card:hover .lhr-step-media {
+            transform: translateY(-4px);
+            border-color: rgba(232, 201, 154, 0.6);
+        }
+
+        .lhr-step-card:hover .lhr-step-media img {
+            transform: scale(1.05);
+        }
+
+        .lhr-phase-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .lhr-step-title {
+            font-family: var(--serif, 'Playfair Display', Georgia, serif);
+            font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+            font-weight: 400;
+            font-style: italic;
+            margin: 0 0 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(250, 249, 246, 0.3);
+        }
+
+        .lhr-step-desc {
+            font-size: 0.92rem;
+            line-height: 1.68;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        @media (max-width: 1199.98px) and (min-width: 992px) {
+            .lhr-protocol-grid {
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 40px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .lhr-protocol-grid {
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 20px;
+                padding: 10px 20px 24px;
+                margin-left: -16px;
+                margin-right: -16px;
+            }
+
+            .lhr-protocol-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .lhr-step-card {
+                flex: 0 0 clamp(260px, 78vw, 320px);
+                scroll-snap-align: center;
+            }
+        }
+
+
+        /* ── Video Showcase (copied from laser-hair-removal.html) ── */
+        /* ═══════════════════════════════════════════════════════════
+           VIDEO SHOWCASE & INSTAGRAM REELS
+           ═══════════════════════════════════════════════════════════ */
+        .hf-video-section,
+        #video-showcase {
+            background: linear-gradient(to top, #F4EFE8, #FDF8F3) !important;
+            padding: 50px 0 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hf-video-filter-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: clamp(24px, 3.5vw, 36px);
+        }
+
+        .hf-video-filter-bar__pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #FAF9F6;
+            border: 1px solid #E8DAC2;
+            border-radius: 999px;
+            padding: 5px;
+            box-shadow: 0 4px 16px -4px rgba(31, 26, 20, 0.08);
+            max-width: 100%;
+        }
+
+        .hf-vtab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px 8px 8px;
+            border: none;
+            background: transparent;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        .hf-vtab-btn:hover {
+            background: #FBF7F1;
+        }
+
+        .hf-vtab-btn.active {
+            background: #F4ECDF !important;
+            box-shadow: 0 2px 8px -2px rgba(31, 26, 20, 0.1) !important;
+        }
+
+        .hf-vtab-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: #4b2b20;
+            color: #FAF9F6;
+            box-shadow: 0 3px 10px rgba(75, 43, 32, 0.22);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hf-vtab-icon--insta,
+        .hf-vtab-icon--youtube {
+            background: #4b2b20;
+            color: #FAF9F6;
+            box-shadow: 0 3px 10px rgba(75, 43, 32, 0.22);
+        }
+
+        .hf-vtab-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #FAF9F6;
+        }
+
+        .hf-vtab-btn.active .hf-vtab-icon {
+            transform: scale(1.08);
+            box-shadow: 0 4px 14px rgba(75, 43, 32, 0.32);
+        }
+
+        .hf-vtab-info {
+            text-align: left;
+            line-height: 1.25;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hf-vtab-name {
+            font-family: var(--serif, "Playfair Display", Georgia, serif);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1F1A14;
+            display: block;
+        }
+
+        .hf-vtab-role {
+            font-family: var(--sans, "Inter", system-ui, sans-serif);
+            font-size: 10.5px;
+            font-weight: 500;
+            color: #8E7858;
+            display: block;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 767.98px) {
+            .hf-vtab-btn {
+                padding: 6px 14px 6px 6px;
+                gap: 8px;
+            }
+
+            .hf-vtab-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hf-vtab-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .hf-vtab-name {
+                font-size: 12.5px;
+            }
+
+            .hf-vtab-role {
+                font-size: 9.5px;
+            }
+        }
+
+        #video-showcase .hf-video-grid,
+        .hf-video-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 28px !important;
+            row-gap: 32px !important;
+            column-gap: 28px !important;
+            width: 100% !important;
+            margin-bottom: 40px !important;
+        }
+
+        @media (max-width: 991.98px) {
+
+            #video-showcase .hf-video-grid,
+            .hf-video-grid {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-padding-left: 20px !important;
+                scroll-padding-right: 20px !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 16px !important;
+                padding: 10px 20px 10px !important;
+                margin-left: -16px !important;
+                margin-right: -16px !important;
+                width: calc(100% + 32px) !important;
+                margin-bottom: 0px !important;
+            }
+
+            #video-showcase .hf-video-grid::-webkit-scrollbar,
+            .hf-video-grid::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            #video-showcase .hf-vcard,
+            .hf-vcard {
+                flex: 0 0 clamp(230px, 70vw, 285px) !important;
+                scroll-snap-align: start !important;
+                max-width: none !important;
+                margin: 0 !important;
+                aspect-ratio: 9 / 14 !important;
+                min-height: 360px !important;
+                border-radius: 200px 200px 18px 18px !important;
+            }
+
+            #video-showcase .hf-vcard[data-type="youtube"],
+            #video-showcase .hf-vcard--youtube,
+            .hf-vcard[data-type="youtube"],
+            .hf-vcard--youtube {
+                flex: 0 0 clamp(280px, 85vw, 360px) !important;
+                aspect-ratio: 16 / 9 !important;
+                min-height: 195px !important;
+                border-radius: 20px !important;
+            }
+        }
+
+        #video-showcase .hf-vcard,
+        .hf-vcard {
+            position: relative !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            background: #140B07 !important;
+            border-radius: 200px 200px 18px 18px !important;
+            overflow: hidden !important;
+            border: 1.5px solid #24140D !important;
+            box-shadow: 0 10px 30px rgba(43, 26, 18, 0.12) !important;
+            cursor: pointer !important;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+            display: flex;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            aspect-ratio: 9 / 14 !important;
+            min-height: 360px !important;
+            isolation: isolate !important;
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
+        #video-showcase .hf-vcard.is-hidden,
+        .hf-vcard.is-hidden {
+            display: none !important;
+        }
+
+        #video-showcase .hf-vcard[data-type="youtube"],
+        #video-showcase .hf-vcard--youtube,
+        .hf-vcard[data-type="youtube"],
+        .hf-vcard--youtube {
+            aspect-ratio: 16 / 9 !important;
+            min-height: 220px !important;
+            border-radius: 20px !important;
+        }
+
+        /* YouTube Shorts are vertical, so they keep the Reel arch rather than the 16:9 card.
+           Placed after the youtube rules above so it wins at equal specificity. */
+        #video-showcase .hf-vcard.hf-vcard--short {
+            aspect-ratio: 9 / 14 !important;
+            min-height: 360px !important;
+            border-radius: 200px 200px 18px 18px !important;
+        }
+
+        #video-showcase .hf-video-grid.is-single {
+            grid-template-columns: minmax(0, 360px) !important;
+            justify-content: center !important;
+        }
+
+        @media (max-width: 991.98px) {
+            #video-showcase .hf-vcard.hf-vcard--short {
+                flex: 0 0 clamp(230px, 70vw, 285px) !important;
+            }
+
+            #video-showcase .hf-video-grid.is-single {
+                justify-content: center !important;
+            }
+        }
+
+        .hf-vcard:hover {
+            transform: translateY(-6px);
+            border-color: #C4924A !important;
+            box-shadow: 0 20px 50px rgba(43, 26, 18, 0.2) !important;
+        }
+
+        #video-showcase .hf-vcard__poster,
+        .hf-vcard__poster {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            border-radius: inherit !important;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .hf-vcard:hover .hf-vcard__poster {
+            transform: scale(1.05);
+        }
+
+        .hf-vcard::after {
+            display: none !important;
+        }
+
+        .hf-vcard__top {
+            display: none !important;
+        }
+
+        .hf-vcard__play-wrap {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            z-index: 3 !important;
+            pointer-events: none !important;
+        }
+
+        .hf-vcard__play {
+            width: 58px !important;
+            height: 58px !important;
+            border-radius: 50% !important;
+            background: #FAF9F6 !important;
+            color: #24140D !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+            border: none !important;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+        }
+
+        .hf-vcard__play svg {
+            width: 18px !important;
+            height: 18px !important;
+            margin-left: 3px !important;
+            fill: #24140D !important;
+        }
+
+        .hf-vcard:hover .hf-vcard__play {
+            transform: scale(1.1) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .hf-vcard__bottom {
+            display: none !important;
+        }
+
+        /* ── Fullscreen Video Lightbox Modal ── */
+        .hf-vmodal {
+            position: fixed;
+            inset: 0;
+            background: rgba(18, 10, 7, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .hf-vmodal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hf-vmodal__dialog {
+            position: relative;
+            width: 100%;
+            max-width: 820px;
+            background: #1F140F;
+            border: 1px solid rgba(232, 201, 154, 0.45);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.65);
+            transform: scale(0.92);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hf-vmodal.is-open .hf-vmodal__dialog {
+            transform: scale(1);
+        }
+
+        .hf-vmodal__dialog--reel {
+            max-width: 440px;
+        }
+
+        .hf-vmodal__header {
+            padding: 16px 22px;
+            background: rgba(31, 20, 15, 0.95);
+            border-bottom: 1px solid rgba(232, 201, 154, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hf-vmodal__header-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            color: #FAF9F6;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 12px;
+        }
+
+        .hf-vmodal__close {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FAF9F6;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .hf-vmodal__close:hover {
+            background: #C4924A;
+            transform: rotate(90deg);
+        }
+
+        .hf-vmodal__player {
+            position: relative;
+            width: 100%;
+            background: #000000;
+        }
+
+        .hf-vmodal__player--16-9 {
+            aspect-ratio: 16 / 9;
+        }
+
+        .hf-vmodal__player--9-16 {
+            aspect-ratio: 9 / 16;
+            max-height: 70vh;
+        }
+
+        .hf-vmodal__player iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .hf-vmodal__footer {
+            padding: 14px 22px;
+            background: rgba(31, 20, 15, 0.95);
+            border-top: 1px solid rgba(232, 201, 154, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hf-vmodal__title-wrap {
+            overflow: hidden;
+        }
+
+        .hf-vmodal__cta {
+            padding: 9px 20px !important;
+            font-size: 13px !important;
+        }
+
+        .hf-vmodal__cta .btn-icon {
+            filter: brightness(0) invert(1) !important;
+        }
+
+        .hf-vmodal__social-btn {
+            padding: 8px 18px !important;
+            font-size: 12px !important;
+        }
+
+
+        /* Understanding Botox on the dark band */
+        .dz-page-botox #understanding-botox .bx-understand-text p {
+            color: #FAF9F6 !important;
+            -webkit-text-fill-color: #FAF9F6 !important;
+            opacity: 0.92;
+        }
+
+        /* Risks & side effects */
+        .bx-risk-list {
+            max-width: 860px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .bx-risk-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(196, 146, 74, 0.22);
+            border-radius: 16px;
+            padding: 16px 20px;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #2B1A12;
+        }
+
+        .bx-risk-item svg {
+            flex: 0 0 auto;
+            width: 20px;
+            height: 20px;
+            color: #C58E45;
+            margin-top: 2px;
+        }
+
+        /* Related treatments: no description */
+        .dz-page-botox .bx-related-track .hf-related-card {
+            min-height: 0;
+        }
+    </style>
+
 </head>
 
 <body class="hf-page dz-hf-layout dz-page-botox">
@@ -176,7 +1187,7 @@
     <main>
 
         <!-- ═══════════════════════════════════════════════════════════
-             1. BREADCRUMB HERO HEADER (Signature Dark Elegance)
+             1. BREADCRUMB HERO HEADER
              ═══════════════════════════════════════════════════════════ -->
         <section
             class="breadcrumb-header hf-hero-header position-relative d-flex align-items-center justify-content-center">
@@ -202,7 +1213,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             2. OVERVIEW (Roman Arch Frame + Intro)
+             2. INTRO
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-section" id="overview" aria-labelledby="overview-title">
             <div class="container">
@@ -216,31 +1227,54 @@
                     <h2 class="hf-heading mb-0" id="overview-title">
                         Botox <span class="scribble">Treatment</span>
                     </h2>
+                    <p class="section-desc hf-section-desc mx-auto mt-2">
+                        Refined expressions • Balanced features • A naturally refreshed appearance
+                    </p>
                 </div>
 
                 <div class="row align-items-center g-4 g-lg-4 justify-content-center hf-understanding-row">
+                    <!-- Left: Signature Arch Frame with Video (9:16) -->
                     <div class="col-lg-5">
                         <div class="sig-arch-wrap">
                             <div class="sig-arch-glow"></div>
-                            <div class="sig-oval-frame sig-oval-frame--tall">
-                                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop"
-                                    alt="Botox treatment at D'Zen Derma" class="sig-oval-img" loading="lazy" />
+                            <div class="sig-oval-frame sig-oval-frame--video">
+                                <!-- TODO: replace this poster link with the Botox YouTube Short embed, e.g.
+                                <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+                                    title="Botox Treatment at D'Zen Derma" loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                                <a href="https://www.youtube.com/@DZenDerma" target="_blank" rel="noopener"
+                                    class="bx-video-poster" aria-label="Watch Botox treatment video">
+                                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop"
+                                        alt="Botox treatment at D'Zen Derma" loading="lazy" />
+                                    <span class="bx-video__play" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="8 5 20 12 8 19 8 5" />
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Right: Editorial Content & CTA -->
                     <div class="col-lg-7 hf-understanding-body">
+                        <p class="bx-tagline">
+                            Refined expressions. Balanced features. A naturally refreshed appearance.
+                        </p>
                         <p class="hf-lead hf-understanding-lead mb-3">
-                            Botox is a non-surgical treatment used to temporarily reduce the appearance of certain
-                            facial lines and wrinkles. It works by relaxing specific muscles responsible for repeated
-                            facial movements, helping create a smoother and more refreshed appearance.
+                            Botox is a precision-based injectable treatment that temporarily relaxes targeted muscles
+                            to soften wrinkles, expression lines, slim your jawline, smooth out necklines, prevent early
+                            signs of aging, forehead and crow’s feet smoothing and address concerns such as excessive
+                            sweating.
                         </p>
                         <p class="hf-body-p mb-4">
-                            The treatment is planned according to facial movement, muscle activity, skin condition and
-                            individual aesthetic goals. A professional consultation helps determine the appropriate areas
-                            and treatment approach.
+                            At D’Zen Derma, Botulinum Toxin A is administered exclusively by qualified medical
+                            specialists. Every treatment is guided by full face anatomy and a considered approach to
+                            enhancement, with the aim of achieving results that look subtle, balanced and natural, to
+                            make you look youthful and more confident.
                         </p>
-                        <a href="../newthree.html#book" class="dz-cta">
+                        <a href="contact" class="dz-cta">
                             <span>Book Consultation</span>
                             <img src="nemonic1.png" class="btn-icon" alt="icon" />
                         </a>
@@ -257,9 +1291,125 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             3. UNDERSTANDING BOTOX TREATMENT
+             4. QUICK TREATMENT OVERVIEW
              ═══════════════════════════════════════════════════════════ -->
-        <section id="understanding-botox" aria-labelledby="understanding-title">
+        <section class="hf-section hf-section--alt" id="quick-overview" aria-labelledby="quick-overview-title">
+            <div class="container">
+                <div class="row align-items-center g-4 g-lg-5 bx-overview-row">
+                    <!-- Left: Quick Overview Content -->
+                    <div class="col-lg-7 bx-overview-content">
+                        <div class="bx-overview-head mb-4">
+                            <span class="hf-eyebrow mb-2">AT A GLANCE</span>
+                            <div class="nemonic-separator mb-3">
+                                <div class="nemonic-line"></div>
+                                <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                                <div class="nemonic-line"></div>
+                            </div>
+                            <h2 class="hf-heading mb-0" id="quick-overview-title">Quick Treatment <span
+                                    class="scribble">Overview</span></h2>
+                        </div>
+
+                        <div class="bx-overview-list">
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>A Non-surgical method to relax facial muscles</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Downtime – None</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Suitable for both Men and Women</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Jawline Slimming, Expression lines and excessive sweating</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Duration: 15–30 minutes</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Natural, Balanced Results</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Visible Results start from Day 3 and full effect by day 14</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span>Lasts 6 months (varies by individuals)</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bx-overview-cta">
+                            <a href="contact" class="dz-cta">
+                                <span>Book Consultation</span>
+                                <img src="nemonic1.png" class="btn-icon" alt="icon" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Botox Treatment Image -->
+                    <div class="col-lg-5 bx-overview-media">
+                        <div class="sig-arch-wrap">
+                            <div class="sig-arch-glow"></div>
+                            <div class="sig-oval-frame sig-oval-frame--tall">
+                                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop"
+                                    alt="Botox treatment at D'Zen Derma" class="sig-oval-img" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             3. WHAT IS BOTOX (Understanding Botox) — dark band like Why D'Zen
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-why-section" id="understanding-botox" aria-labelledby="understanding-title">
             <div class="container">
                 <div class="text-center max-w-3xl mx-auto">
                     <span class="hf-eyebrow mb-2">THE TREATMENT</span>
@@ -268,95 +1418,27 @@
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                         <div class="nemonic-line"></div>
                     </div>
-                    <h2 class="hf-heading mb-3" id="understanding-title">Understanding Botox <span class="scribble">Treatment</span></h2>
+                    <h2 class="hf-heading mb-3" id="understanding-title">Understanding Botox</h2>
                 </div>
 
                 <div class="bx-understand-text">
                     <p>
-                        Facial expressions such as smiling, frowning and squinting repeatedly contract certain muscles.
-                        Over time, these movements can contribute to the development of expression lines.
+                        Botox is a brand of botulinum toxin type A, a neuromodulator that temporarily reduces the
+                        activity of targeted muscles by interrupting the nerve signals responsible for muscle
+                        contraction.
                     </p>
                     <p>
-                        Botox works by temporarily reducing the activity of selected muscles. This can soften the
-                        appearance of dynamic wrinkles while allowing for a natural-looking result when appropriately
-                        administered.
+                        This helps soften dynamic wrinkles, refine selected facial features and, through specialised
+                        techniques, address certain skin-quality and excessive sweating concerns. It is not a filler
+                        and does not add volume to the face. Instead, the solution reduces the appearance of
+                        wrinkles by relaxing the movement beneath the skin.
                     </p>
                     <p>
-                        The treatment is customised according to individual facial anatomy and the desired outcome.
+                        Its effects are temporary, with results and duration varying according to the treatment
+                        area and individual response.
                     </p>
                 </div>
             </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════════════════
-             4. PROCESS OF BOTOX TREATMENT (4 Steps, Dark Band with Images)
-             ═══════════════════════════════════════════════════════════ -->
-        <section class="hf-why-section" id="process" aria-labelledby="process-title">
-            <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4 mb-lg-5">
-                    <span class="hf-eyebrow mb-2">CLINICAL PROCESS</span>
-                    <div class="nemonic-separator mx-auto mb-3">
-                        <div class="nemonic-line"></div>
-                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
-                        <div class="nemonic-line"></div>
-                    </div>
-                    <h2 class="hf-heading mb-3" id="process-title">Process of Botox Treatment</h2>
-                </div>
-
-                <div class="hf-minimal-steps-grid">
-                    <div class="hf-minimal-step-item">
-                        <div class="hf-concern-minimal-img-wrap bx-step-img">
-                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=700&auto=format&fit=crop"
-                                alt="Facial assessment before Botox" class="hf-concern-minimal-img" loading="lazy" />
-                        </div>
-                        <h3 class="hf-minimal-step-title">Facial Assessment &amp; Planning</h3>
-                        <div class="hf-minimal-step-divider"></div>
-                        <p class="hf-minimal-step-desc">
-                            Your facial movements, muscle activity, lines and skin are assessed, and the treatment areas and approach are planned around your goals.
-                        </p>
-                    </div>
-                    <div class="hf-minimal-step-item">
-                        <div class="hf-concern-minimal-img-wrap bx-step-img">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop"
-                                alt="Skin prepared before treatment" class="hf-concern-minimal-img" loading="lazy" />
-                        </div>
-                        <h3 class="hf-minimal-step-title">Treatment Preparation</h3>
-                        <div class="hf-minimal-step-divider"></div>
-                        <p class="hf-minimal-step-desc">
-                            The treatment area is carefully cleaned and prepared before the procedure, so the skin is clean and ready for each precise injection.
-                        </p>
-                    </div>
-                    <div class="hf-minimal-step-item">
-                        <div class="hf-concern-minimal-img-wrap bx-step-img">
-                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
-                                alt="Precise treatment in clinic" class="hf-concern-minimal-img" loading="lazy" />
-                        </div>
-                        <h3 class="hf-minimal-step-title">Precise Injections</h3>
-                        <div class="hf-minimal-step-divider"></div>
-                        <p class="hf-minimal-step-desc">
-                            Small amounts of Botox are carefully injected into selected muscles using a fine needle, following the plan made for your facial anatomy.
-                        </p>
-                    </div>
-                    <div class="hf-minimal-step-item">
-                        <div class="hf-concern-minimal-img-wrap bx-step-img">
-                            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=700&auto=format&fit=crop"
-                                alt="Aftercare following treatment" class="hf-concern-minimal-img" loading="lazy" />
-                        </div>
-                        <h3 class="hf-minimal-step-title">Aftercare &amp; Follow-Up</h3>
-                        <div class="hf-minimal-step-divider"></div>
-                        <p class="hf-minimal-step-desc">
-                            Simple precautions are explained to support the treatment, and a follow-up may be recommended to review your response and any adjustment.
-                        </p>
-                    </div>
-                </div>
-                <div class="text-center mt-lg-4 pt-2">
-                    <a href="../newthree.html#book" class="dz-cta footer-cta-btn">
-                        <span>Book Consultation</span>
-                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
-                    </a>
-                </div>
-            </div>
-
             <!-- Curvy separator: Dark → Warm Cream (#FAF7F2) -->
             <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -366,12 +1448,145 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             5. BENEFITS OF BOTOX TREATMENT (Content Left, Image Right)
+             5. CONCERNS ADDRESSED
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-section hf-section--alt" id="concerns-addressed" aria-labelledby="address-title">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-4">
+                    <span class="hf-eyebrow mb-2">CONCERNS ADDRESSED</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3" id="address-title">What Can <span class="scribble">Botox</span> Address?
+                    </h2>
+                    <p class="hf-lead">
+                        Botox offers a range of applications across facial aesthetics, facial refinement, skin quality
+                        and excessive sweating.
+                    </p>
+                </div>
+
+                <div class="bx-address-grid">
+                    <div class="bx-address-card">
+                        <h3>Expression Lines &amp; Brow Refinement</h3>
+                        <ul>
+                            <li>Forehead lines</li>
+                            <li>Frown lines between eyebrows</li>
+                            <li>Crow’s feet around eyes</li>
+                            <li>Brow lift</li>
+                            <li>Nasal lines (Bunny lines)</li>
+                        </ul>
+                    </div>
+                    <div class="bx-address-card">
+                        <h3>Facial Refinement &amp; Contouring</h3>
+                        <ul>
+                            <li>Lip flip</li>
+                            <li>Downturned mouth corners</li>
+                            <li>Masseter reduction</li>
+                            <li>Jawline slimming</li>
+                        </ul>
+                    </div>
+                    <div class="bx-address-card">
+                        <h3>Skin Quality</h3>
+                        <ul>
+                            <li>Mesobotox for selected concerns involving enlarged pores, excess oiliness and
+                                superficial lines</li>
+                        </ul>
+                    </div>
+                    <div class="bx-address-card">
+                        <h3>Excessive Sweating</h3>
+                        <ul>
+                            <li>Underarm hyperhidrosis</li>
+                            <li>Palmar (palm) hyperhidrosis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             6. WHY D'ZEN
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-why-section" id="why-dzen" aria-labelledby="why-title">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-4">
+                    <span class="hf-eyebrow mb-2">WHY D’ZEN</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3" id="why-title">Precision. Expertise. Thoughtful Enhancement.</h2>
+                    <p class="hf-lead">
+                        At D’Zen Derma, Botox treatments are guided by medical expertise, product quality and an
+                        individualised approach to facial aesthetics.
+                    </p>
+                </div>
+
+                <div class="hf-why-minimal-grid bx-why-grid" id="whyTrack">
+                    <div class="hf-why-minimal-item">
+                        <h3 class="hf-why-minimal-title">Medical Authority</h3>
+                        <div class="hf-why-minimal-divider"></div>
+                        <p class="hf-why-minimal-desc">
+                            All Botulinum Toxin A treatments at D’Zen are performed by qualified medical specialists,
+                            Led by Dr. Aarushi Passi Bhandari, Medical Director and Master Injector.
+                        </p>
+                    </div>
+                    <div class="hf-why-minimal-item">
+                        <h3 class="hf-why-minimal-title">Precision with Restraint</h3>
+                        <div class="hf-why-minimal-divider"></div>
+                        <p class="hf-why-minimal-desc">
+                            Our objective is not to eliminate every line or alter natural expression, but to achieve
+                            subtle, balanced results that preserve individuality. Quick treatment with Minimal Downtime.
+                        </p>
+                    </div>
+                    <div class="hf-why-minimal-item">
+                        <h3 class="hf-why-minimal-title">Trusted Brands &amp; Product Integrity</h3>
+                        <div class="hf-why-minimal-divider"></div>
+                        <p class="hf-why-minimal-desc">
+                            We prioritise established, authentic botulinum toxin brands, with careful attention to
+                            product selection, storage and handling.
+                        </p>
+                    </div>
+                    <div class="hf-why-minimal-item">
+                        <h3 class="hf-why-minimal-title">Personalised Treatment Planning</h3>
+                        <div class="hf-why-minimal-divider"></div>
+                        <p class="hf-why-minimal-desc">
+                            Every face is different. Treatment areas, dosage and injection points as per individual
+                            anatomy, muscle activity and desired outcomes.
+                        </p>
+                    </div>
+                    <div class="hf-why-minimal-item">
+                        <h3 class="hf-why-minimal-title">Holistic Face Harmony</h3>
+                        <div class="hf-why-minimal-divider"></div>
+                        <p class="hf-why-minimal-desc">
+                            Commonly used with fillers for a comprehensive approach to facial rejuvenation
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-4 pt-2">
+                    <a href="contact" class="dz-cta footer-cta-btn">
+                        <span>Book Consultation</span>
+                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Curvy separator: Dark → Cream (#FDF8F3) -->
+            <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill="#FDF8F3" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             7. BENEFITS (Content Left, Image Right)
              ═══════════════════════════════════════════════════════════ -->
         <section id="benefits" aria-labelledby="benefits-title">
             <div class="container">
                 <div class="row align-items-center g-4 g-lg-5 bx-benefits-row">
-                    <!-- Left: Content -->
                     <div class="col-lg-7 bx-benefits-copy">
                         <span class="hf-eyebrow mb-2">OUTCOMES &amp; BENEFITS</span>
                         <div class="nemonic-separator mb-3">
@@ -379,69 +1594,87 @@
                             <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                             <div class="nemonic-line"></div>
                         </div>
-                        <h2 class="hf-heading mb-3" id="benefits-title">Benefits of Botox <span class="scribble">Treatment</span></h2>
-                        <p class="hf-lead mb-4">
-                            When appropriately selected and administered, Botox may help:
-                        </p>
+                        <h2 class="hf-heading mb-4" id="benefits-title">Benefits of <span class="scribble">Botox</span>
+                        </h2>
 
                         <div class="bx-benefits-list">
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Soften the appearance of expression lines</span>
+                                <span><strong>Softer expression lines:</strong> Reduces the appearance of fine lines and
+                                    wrinkles on face.</span>
                             </div>
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Reduce the visibility of certain facial wrinkles</span>
+                                <span><strong>Refreshed appearance:</strong> Helps soften tired or tense facial
+                                    expressions.</span>
                             </div>
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Create a smoother-looking appearance</span>
+                                <span>Quick treatment with minimal downtime</span>
                             </div>
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Provide a refreshed facial appearance</span>
+                                <span><strong>Subtle facial refinement:</strong> Supports selected brow, lip and
+                                    lower-face enhancements.</span>
                             </div>
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Reduce excessive muscle activity in selected areas</span>
+                                <span><strong>Contoured appearance:</strong> May reduce prominent masseter muscle bulk
+                                    and jawline slimming</span>
                             </div>
                             <div class="hf-result-editorial-item">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                                     <polyline points="22 4 12 14.01 9 11.01" />
                                 </svg>
-                                <span>Support a more balanced facial appearance</span>
+                                <span><strong>Improved skin appearance:</strong> Mesobotox may help with selected
+                                    superficial skin concerns.</span>
+                            </div>
+                            <div class="hf-result-editorial-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                                    aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg>
+                                <span><strong>Sweat reduction:</strong> Helps manage excessive sweating in treated
+                                    areas.</span>
                             </div>
                         </div>
 
                         <p class="bx-benefits-note mb-0">
-                            Results and suitability vary depending on facial anatomy, muscle activity and individual
-                            treatment goals.
+                            Results develop gradually, generally over 10–14 days for many facial applications. Duration
+                            varies by treatment and individual response.
                         </p>
                     </div>
 
-                    <!-- Right: Image -->
                     <div class="col-lg-5">
                         <div class="sig-arch-wrap">
                             <div class="sig-arch-glow"></div>
@@ -451,46 +1684,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════════════════════════════════════
-             7. WHAT RESULTS CAN YOU EXPECT?
-             ═══════════════════════════════════════════════════════════ -->
-        <section class="hf-section" id="results" aria-labelledby="results-title">
-            <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
-                    <span class="hf-eyebrow mb-2">REALISTIC EXPECTATIONS</span>
-                    <div class="nemonic-separator mx-auto mb-3">
-                        <div class="nemonic-line"></div>
-                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
-                        <div class="nemonic-line"></div>
-                    </div>
-                    <h2 class="hf-heading mb-3" id="results-title">What Results Can You <span class="scribble">Expect</span>?</h2>
-                </div>
-
-                <div class="bx-understand-text">
-                    <p>
-                        Botox gradually reduces the activity of treated muscles, which can soften the appearance of
-                        certain expression lines. The skin may appear smoother and the face more refreshed.
-                    </p>
-                    <p>
-                        Results are temporary and develop progressively rather than immediately. The duration of results
-                        varies between individuals and depends on factors such as the treatment area, muscle activity
-                        and individual response.
-                    </p>
-                    <p>
-                        Maintaining a natural appearance is an important part of treatment planning, and the amount used
-                        should be appropriate for the desired outcome.
-                    </p>
-                </div>
-
-                <div class="text-center mt-4 pt-2">
-                    <a href="../newthree.html#book" class="dz-cta">
-                        <span>Book Consultation</span>
-                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
-                    </a>
                 </div>
             </div>
 
@@ -503,9 +1696,288 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             8. FREQUENTLY ASKED QUESTIONS (FAQ)
+             8. RISKS, SIDE EFFECTS & RECOVERY
              ═══════════════════════════════════════════════════════════ -->
-        <section id="faq">
+        <section class="hf-section hf-section--alt" id="risks" aria-labelledby="risks-title">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-4">
+                    <span class="hf-eyebrow mb-2">SAFETY &amp; RECOVERY</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3" id="risks-title">Risks, Side Effects &amp; <span
+                            class="scribble">Recovery</span></h2>
+                    <p class="hf-lead">Possible temporary side effects</p>
+                </div>
+
+                <div class="bx-risk-list">
+                    <div class="bx-risk-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Redness, swelling or Mild Tenderness at injection sites</span>
+                    </div>
+                    <div class="bx-risk-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Localised muscle weakness or heaviness</span>
+                    </div>
+                    <div class="bx-risk-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Temporary headache in rare cases</span>
+                    </div>
+                    <div class="bx-risk-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Minimal downtime in most cases.</span>
+                    </div>
+                    <div class="bx-risk-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Certain medical conditions, medications, pregnancy or breastfeeding may affect
+                            eligibility.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             9. STEPS PROCESS (Your Botox treatment journey)
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="lhr-protocol-section" id="process" aria-labelledby="process-title">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-3">
+                    <span class="hf-eyebrow mb-2"
+                        style="color:#FAF9F6 !important;-webkit-text-fill-color: #FAF9F6 !important">CLINICAL
+                        PROCESS</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3" id="process-title">Your Botox Treatment Journey</h2>
+                </div>
+
+                <!-- 4-Step Journey Grid (image + text, horizontal scroll on mobile) -->
+                <div class="lhr-protocol-grid">
+                    <div class="lhr-step-card">
+                        <div class="lhr-step-media">
+                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=700&auto=format&fit=crop"
+                                alt="Consultation and assessment before Botox" loading="lazy" />
+                        </div>
+                        <span class="lhr-phase-num">Step 01</span>
+                        <h3 class="lhr-step-title">Consultation &amp; Assessment</h3>
+                        <p class="lhr-step-desc">Your doctor assesses your facial anatomy, muscle activity, concerns and
+                            medical history to understand your goals and confirm your suitability for treatment.</p>
+                    </div>
+
+                    <div class="lhr-step-card">
+                        <div class="lhr-step-media">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop"
+                                alt="Personalised Botox treatment planning" loading="lazy" />
+                        </div>
+                        <span class="lhr-phase-num">Step 02</span>
+                        <h3 class="lhr-step-title">Personalised Treatment Planning</h3>
+                        <p class="lhr-step-desc">The treatment areas, product, dosage and injection points are
+                            determined according to your anatomy and goals. Your doctor explains expected outcomes,
+                            limitations and possible risks.</p>
+                    </div>
+
+                    <div class="lhr-step-card">
+                        <div class="lhr-step-media">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
+                                alt="The Botox procedure" loading="lazy" />
+                        </div>
+                        <span class="lhr-phase-num">Step 03</span>
+                        <h3 class="lhr-step-title">The Procedure</h3>
+                        <p class="lhr-step-desc">The selected areas are cleansed and injections are administered using
+                            a fine needle at carefully determined points. The procedure usually takes around 15–30
+                            minutes, depending on the areas.</p>
+                    </div>
+
+                    <div class="lhr-step-card">
+                        <div class="lhr-step-media">
+                            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=700&auto=format&fit=crop"
+                                alt="Aftercare and review after Botox" loading="lazy" />
+                        </div>
+                        <span class="lhr-phase-num">Step 04</span>
+                        <h3 class="lhr-step-title">Aftercare &amp; Review</h3>
+                        <p class="lhr-step-desc">Your doctor may recommend a review after approximately two weeks.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-lg-4 pt-2">
+                    <a href="contact" class="dz-cta footer-cta-btn">
+                        <span>Book Consultation</span>
+                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Curvy separator: Dark Gradient → Gallery Cream (#FDF8F3) -->
+            <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path fill="#FDF8F3" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             10. BEFORE & AFTER GALLERY
+             TODO: replace placeholder images with real Botox before/after photos
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="rg-gallery" id="before-after" aria-labelledby="ba-title">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-4">
+                    <span class="hf-eyebrow mb-2">CLINICAL RESULTS</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3" id="ba-title">Before &amp; <span class="scribble">After</span></h2>
+                </div>
+
+                <div class="row g-4 rg-gallery-grid justify-content-lg-center">
+                    <div class="col-md-6 col-lg-4 rg-item">
+                        <div class="rg-ba">
+                            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=700&auto=format&fit=crop"
+                                alt="Botox before and after" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 rg-item">
+                        <div class="rg-ba">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop"
+                                alt="Botox before and after" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 rg-item">
+                        <div class="rg-ba">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
+                                alt="Botox before and after" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             VIDEO SHOWCASE & INSTAGRAM REELS (same as laser-hair-removal.html)
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-video-section" id="video-showcase">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-4">
+                    <span class="hf-eyebrow mb-2">LIVE EXPERIENCES &amp; REELS</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3">
+                        Watch Botox in <span class="scribble">Action</span>
+                    </h2>
+                    <p class="hf-lead">
+                        Explore Botox treatment highlights and expert insights from D’Zen Derma on
+                        Instagram Reels and YouTube.
+                    </p>
+                </div>
+
+                <!-- Video Filter Tabs: Instagram Reels / YouTube -->
+                <div class="hf-video-filter-bar" role="tablist" aria-label="Filter Video Showcase">
+                    <div class="hf-video-filter-bar__pill">
+                        <button type="button" class="hf-vtab-btn active" data-vfilter="insta" role="tab"
+                            aria-selected="true" onclick="filterVideos('insta', this)">
+                            <span class="hf-vtab-icon hf-vtab-icon--insta" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </span>
+                            <span class="hf-vtab-info">
+                                <span class="hf-vtab-name">Instagram</span>
+                                <span class="hf-vtab-role">Trending Reels</span>
+                            </span>
+                        </button>
+                        <button type="button" class="hf-vtab-btn" data-vfilter="youtube" role="tab"
+                            aria-selected="false" onclick="filterVideos('youtube', this)">
+                            <span class="hf-vtab-icon hf-vtab-icon--youtube" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </span>
+                            <span class="hf-vtab-info">
+                                <span class="hf-vtab-name">YouTube</span>
+                                <span class="hf-vtab-role">Clinic Videos</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video cards -->
+                <div class="hf-video-grid">
+
+                    <!-- TODO: replace with the Botox Instagram Reel.
+                         data-video = https://www.instagram.com/reel/REEL_ID/embed/ , data-external = the reel URL,
+                         poster = a locally saved image (Instagram image URLs expire).
+                         Without data-video the card opens data-external in a new tab. -->
+                    <article class="hf-vcard" data-type="insta" data-title="Botox at D’Zen Derma"
+                        data-external="https://www.instagram.com/dzenderma/">
+                        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop"
+                            alt="Botox at D’Zen Derma" class="hf-vcard__poster" loading="lazy" />
+                        <div class="hf-vcard__play-wrap">
+                            <span class="hf-vcard__play" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="8 5 20 12 8 19 8 5" />
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- TODO: replace with the Botox YouTube Short.
+                         data-video = https://www.youtube-nocookie.com/embed/VIDEO_ID , data-external = https://www.youtube.com/shorts/VIDEO_ID ,
+                         poster = https://i.ytimg.com/vi/VIDEO_ID/oardefault.jpg -->
+                    <article class="hf-vcard hf-vcard--short is-hidden" data-type="youtube" data-format="short"
+                        data-title="Botox Treatment Explained" data-external="https://www.youtube.com/@DZenDerma">
+                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&auto=format&fit=crop"
+                            alt="Botox Treatment Explained" class="hf-vcard__poster" loading="lazy" />
+                        <div class="hf-vcard__play-wrap">
+                            <span class="hf-vcard__play" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="8 5 20 12 8 19 8 5" />
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             12. FAQ
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-section hf-section--alt" id="faq">
             <div class="container">
                 <div class="text-center max-w-3xl mx-auto mb-3">
                     <span class="hf-eyebrow mb-2">CLEAR ANSWERS</span>
@@ -520,38 +1992,12 @@
                 <div class="max-w-4xl mx-auto">
                     <details class="hf-faq-item" name="botox-faq" open>
                         <summary class="hf-faq-summary">
-                            <span>What is Botox?</span>
+                            <span>How long does Botox take to show results?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Botox is an injectable treatment that temporarily reduces the activity of selected muscles. It is commonly used to soften certain expression lines and wrinkles.
-                        </div>
-                    </details>
-                    <details class="hf-faq-item" name="botox-faq">
-                        <summary class="hf-faq-summary">
-                            <span>Is Botox a surgical treatment?</span>
-                            <div class="hf-faq-icon">+</div>
-                        </summary>
-                        <div class="hf-faq-body">
-                            No. Botox is a non-surgical injectable treatment performed using a fine needle.
-                        </div>
-                    </details>
-                    <details class="hf-faq-item" name="botox-faq">
-                        <summary class="hf-faq-summary">
-                            <span>Does Botox treatment hurt?</span>
-                            <div class="hf-faq-icon">+</div>
-                        </summary>
-                        <div class="hf-faq-body">
-                            Most people experience only brief discomfort during the injections. The sensation can vary depending on the treatment area and individual sensitivity.
-                        </div>
-                    </details>
-                    <details class="hf-faq-item" name="botox-faq">
-                        <summary class="hf-faq-summary">
-                            <span>How long does Botox take to work?</span>
-                            <div class="hf-faq-icon">+</div>
-                        </summary>
-                        <div class="hf-faq-body">
-                            The effects develop gradually after treatment. The timing can vary between individuals and treatment areas.
+                            Visible results usually start from around day 3, with the full effect generally seen by day
+                            14. Timing varies by treatment area and individual response.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
@@ -560,52 +2006,122 @@
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Results are temporary. How long they remain visible depends on factors such as the treatment area, muscle activity and individual response.
+                            Results typically last around 6 months, though this varies by individual, treatment area and
+                            muscle activity.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
                         <summary class="hf-faq-summary">
-                            <span>Is there downtime after Botox?</span>
+                            <span>Will Botox make my face look frozen or expressionless?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Botox generally involves minimal downtime. Some people may experience temporary redness, swelling or small injection-site marks.
+                            Our objective is not to eliminate every line or alter natural expression. Dosage and
+                            injection points are planned around your anatomy and muscle activity to achieve subtle,
+                            balanced results that preserve individuality.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
                         <summary class="hf-faq-summary">
-                            <span>Can Botox look natural?</span>
+                            <span>Is Botox painful?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            When appropriately planned and administered, Botox can provide a subtle and natural-looking improvement while preserving normal facial expression.
+                            Injections are administered using a fine needle, and most people feel only brief, mild
+                            discomfort. The procedure usually takes around 15–30 minutes, depending on the areas
+                            treated.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
                         <summary class="hf-faq-summary">
-                            <span>Can Botox be used for every wrinkle?</span>
+                            <span>What is the difference between Botox and fillers?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Botox primarily works on wrinkles associated with muscle movement. Wrinkles caused mainly by skin laxity, volume loss or other factors may require a different treatment approach.
+                            Botox relaxes the movement of targeted muscles to soften dynamic wrinkles. It is not a
+                            filler and does not add volume to the face. Fillers restore volume and contour, and the two
+                            are commonly used together for a comprehensive approach to facial rejuvenation.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
                         <summary class="hf-faq-summary">
-                            <span>When can I return to my normal activities?</span>
+                            <span>Can Botox be used for jawline slimming?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Many people can resume normal daily activities shortly after treatment. Specific post-treatment precautions should be followed according to the guidance provided by your doctor.
+                            Yes. Masseter reduction may reduce prominent masseter muscle bulk for a slimmer-looking
+                            jawline. Suitability is assessed during your consultation.
                         </div>
                     </details>
                     <details class="hf-faq-item" name="botox-faq">
                         <summary class="hf-faq-summary">
-                            <span>Is Botox suitable for everyone?</span>
+                            <span>Can Botox help with excessive underarm and palm sweating?</span>
                             <div class="hf-faq-icon">+</div>
                         </summary>
                         <div class="hf-faq-body">
-                            Botox may not be appropriate for every individual. A consultation is important to assess your medical history, facial anatomy, treatment goals and suitability before proceeding.
+                            Yes. Botox can be used for underarm hyperhidrosis and palmar (palm) hyperhidrosis, helping
+                            manage excessive sweating in the treated areas.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>Is there any downtime after Botox?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            There is no downtime in most cases. Some people may notice temporary redness, swelling or
+                            mild tenderness at the injection sites.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>Is Botox safe?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            At D’Zen Derma, Botulinum Toxin A is administered exclusively by qualified medical
+                            specialists using established, authentic brands. Certain medical conditions, medications,
+                            pregnancy or breastfeeding may affect eligibility, so your suitability is assessed at
+                            consultation.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>Can I apply makeup or go to the gym right after getting Botox treatment?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            You are usually advised to avoid applying makeup over the injection sites and to avoid
+                            strenuous exercise for the rest of the day. Your doctor will give you specific aftercare
+                            guidance after treatment.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>Is Botox suitable for men?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            Yes. Botox is suitable for both men and women, and treatment is planned around individual
+                            anatomy and goals.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>How long does a Botox appointment take?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            The procedure usually takes around 15–30 minutes, depending on the areas being treated.
+                        </div>
+                    </details>
+                    <details class="hf-faq-item" name="botox-faq">
+                        <summary class="hf-faq-summary">
+                            <span>Will I need a follow-up after Botox?</span>
+                            <div class="hf-faq-icon">+</div>
+                        </summary>
+                        <div class="hf-faq-body">
+                            Your doctor may recommend a review after approximately two weeks to assess your response.
                         </div>
                     </details>
                 </div>
@@ -613,7 +2129,7 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             9. RELATED & COMPLEMENTARY SERVICES (Horizontal Scrollable)
+             11. RELATED TREATMENTS
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-section hf-related-section" id="related-services">
             <div class="container">
@@ -624,24 +2140,15 @@
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                         <div class="nemonic-line"></div>
                     </div>
-                    <h2 class="hf-heading mb-3">
-                        Explore Related Treatments
-                    </h2>
-                    <p class="hf-lead">
-                        Complementary doctor-led treatments to refresh, lift and balance your features — always tailored to you.
-                    </p>
+                    <h2 class="hf-heading mb-3">Related Treatments at D’Zen Derma</h2>
                 </div>
 
-                <!-- Horizontal Scrollable Track of 5 Services (No Images, Dark Philosophy Style) -->
                 <div class="hf-related-scroll-container">
-                    <div class="hf-related-track" id="relatedTrack">
-                        <!-- Service 1: Jawline Enhancement -->
-                        <a href="jawline-enhancement.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Jawline Enhancement</h3>
+                    <div class="hf-related-track bx-related-track" id="relatedTrack">
+                        <!-- TODO: link each card to its treatment page once created -->
+                        <a href="treatments.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Dermal Fillers</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">
-                                Defines and balances the lower face for a sharper, more sculpted profile that complements your features...
-                            </p>
                             <span class="hf-related-card__action">
                                 <span>Explore Treatment</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -651,14 +2158,9 @@
                                 </svg>
                             </span>
                         </a>
-
-                        <!-- Service 2: HIFU &amp; RF Lifting -->
-                        <a href="hifu.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">HIFU &amp; RF Lifting</h3>
+                        <a href="treatments.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Skin Boosters</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">
-                                Focused ultrasound energy restoring jawline sharpness, collagen density, and youthful elasticity for deep lifting...
-                            </p>
                             <span class="hf-related-card__action">
                                 <span>Explore Treatment</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -668,14 +2170,9 @@
                                 </svg>
                             </span>
                         </a>
-
-                        <!-- Service 3: RF Microneedling -->
-                        <a href="mnrf.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">RF Microneedling</h3>
+                        <a href="dzen-signatures.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">D’Zen Facial Sculpt</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">
-                                Dual radiofrequency and microneedling to remodel the deep dermal matrix, minimize pores, and smooth texture...
-                            </p>
                             <span class="hf-related-card__action">
                                 <span>Explore Treatment</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -685,31 +2182,9 @@
                                 </svg>
                             </span>
                         </a>
-
-                        <!-- Service 4: Clinical Medipeels -->
-                        <a href="../treatments/face/medipeels.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Clinical Medipeels</h3>
+                        <a href="treatments.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Threads</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">
-                                Bespoke chemical resurfacing to accelerate cell turnover, clear stubborn pigmentation, and restore luminous complexion...
-                            </p>
-                            <span class="hf-related-card__action">
-                                <span>Explore Treatment</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </span>
-                        </a>
-
-                        <!-- Service 5: Hydrafacial -->
-                        <a href="hydrafacial-new.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Hydrafacial</h3>
-                            <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">
-                                Multi-step cleansing, exfoliation, extraction and hydration for a deeper cleanse, smoother skin and a fresher glow...
-                            </p>
                             <span class="hf-related-card__action">
                                 <span>Explore Treatment</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -723,155 +2198,47 @@
                 </div>
             </div>
 
-            <!-- Curvy separator: Related Dark (#4b2b20) → Locations Warm Cream (#FAF7F2) -->
+            <!-- Curvy separator: Related Dark → Clinic Locations Cream (#FDF8F3) -->
             <div class="section-separator" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#FAF7F2" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
+                    <path fill="#FDF8F3" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
                 </svg>
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════
-             12. CLINIC LOCATIONS (Directly from index.html)
-             ═══════════════════════════════════════════════════════════ -->
-        <section class="clinic-locations-section" id="locations" aria-labelledby="locations-heading">
-            <div class="container">
-                <div class="section-header text-center mb-4 mb-lg-5">
-                    <span class="hf-eyebrow">OUR CLINICS</span>
-                    <div class="nemonic-separator mx-auto mb-3">
-                        <div class="nemonic-line"></div>
-                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
-                        <div class="nemonic-line"></div>
-                    </div>
-                    <h2 id="locations-heading" class="hf-heading">Two Sanctuaries, One <span
-                            class="scribble">Standard</span></h2>
-                    <p class="section-desc hf-section-desc--wide mx-auto">
-                        Visit our state-of-the-art aesthetic clinics in South Delhi and Gurgaon. Experience personalized
-                        medical care, advanced regenerative technologies, and serene luxury.
-                    </p>
-                </div>
-
-                <!-- Tab Pills for Mobile View -->
-                <div class="clinic-tabs" role="tablist" aria-label="Select Clinic Location">
-                    <div class="clinic-tabs__pill">
-                        <button class="clinic-tab active" role="tab" aria-selected="true" data-clinic="0">
-                            <img class="clinic-tab__img"
-                                src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=200&auto=format&fit=crop"
-                                alt="Delhi Clinic" />
-                            <span class="clinic-tab__info">
-                                <span class="clinic-tab__name">New Delhi</span>
-                                <span class="clinic-tab__role">Lajpat Nagar</span>
-                            </span>
-                        </button>
-                        <button class="clinic-tab" role="tab" aria-selected="false" data-clinic="1">
-                            <img class="clinic-tab__img"
-                                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=200&auto=format&fit=crop"
-                                alt="Gurgaon Clinic" />
-                            <span class="clinic-tab__info">
-                                <span class="clinic-tab__name">Gurgaon</span>
-                                <span class="clinic-tab__role">Golf Course Rd</span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="row g-4 justify-content-center clinic-locations-grid">
-                    <!-- Delhi Clinic -->
-                    <div class="col-lg-6 col-md-6 clinic-loc-col active" data-clinic-index="0">
-                        <article class="clinic-loc-card">
-                            <div class="clinic-loc-card__media">
-                                <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=800&auto=format&fit=crop"
-                                    alt="D'Zen Derma Clinic, Lajpat Nagar, New Delhi" class="clinic-loc-card__img" />
-                            </div>
-                            <div class="clinic-loc-card__body">
-                                <span class="clinic-loc-card__eyebrow">NEW DELHI</span>
-                                <h3 class="clinic-loc-card__title">D'Zen Derma, Lajpat Nagar</h3>
-                                <ul class="clinic-loc-card__info">
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            aria-hidden="true">
-                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                            <circle cx="12" cy="10" r="3" />
-                                        </svg>
-                                        <span>18A, Ring Rd, Near Havells, Vikram Vihar, Lajpat Nagar 4, New Delhi</span>
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                                        </svg>
-                                        <a href="tel:+919773771610">+91-9773771610</a>
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                                            <path d="m22 7-10 6L2 7" />
-                                        </svg>
-                                        <a href="mailto:care@dzenderma.com">care@dzenderma.com</a>
-                                    </li>
-                                </ul>
-                                <div class="clinic-loc-card__actions">
-                                    <a href="https://www.google.com/maps/place/D'Zen+Derma+by+Dr.+Aarushi+Passi:+Cosmetic+%26+Integrative+Skin+Clinic+in+Lajpat+Nagar,+Delhi/@28.5607867,77.2357829,728m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390ce3e6ec57fafb:0xdad55619fcec33ab!8m2!3d28.5607867!4d77.2383578!16s%2Fg%2F11vxtv92jj?entry=ttu&amp;g_ep=EgoyMDI2MTEwOC4wIKXMDSoASAFQAw%3D%3D"
-                                        target="_blank" rel="noopener" class="dz-cta">
-                                        <span>Get Directions</span>
-                                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Gurgaon Clinic -->
-                    <div class="col-lg-6 col-md-6 clinic-loc-col" data-clinic-index="1">
-                        <article class="clinic-loc-card">
-                            <div class="clinic-loc-card__media">
-                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
-                                    alt="D'Zen Derma Clinic, Golf Course Road, Gurgaon" class="clinic-loc-card__img" />
-                            </div>
-                            <div class="clinic-loc-card__body">
-                                <span class="clinic-loc-card__eyebrow">GURUGRAM</span>
-                                <h3 class="clinic-loc-card__title">D'Zen Derma, Golf Course Road</h3>
-                                <ul class="clinic-loc-card__info">
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                            aria-hidden="true">
-                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                            <circle cx="12" cy="10" r="3" />
-                                        </svg>
-                                        <span>Golf Course Road, Near DLF Phase 1, Sector 28, Gurugram, Haryana</span>
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                                        </svg>
-                                        <a href="tel:+919773771610">+91-9773771610</a>
-                                    </li>
-                                    <li>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                            <rect x="2" y="4" width="20" height="16" rx="2" />
-                                            <path d="m22 7-10 6L2 7" />
-                                        </svg>
-                                        <a href="mailto:care@dzenderma.com">care@dzenderma.com</a>
-                                    </li>
-                                </ul>
-                                <div class="clinic-loc-card__actions">
-                                    <a href="https://www.google.com/maps/place/D'Zen+Derma+by+Dr.+Aarushi+Passi:+Cosmetic+%26+Integrative+Skin+Clinic+in+Gurgaon/@28.4719351,77.0908131,729m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390d1960b0f6defd:0x3b2b5d165c87cb08!8m2!3d28.4719304!4d77.093388!16s%2Fg%2F11ll_3fb86?entry=ttu&amp;g_ep=EgoyMDI2MTEwOC4wIKXMDSoASAFQAw%3D%3D"
-                                        target="_blank" rel="noopener" class="dz-cta">
-                                        <span>Get Directions</span>
-                                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
+
+
+    <!-- ═══════════════════════════════════════════════════════════
+     VIDEO PLAYER LIGHTBOX MODAL
+     ═══════════════════════════════════════════════════════════ -->
+    <div id="hfVideoModal" class="hf-vmodal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-label="Video player">
+        <div class="hf-vmodal__dialog" id="hfModalDialog">
+            <div class="hf-vmodal__header">
+                <button type="button" class="hf-vmodal__close ms-auto" id="hfModalClose" aria-label="Close video">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="hf-vmodal__player hf-vmodal__player--16-9" id="hfModalPlayerWrap">
+                <iframe id="hfModalIframe" src="" title="Video Player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="hf-vmodal__footer">
+                <a href="contact" class="dz-cta hf-vmodal__cta">
+                    <span>Book Consultation</span>
+                    <img src="nemonic1.png" class="btn-icon" alt="icon" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="site-footer"></div>
 
@@ -958,6 +2325,71 @@
         }
 
         enableDragScroll(document.getElementById('relatedTrack'));
+        enableDragScroll(document.getElementById('whyTrack'));
+
+        // ── Video showcase: tabs + lightbox (from laser-hair-removal.html) ──
+        (function () {
+            var vmodal = document.getElementById('hfVideoModal');
+            var vdialog = document.getElementById('hfModalDialog');
+            var vplayerWrap = document.getElementById('hfModalPlayerWrap');
+            var viframe = document.getElementById('hfModalIframe');
+
+            window.filterVideos = function (filter, btn) {
+                document.querySelectorAll('.hf-vtab-btn').forEach(function (b) {
+                    var on = btn ? b === btn : b.getAttribute('data-vfilter') === filter;
+                    b.classList.toggle('active', on);
+                    b.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+                document.querySelectorAll('.hf-vcard').forEach(function (card) {
+                    var show = filter === 'all' || card.getAttribute('data-type') === filter;
+                    card.style.display = show ? 'flex' : 'none';
+                    card.classList.toggle('is-hidden', !show);
+                });
+                var vgrid = document.querySelector('.hf-video-grid');
+                if (vgrid) {
+                    vgrid.classList.toggle('is-single', vgrid.querySelectorAll('.hf-vcard:not(.is-hidden)').length === 1);
+                    vgrid.scrollTo({ left: 0, behavior: 'smooth' });
+                }
+            };
+
+            window.openVideoModal = function (card) {
+                var videoSrc = card.getAttribute('data-video');
+                var extUrl = card.getAttribute('data-external');
+                // No video set yet: open the external page instead of an empty player
+                if (!videoSrc) {
+                    if (extUrl) window.open(extUrl, '_blank', 'noopener');
+                    return;
+                }
+                if (!vmodal || !viframe) return;
+                var reel = card.getAttribute('data-type') === 'insta' || card.getAttribute('data-format') === 'short';
+                if (vdialog) vdialog.classList.toggle('hf-vmodal__dialog--reel', reel);
+                if (vplayerWrap) vplayerWrap.className = 'hf-vmodal__player ' + (reel ? 'hf-vmodal__player--9-16' : 'hf-vmodal__player--16-9');
+                viframe.src = videoSrc + (videoSrc.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1&rel=0&playsinline=1';
+                vmodal.classList.add('is-open');
+                vmodal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeVideoModal = function () {
+                if (!vmodal || !viframe) return;
+                vmodal.classList.remove('is-open');
+                vmodal.setAttribute('aria-hidden', 'true');
+                viframe.src = '';
+                document.body.style.overflow = '';
+            };
+
+            document.querySelectorAll('.hf-vcard').forEach(function (card) {
+                card.addEventListener('click', function () { window.openVideoModal(card); });
+            });
+            window.filterVideos('insta');
+
+            var vclose = document.getElementById('hfModalClose');
+            if (vclose) vclose.addEventListener('click', window.closeVideoModal);
+            if (vmodal) vmodal.addEventListener('click', function (e) { if (e.target === vmodal) window.closeVideoModal(); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && vmodal && vmodal.classList.contains('is-open')) window.closeVideoModal();
+            });
+        })();
     </script>
 
     <!-- Floating Bottom Action Bar -->
@@ -983,8 +2415,8 @@
             <span class="btn-label">Call Now</span>
         </a>
         <div class="bottom-action-divider"></div>
-        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation." class="bottom-action-btn" target="_blank" rel="noopener"
-            aria-label="Chat on WhatsApp">
+        <a href="https://wa.me/919773771610?text=Hi%20D%27Zen%20Derma%2C%20I%27d%20like%20to%20book%20a%20consultation."
+            class="bottom-action-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
             <svg class="bottom-action-wa" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
                 <path fill="#25D366"
                     d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.47 9.47 0 0 1-4.83-1.32l-.35-.21-3.59.94.96-3.5-.23-.36a9.43 9.43 0 0 1-1.45-5.03C2.54 6.79 6.8 2.53 12.05 2.53c2.54 0 4.93.99 6.72 2.79a9.43 9.43 0 0 1 2.78 6.72c0 5.24-4.27 9.46-9.51 9.46zm8.09-17.55A11.36 11.36 0 0 0 12.04.6C5.74.6.61 5.72.61 12.02c0 2.01.53 3.98 1.53 5.71L.52 23.4l5.8-1.52a11.4 11.4 0 0 0 5.72 1.46h.01c6.3 0 11.42-5.13 11.43-11.43a11.36 11.36 0 0 0-3.35-8.07z" />
