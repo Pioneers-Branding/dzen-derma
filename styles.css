@@ -7048,6 +7048,15 @@ html body .tm-card__quote {
 /* ==========================================================================
    OPTION B (LINEAR GRADIENT & CONTOUR TEXTURE) — EXACT HEADER DESIGN
    ========================================================================== */
+
+@media (max-width:600px) and (min-width:300px) {
+
+    .hB,
+    .breadcrumb-header {
+        min-height: 275px !important;
+    }
+}
+
 .hB,
 .breadcrumb-header {
     position: relative;
