@@ -6375,6 +6375,21 @@ html body .tm-card__quote {
     background: #EFE4D6;
 }
 
+/* Desktop (both cards side by side): the near-square 644/612 panel left a
+   large empty area under the bio. Use a wider, shorter panel and let the
+   portrait fill more of its height so the card hugs its content. */
+@media (min-width: 992px) {
+    .tm-card {
+        aspect-ratio: 644 / 440;
+        padding: 5.5% 4.5%;
+    }
+
+    .tm-card__imagewrap {
+        height: 92%;
+        bottom: -8%;
+    }
+}
+
 @keyframes tmCardFade {
     from {
         opacity: 0;
