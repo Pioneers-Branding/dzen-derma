@@ -1211,15 +1211,15 @@
         }
 
         /* Why D'Zen was born: two lead paragraphs in the trainer-v3 header */
-        #adz-born .section-desc + .section-desc {
+        #adz-born .section-desc+.section-desc {
             margin-top: 12px;
         }
 
         /* What we believe: centred header, belief statement, one joined
            "chosen over rejected" panel, brown quote banner */
         #adz-believe {
-            background: linear-gradient(180deg, #FFFFFF 0%, #FDF8F3 100%);
-            padding: clamp(64px, 7vw, 100px) 0;
+            background: linear-gradient(to top, #F4EFE8, #FDF8F3);
+            padding: clamp(50px, 7vw, 100px) 0;
         }
 
         html body #adz-believe .azb-desc {
@@ -1246,97 +1246,107 @@
             -webkit-text-fill-color: #8B4513;
         }
 
+        /* Box-less "balance beam": one gold hairline runs through all three
+           columns; chosen value sits above it, the rejected one below */
         .azb-panel {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            max-width: 1080px;
-            margin: clamp(36px, 4vw, 52px) auto 0;
-            background: #FFFFFF;
-            border: 1px solid rgba(196, 146, 74, .25);
-            border-radius: 28px;
-            box-shadow: 0 30px 60px -40px rgba(43, 26, 18, .35);
-            overflow: hidden;
+            max-width: 1120px;
+            margin: clamp(44px, 5vw, 64px) auto 0;
         }
 
         .azb-col {
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: clamp(34px, 3.6vw, 48px) clamp(18px, 2vw, 30px);
-            transition: background .35s ease;
-        }
-
-        .azb-col + .azb-col {
-            border-left: 1px solid rgba(196, 146, 74, .2);
-        }
-
-        .azb-col::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #8b4513, #C4924A);
-            transform: translateX(-50%);
-            transition: width .4s ease;
-        }
-
-        .azb-col:hover {
-            background: #FDF8F3;
-        }
-
-        .azb-col:hover::after {
-            width: 60%;
+            --azb-pad: clamp(8px, 1.4vw, 20px);
+            padding: 0 var(--azb-pad);
         }
 
         .azb-col__num {
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 2.4px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-size: 15px;
             color: #C4924A;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
         .azb-col__yes {
             font-family: 'Playfair Display', Georgia, serif;
             font-weight: 400;
-            font-size: clamp(21px, 2vw, 26px);
-            line-height: 1.25;
+            font-size: clamp(22px, 2.1vw, 28px);
+            line-height: 1.2;
             color: #4B2B20;
+            white-space: nowrap;
+            transition: color .3s ease;
         }
 
+        /* The beam: lines on both sides of "over" stretch to the column edges,
+           and the columns touch, so the three segments read as one line */
         .azb-col__over {
+            align-self: stretch;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin: 14px 0 12px;
+            gap: 14px;
+            margin: 18px calc(-1 * var(--azb-pad)) 16px;
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
             font-size: 15px;
-            color: #C4924A;
+            color: #8B4513;
         }
 
         .azb-col__over::before,
         .azb-col__over::after {
             content: "";
-            width: 34px;
+            flex: 1;
             height: 1px;
             background: rgba(196, 146, 74, .55);
+        }
+
+        .azb-col__over span {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid rgba(196, 146, 74, .55);
+            background: #FDF8F3;
+            transition: background .3s ease, color .3s ease, border-color .3s ease;
+        }
+
+        /* Gold end-caps on the beam */
+        .azb-col:first-child .azb-col__over::before,
+        .azb-col:last-child .azb-col__over::after {
+            background: linear-gradient(90deg, transparent, rgba(196, 146, 74, .55));
+        }
+
+        .azb-col:last-child .azb-col__over::after {
+            background: linear-gradient(90deg, rgba(196, 146, 74, .55), transparent);
         }
 
         .azb-col__no {
             font-family: 'Inter', sans-serif;
             font-size: 12px;
             font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
             color: #a8998b;
             text-decoration: line-through;
             text-decoration-color: rgba(196, 146, 74, .6);
+        }
+
+        .azb-col:hover .azb-col__yes {
+            color: #8B4513;
+        }
+
+        .azb-col:hover .azb-col__over span {
+            background: #4B2B20;
+            border-color: #4B2B20;
+            color: #FAF9F6;
         }
 
         .azb-quote {
@@ -1375,20 +1385,82 @@
         }
 
         @media (max-width: 767.98px) {
-            .azb-panel {
-                grid-template-columns: 1fr;
-                max-width: 440px;
-            }
-
-            .azb-col + .azb-col {
-                border-left: 0;
-                border-top: 1px solid rgba(196, 146, 74, .2);
-            }
-
             .azb-quote {
                 flex-direction: column;
                 text-align: center;
                 max-width: 440px;
+            }
+        }
+
+        /* Tablet & mobile: each belief becomes a compact two-line row
+           (number | chosen value / "over" + rejected value) */
+        @media (max-width: 991.98px) {
+            .azb-panel {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin-top: 28px;
+                border-top: 1px solid rgba(196, 146, 74, .3);
+            }
+
+            .azb-col {
+                display: grid;
+                grid-template-columns: auto auto 1fr;
+                column-gap: 14px;
+                row-gap: 4px;
+                align-items: center;
+                text-align: left;
+                padding: 16px 4px;
+                border-bottom: 1px solid rgba(196, 146, 74, .3);
+            }
+
+            .azb-col__num {
+                grid-row: 1 / span 2;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                margin: 0;
+                border-radius: 50%;
+                border: 1px solid rgba(196, 146, 74, .55);
+                font-size: 14px;
+            }
+
+            .azb-col__yes {
+                grid-column: 2 / span 2;
+                white-space: normal;
+                font-size: 21px;
+            }
+
+            .azb-col__over {
+                grid-column: 2;
+                align-self: center;
+                margin: 0;
+                gap: 0;
+            }
+
+            .azb-col__over::before,
+            .azb-col__over::after {
+                display: none;
+            }
+
+            .azb-col__over span {
+                width: auto;
+                height: auto;
+                border: 0;
+                background: none;
+                font-size: 14px;
+            }
+
+            .azb-col:hover .azb-col__over span {
+                background: none;
+                color: #8B4513;
+            }
+
+            .azb-col__no {
+                grid-column: 3;
+                font-size: 11px;
+                letter-spacing: 1.8px;
             }
         }
 
@@ -1426,7 +1498,7 @@
             align-items: center;
             justify-content: center;
             gap: 14px;
-            margin: clamp(32px, 3.5vw, 44px) 0 18px !important;
+            margin: clamp(20px, 3.5vw, 44px) 0 18px !important;
             font-family: 'Inter', system-ui, sans-serif !important;
             font-size: 11px !important;
             font-weight: 600 !important;
@@ -1434,6 +1506,7 @@
             text-transform: uppercase;
             color: #E8C99A !important;
             -webkit-text-fill-color: #E8C99A !important;
+            text-align: center;
         }
 
         #brand-philosophy .adz-phil-label::before,
@@ -1444,63 +1517,159 @@
             background: rgba(232, 201, 154, .5);
         }
 
-        /* Closing quote */
+        /* "Five Dimensions" ends on its own cream wave: drop its bottom
+           padding (index.html does the same) so no grey strip shows below it */
+        html body .service-arch-section {
+            padding-bottom: 0 !important;
+        }
+
+        /* Closing quote: brown band bookending the page, cream waves in/out */
         #adz-closing {
-            background: var(--adz-cream);
-            padding: clamp(56px, 7vw, 96px) 0 clamp(64px, 8vw, 110px);
-        }
-
-        .adz-closing {
-            max-width: 900px;
-            margin: 0 auto;
+            isolation: isolate;
+            overflow: hidden;
+            background: linear-gradient(35deg, #4b2b20 0%, #8b4513 100%);
+            padding: clamp(120px, 12vw, 170px) 0 clamp(130px, 13vw, 180px);
             text-align: center;
-            padding: clamp(40px, 5vw, 64px) clamp(22px, 5vw, 72px);
-            background: #FFFFFF;
-            border: 1px solid rgba(196, 146, 74, .28);
-            border-radius: 28px;
-            box-shadow: 0 28px 70px -30px rgba(43, 26, 18, .25);
         }
 
-        .adz-closing__mark {
-            width: 40px;
-            height: auto;
-            opacity: .85;
-            margin-bottom: 18px;
+        #adz-closing::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 55% at 50% 0%, rgba(232, 201, 154, 0.14) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 85% 100%, rgba(143, 113, 74, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .adz-closing blockquote {
+        #adz-closing .adz-wave--top {
+            top: -1px;
+        }
+
+        #adz-closing .adz-wave--bottom {
+            top: auto;
+            bottom: -1px;
+        }
+
+        .azc-watermark {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: clamp(280px, 38vw, 520px);
+            transform: translate(-50%, -50%);
+            filter: brightness(0) invert(1);
+            opacity: .05;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .azc {
+            position: relative;
+            z-index: 2;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .azc__mark {
+            display: block;
             font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            font-size: clamp(19px, 2.1vw, 27px);
-            line-height: 1.55;
-            color: #4B2B20;
-            margin: 0;
+            font-size: clamp(90px, 9vw, 130px);
+            line-height: .6;
+            height: clamp(46px, 4.6vw, 64px);
+            color: #E8C99A;
+            opacity: .85;
         }
 
-        .adz-closing figcaption {
-            margin-top: 24px;
+        html body .azc__quote {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-size: clamp(22px, 2.5vw, 34px) !important;
+            line-height: 1.5 !important;
+            color: #FAF9F6 !important;
+            -webkit-text-fill-color: #FAF9F6 !important;
+        }
+
+        html body .azc__quote em {
+            color: #E8C99A !important;
+            -webkit-text-fill-color: #E8C99A !important;
+        }
+
+        .azc__sign {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-top: clamp(26px, 3vw, 38px);
+        }
+
+        .azc__rule {
+            width: 44px;
+            height: 1px;
+            background: rgba(232, 201, 154, .55);
+        }
+
+        .azc__brand {
             font-family: 'Inter', sans-serif;
             font-size: 12px;
             font-weight: 600;
-            letter-spacing: 2.6px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: #8B4513;
+            color: #FAF9F6;
         }
 
-        .adz-closing figcaption em {
+        .azc__tagline {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0;
-            font-size: 16px;
+            font-size: 17px;
+            color: #E8C99A;
         }
 
-        .adz-closing__actions {
-            justify-content: center;
-            margin-top: 28px;
+        .azc__actions {
+            margin-top: clamp(28px, 3vw, 40px);
         }
 
+        /* Light button so it reads on the brown band */
+        html body #adz-closing .azc__btn {
+            background: #FAF9F6 !important;
+            color: #4B2B20 !important;
+            -webkit-text-fill-color: #4B2B20 !important;
+            border: 0 !important;
+            box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .45) !important;
+        }
+
+        html body #adz-closing .azc__btn span {
+            color: #4B2B20 !important;
+            -webkit-text-fill-color: #4B2B20 !important;
+        }
+
+        /* Site rule forces the icon white (!important); make it brown here */
+        html body #adz-closing .azc__btn img.btn-icon {
+            filter: brightness(0) invert(18%) sepia(40%) saturate(900%) hue-rotate(340deg) !important;
+        }
+
+        html body #adz-closing .azc__btn:hover {
+            background: #E8C99A !important;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 575.98px) {
+            #adz-closing .adz-wave {
+                height: 50px;
+            }
+
+            .azc__rule {
+                display: none;
+            }
+
+            .azc__sign {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
     </style>
 </head>
 
@@ -1595,7 +1764,7 @@
                     <div class="trainer-v3-quote">
                         <div class="trainer-v3-quote-text">
                             <span class="trainer-v3-quote-mark trainer-v3-quote-mark--open"
-                                aria-hidden="true">“</span>Looking better was part of feeling better. That vision
+                                aria-hidden="true">“</span>Looking better was part of feeling better.<br> That vision
                             became D'Zen Derma.<span class="trainer-v3-quote-mark trainer-v3-quote-mark--close"
                                 aria-hidden="true">”</span>
                         </div>
@@ -1643,19 +1812,19 @@
                     <div class="azb-col" role="listitem">
                         <span class="azb-col__num">01</span>
                         <strong class="azb-col__yes">Informed Choices</strong>
-                        <span class="azb-col__over">over</span>
+                        <span class="azb-col__over"><span>over</span></span>
                         <span class="azb-col__no">Passing Trends</span>
                     </div>
                     <div class="azb-col" role="listitem">
                         <span class="azb-col__num">02</span>
                         <strong class="azb-col__yes">Personalisation</strong>
-                        <span class="azb-col__over">over</span>
+                        <span class="azb-col__over"><span>over</span></span>
                         <span class="azb-col__no">Standardisation</span>
                     </div>
                     <div class="azb-col" role="listitem">
                         <span class="azb-col__num">03</span>
                         <strong class="azb-col__yes">Thoughtful Enhancement</strong>
-                        <span class="azb-col__over">over</span>
+                        <span class="azb-col__over"><span>over</span></span>
                         <span class="azb-col__no">Excess</span>
                     </div>
                 </div>
@@ -1670,13 +1839,15 @@
         <!-- ═══════════════════════════════════════════════════════════
              4. OUR PHILOSOPHY + PRINCIPLES (home "Principles" band)
              ═══════════════════════════════════════════════════════════ -->
-        <section class="brand-philosophy-strip-section" id="brand-philosophy" aria-labelledby="philosophy-section-title">
+        <section class="brand-philosophy-strip-section" id="brand-philosophy"
+            aria-labelledby="philosophy-section-title">
             <div class="philosophy-strip-container">
 
                 <div class="philosophy-strip-inner opt12-container">
                     <div class="section-header text-center mb-2">
                         <span class="section-subtitle"
-                            style="color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important; opacity: 0.95;">OUR PHILOSOPHY</span>
+                            style="color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important; opacity: 0.95;">OUR
+                            PHILOSOPHY</span>
                         <div class="nemonic-separator">
                             <div class="nemonic-line" style="background: rgba(250, 249, 246, 0.45) !important;"></div>
                             <img loading="lazy" decoding="async" src="logo-header.png" alt="nemonic"
@@ -1685,11 +1856,16 @@
                         </div>
                         <h2 id="philosophy-section-title" class="section-title"
                             style="color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important;">
-                            Balance Is at the <span class="scribble" style="color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important;">Heart</span> of D’Zen
+                            Balance Is at the <span class="scribble"
+                                style="color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important;">Heart</span>
+                            of D’Zen
                         </h2>
                         <p class="section-desc mx-auto"
                             style="max-width: 760px; color: #FAF9F6 !important; -webkit-text-fill-color: #FAF9F6 !important; opacity: 0.92;">
-                            The relationship between inner well-being and outer beauty, scientific precision and personal care, enhancement and acceptance. Because beauty is not about doing more — it is about knowing what to enhance, what to restore and when less is more.
+                            The relationship between inner well-being and outer beauty, scientific precision and
+                            personal care, enhancement and acceptance.<br> Because beauty is not about doing more — it
+                            is
+                            about knowing what to enhance, what to restore and when less is more.
                         </p>
                     </div>
 
@@ -2022,35 +2198,47 @@
                     </article>
                 </div>
             </div>
-
-            <!-- Curvy separator: white expertise → cream closing -->
-            <div class="section-separator" aria-hidden="true">
-                <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#FDF8F3" d="M0,50 C400,110 1040,-10 1440,50 L1440,100 L0,100 Z"></path>
-                </svg>
-            </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
              8. CLOSING QUOTE
              ═══════════════════════════════════════════════════════════ -->
         <section class="adz" id="adz-closing" aria-label="A closing note">
+            <div class="adz-wave adz-wave--top" aria-hidden="true">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path fill="#F4EFE8" d="M0,50 C400,-10 1040,110 1440,50 L1440,0 L0,0 Z" />
+                </svg>
+            </div>
+
+            <img src="logo-header.png" alt="" aria-hidden="true" class="azc-watermark" />
+
             <div class="container">
-                <figure class="adz-closing">
-                    <img src="logo-header.png" alt="" aria-hidden="true" class="adz-closing__mark" />
-                    <blockquote>
-                        “When you leave D'Zen, we hope you carry more than the results of a treatment. We hope you
-                        carry a little more confidence, a sense of well-being and the feeling of being your best
-                        self.”
+                <figure class="azc">
+                    <span class="azc__mark" aria-hidden="true">“</span>
+                    <blockquote class="azc__quote">
+                        When you leave D'Zen, we hope you carry more than the results of a treatment.
+                        <em>We hope you carry a little more confidence, a sense of well-being and the feeling of being
+                            your best self.</em>
                     </blockquote>
-                    <figcaption>D'Zen Derma. <em>Beauty is in the Balance.</em></figcaption>
-                    <div class="adz-actions adz-closing__actions">
-                        <a href="contact" class="dz-cta footer-cta-btn">
+                    <figcaption class="azc__sign">
+                        <span class="azc__rule" aria-hidden="true"></span>
+                        <span class="azc__brand">D'Zen Derma</span>
+                        <span class="azc__tagline">Beauty is in the Balance.</span>
+                        <span class="azc__rule" aria-hidden="true"></span>
+                    </figcaption>
+                    <div class="azc__actions">
+                        <a href="contact" class="dz-cta azc__btn">
                             <span>Book a Consultation</span>
                             <img src="nemonic1.png" class="btn-icon" alt="" />
                         </a>
                     </div>
                 </figure>
+            </div>
+
+            <div class="adz-wave adz-wave--bottom" aria-hidden="true">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path fill="#FDF8F3" d="M0,50 C400,110 1040,-10 1440,50 L1440,100 L0,100 Z" />
+                </svg>
             </div>
         </section>
 
