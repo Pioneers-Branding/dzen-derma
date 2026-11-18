@@ -748,7 +748,7 @@ body {
 .about-v2 {
     position: relative;
     padding: clamp(50px, 5vw, 80px) 0;
-    background: #FDF8F3;
+    background: linear-gradient(to top, #F4EFE8, #FDF8F3);
 
 }
 
@@ -5311,6 +5311,23 @@ html body .concerns-textblock h2,
 html body .hf-heading:not(.hf-hero .hf-heading),
 html body .lhr-heading:not(.lhr-hero .lhr-heading) {
     font-size: 23px !important;
+}
+
+/* Main section headings: 30px from 768px (tablet) up to desktop;
+   below 768px the 23px size above stays unchanged for mobile */
+@media (min-width: 768px) {
+    html body .about-v2__title,
+    html body .doctors-v2__title,
+    html body .trainer-v2__title,
+    html body .section-title,
+    html body .sig-intro-heading,
+    html body .testimonials-heading,
+    html body .footer-cta-heading,
+    html body .concerns-textblock h2,
+    html body .hf-heading:not(.hf-hero .hf-heading),
+    html body .lhr-heading:not(.lhr-hero .lhr-heading) {
+        font-size: 30px !important;
+    }
 }
 
 html body .hf-section--alt,
