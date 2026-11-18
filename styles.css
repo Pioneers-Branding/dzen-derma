@@ -38,7 +38,7 @@ body {
     box-sizing: border-box;
 
     /* ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ Transparent by default (over hero) ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ */
-    background: transparent;
+    background: #FAF9F6;
     border-bottom: 1px solid transparent;
     box-shadow: none;
 
@@ -15586,7 +15586,7 @@ html body:where(.dz-page-about-clinic) #clinic-commitment {
 
 /* Floating Pill navbar styling */
 :where(.dz-page-about-clinic) .pnav {
-    background: #ffffff !important;
+    background: #FAF9F6 !important;
     border-bottom: 1px solid rgba(180, 140, 90, 0.14) !important;
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06) !important;
 }
