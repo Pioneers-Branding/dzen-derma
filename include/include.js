@@ -340,7 +340,7 @@
 
     <!-- Debossed Typography Block -->
     <div class="typography-stage">
-        <h1 class="deboss-wordmark" id="wordmark">D'ZEN DERMA</h1>
+        <h3 class="deboss-wordmark" id="wordmark">D'ZEN DERMA</h3>
         <p class="deboss-tagline">Elevating You Inside Out</p>
     </div>
 </section>

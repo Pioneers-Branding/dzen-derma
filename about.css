@@ -14,7 +14,7 @@
    opaque state via the page class instead.
    ========================================================= */
 .ab-page .pnav {
-    background: #FAF9F6;
+    background: #ffffff;
     border-bottom: 1px solid rgba(180, 140, 90, 0.14);
     box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
 }
