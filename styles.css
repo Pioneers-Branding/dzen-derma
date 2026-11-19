@@ -4274,10 +4274,10 @@ html body #brand-philosophy .nemonic-icon {
     /* Arch shape on mobile for every page EXCEPT the home Signature section,
        which morphs (see "Home Signature Services: morphing blob" below) —
        an !important radius there would freeze the animation */
-    .sig-oval-frame:not(#sigServicesZone .sig-oval-frame),
+    /* .sig-oval-frame:not(#sigServicesZone .sig-oval-frame),
     .sig-oval-img:not(#sigServicesZone .sig-oval-img) {
         border-radius: 500px 500px 10px 10px !important;
-    }
+    } */
 
     .sig-panel--intro {
         min-height: auto;
@@ -5224,8 +5224,8 @@ h2:not(#brand-philosophy h2):not(.brand-philosophy-strip-section h2) .scribble {
 }
 
 .nemonic-separator .nemonic-icon {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     object-fit: contain;
 }
 
@@ -5316,6 +5316,7 @@ html body .lhr-heading:not(.lhr-hero .lhr-heading) {
 /* Main section headings: 30px from 768px (tablet) up to desktop;
    below 768px the 23px size above stays unchanged for mobile */
 @media (min-width: 768px) {
+
     html body .about-v2__title,
     html body .doctors-v2__title,
     html body .trainer-v2__title,
@@ -7168,8 +7169,8 @@ html body .tm-card__quote {
 
 .hB .nemonic-separator .nemonic-icon,
 .breadcrumb-header .nemonic-separator .nemonic-icon {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     object-fit: contain;
     filter: brightness(0) invert(1) !important;
 }
@@ -8962,7 +8963,7 @@ body.hf-page:where(.dz-hf-layout) {
 :where(.dz-hf-layout) .container-xxl,
 body.hf-page:where(.dz-hf-layout) .container {
     width: 100% !important;
-    max-width: 1200px !important;
+    max-width: 1280px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-left: clamp(16px, 3vw, 32px) !important;
@@ -13268,7 +13269,7 @@ html body:where(.dz-page-prebridal) .pb-plan--dark .pb-plan__best b {
 /* Ends on its own wave into the cream Treatments section */
 :where(.dz-concern-page) #causes {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 34px 0 50px;
+    padding: 34px 0 0px;
     position: relative;
 }
 
