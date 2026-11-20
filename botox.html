@@ -464,30 +464,44 @@
             text-align: center;
         }
 
-        /* What can Botox address */
+        /* What can Botox address: open editorial columns on the dark band (no boxes) */
         .bx-address-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1240px;
-            margin: 0 auto;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            max-width: 1200px;
+            margin: clamp(10px, 2vw, 24px) auto 0;
         }
 
         .bx-address-card {
-            background: #ffffff;
-            border: 1px solid rgba(196, 146, 74, 0.25);
-            border-radius: 22px;
-            padding: 28px 24px;
-            box-shadow: 0 10px 30px rgba(43, 26, 18, 0.05);
+            position: relative;
+            padding: 6px clamp(20px, 2.4vw, 34px) 10px;
+            border-left: 1px solid rgba(232, 201, 154, 0.28);
+        }
+
+        .bx-address-card:first-child {
+            border-left: 0;
         }
 
         .bx-address-card h3 {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: #2B1A12;
-            margin: 0 0 14px;
+            font-weight: 400;
+            font-size: clamp(1.15rem, 1.5vw, 1.3rem);
+            line-height: 1.3;
+            margin: 0 0 16px;
+            padding-bottom: 16px;
+            position: relative;
+        }
+
+        /* short gold rule under the title */
+        .bx-address-card h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 42px;
+            height: 1px;
+            background: #E8C99A;
         }
 
         .bx-address-card ul {
@@ -498,38 +512,71 @@
 
         .bx-address-card li {
             position: relative;
-            padding: 8px 0 8px 22px;
+            padding: 7px 0 7px 22px;
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: 14px;
+            font-size: 14.5px;
             line-height: 1.55;
-            color: rgba(43, 26, 18, 0.8);
-            border-top: 1px solid rgba(196, 146, 74, 0.15);
         }
 
-        .bx-address-card li:first-child {
-            border-top: none;
-        }
-
+        /* swirl nemonic as the bullet, tinted cream for the dark band */
         .bx-address-card li::before {
             content: "";
             position: absolute;
-            left: 2px;
-            top: 15px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #C58E45;
+            left: 0;
+            top: 11px;
+            width: 12px;
+            height: 12px;
+            background: url('nemonic1.png') center / contain no-repeat;
+            filter: brightness(0) invert(0.88) sepia(0.35);
+            opacity: 0.9;
         }
 
         @media (max-width: 1199.98px) {
             .bx-address-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                row-gap: 34px;
+            }
+
+            .bx-address-card:nth-child(3) {
+                border-left: 0;
             }
         }
 
-        @media (max-width: 640px) {
+        /* Phones: horizontal swipe slider, a peek of the next column shows it scrolls */
+        @media (max-width: 767.98px) {
             .bx-address-grid {
-                grid-template-columns: 1fr;
+                display: flex;
+                gap: 0;
+                row-gap: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                margin-left: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+                margin-right: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+                padding: 0 calc(var(--bs-gutter-x, 1.5rem) * 0.5) 8px;
+                scroll-padding: 0 calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+            }
+
+            .bx-address-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .bx-address-card {
+                flex: 0 0 78%;
+                scroll-snap-align: start;
+                padding: 4px 22px 10px;
+                border-left: 1px solid rgba(232, 201, 154, 0.28);
+            }
+
+            .bx-address-card:first-child {
+                border-left: 0;
+                padding-left: 2px;
+            }
+
+            .bx-address-card:nth-child(3) {
+                border-left: 1px solid rgba(232, 201, 154, 0.28);
             }
         }
 
@@ -1474,6 +1521,17 @@
             cursor: wait;
         }
 
+        /* Tagline under the overview heading (same as pigmentation.html) */
+        html body .pg-tagline {
+            margin: 0 auto;
+            font-family: 'Playfair Display', Georgia, serif !important;
+            font-style: italic;
+            font-size: clamp(18px, 1.7vw, 22px) !important;
+            line-height: 1.5 !important;
+            color: #8B4513 !important;
+            -webkit-text-fill-color: #8B4513 !important;
+        }
+
         /* ── On-this-page contents bar ──
            html/body have overflow-x:hidden (styles.css), which breaks position:sticky,
            so the bar is pinned with position:fixed by script; the holder keeps its space. */
@@ -1583,26 +1641,22 @@
             padding-bottom: 0 !important;
         }
 
-        /* the dark band turns text light; keep the white cards' text dark */
+        /* text colours on the dark band */
         html body.dz-page-botox #concerns-addressed .bx-address-card h3 {
-            color: #2B1A12 !important;
-            -webkit-text-fill-color: #2B1A12 !important;
+            color: #FAF9F6 !important;
+            -webkit-text-fill-color: #FAF9F6 !important;
             text-shadow: none !important;
         }
 
         html body.dz-page-botox #concerns-addressed .bx-address-card li {
-            color: rgba(43, 26, 18, 0.8) !important;
-            -webkit-text-fill-color: rgba(43, 26, 18, 0.8) !important;
+            color: rgba(250, 249, 246, 0.86) !important;
+            -webkit-text-fill-color: rgba(250, 249, 246, 0.86) !important;
             text-shadow: none !important;
         }
 
         html body.dz-page-botox #concerns-addressed .hf-heading .scribble {
             color: #E8C99A !important;
             -webkit-text-fill-color: #E8C99A !important;
-        }
-
-        .dz-page-botox #concerns-addressed .bx-address-card {
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
         }
 
         /* Risks & side effects */
@@ -1723,17 +1777,13 @@
             <div class="container">
                 <div class="text-center max-w-3xl mx-auto mb-3 mb-lg-4">
                     <span class="hf-eyebrow mb-2">CLINICAL OVERVIEW</span>
-                    <div class="nemonic-separator mx-auto mb-2">
+                    <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                         <div class="nemonic-line"></div>
                     </div>
-                    <h2 class="hf-heading mb-0 d-none" id="overview-title">
-                        Botox <span class="scribble">Treatment</span>
-                    </h2>
-                    <p class="section-desc hf-section-desc mx-auto mt-2">
-                        Refined expressions. Balanced features. A naturally refreshed appearance.
-                    </p>
+                    <h2 class="hf-heading mb-3" id="overview-title">Understanding</h2>
+                    <p class="pg-tagline">Refined expressions. Balanced features.</p>
                 </div>
 
                 <div class="row align-items-center g-4 g-lg-4 justify-content-center hf-understanding-row">
@@ -1875,7 +1925,7 @@
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                         <div class="nemonic-line"></div>
                     </div>
-                    <h2 class="hf-heading mb-3" id="address-title">What Can <span class="scribble">Botox</span> Address?
+                    <h2 class="hf-heading mb-3" id="address-title">What Can Botox Address?
                     </h2>
                     <p class="hf-lead">
                         Botox has uses across facial lines, facial contouring, skin quality, and excessive sweating.
