@@ -144,7 +144,7 @@
 
     <!-- Base styles and variable sheets -->
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="styles.css?v=11.4" />
+    <link rel="stylesheet" href="styles.css?v=11.5" />
 
     <!-- Tailwind CSS (without preflight resets) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -1425,6 +1425,115 @@
             padding-bottom: clamp(40px, 5vw, 60px) !important;
         }
 
+        /* ── On-this-page contents bar ──
+           html/body have overflow-x:hidden (styles.css), which breaks position:sticky,
+           so the bar is pinned with position:fixed by script; the holder keeps its space. */
+        .bx-toc-holder {
+            position: relative;
+            height: 64px;
+            background: #FDF8F3;
+        }
+
+        .bx-toc {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 900;
+            background: rgba(253, 248, 243, 0.96);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(196, 146, 74, 0.22);
+            border-bottom: 1px solid rgba(196, 146, 74, 0.22);
+            transition: box-shadow .3s ease;
+        }
+
+        .bx-toc.is-fixed {
+            position: fixed;
+            top: var(--bx-toc-top, 80px);
+            box-shadow: 0 10px 24px -14px rgba(43, 26, 18, 0.35);
+        }
+
+        .bx-toc__track {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 1200px;
+            height: 62px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 3vw, 24px);
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
+        }
+
+        .bx-toc__track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* centre the pills when they fit, without clipping the first one when they don't */
+        .bx-toc__link:first-child {
+            margin-left: auto;
+        }
+
+        .bx-toc__link:last-child {
+            margin-right: auto;
+        }
+
+        .bx-toc__link {
+            flex: 0 0 auto;
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 69, 19, 0.22);
+            background: #FFFFFF;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 1;
+            white-space: nowrap;
+            color: #4B2B20 !important;
+            text-decoration: none !important;
+            /* no colour fade: the gradient can't animate, so text and background switch together */
+            transition: border-color .3s ease, box-shadow .3s ease;
+        }
+
+        .bx-toc__link:hover {
+            border-color: rgba(139, 69, 19, 0.55);
+        }
+
+        .bx-toc__link.is-active {
+            background: linear-gradient(135deg, #4B2B20 0%, #8B4513 100%);
+            border-color: transparent;
+            color: #FAF9F6 !important;
+            box-shadow: 0 6px 16px -8px rgba(75, 43, 32, 0.6);
+        }
+
+        @media (max-width: 767.98px) {
+            .bx-toc-holder {
+                height: 56px;
+            }
+
+            .bx-toc__track {
+                height: 54px;
+                gap: 6px;
+            }
+
+            .bx-toc__link {
+                padding: 8px 14px;
+                font-size: 12.5px;
+            }
+        }
+
+        /* the bar sits between the overview wave and Types, so it takes the Types cream */
+        .dz-page-pigmentation .bx-toc-holder {
+            background: #FAF7F2;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 767.98px) {
             .pg-rec-grid {
@@ -1508,9 +1617,9 @@
                             <div class="sig-oval-frame sig-oval-frame--video">
                                 <!-- Poster + play button; the YouTube player loads on click
                                      (keeps YouTube's title bar and channel logo off the video) -->
-                                <button type="button" class="pg-video-facade" data-yt="0UK4lztscRs"
+                                <button type="button" class="pg-video-facade" data-yt="RDJFIsUq8cQ"
                                     aria-label="Play video: Understanding Pigmentation at D'Zen Derma">
-                                    <img src="https://i.ytimg.com/vi/0UK4lztscRs/oar2.jpg"
+                                    <img src="https://i.ytimg.com/vi/RDJFIsUq8cQ/oar2.jpg"
                                         alt="Understanding Pigmentation at D'Zen Derma" loading="lazy" />
                                     <span class="pg-video-play" aria-hidden="true">
                                         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -1549,13 +1658,24 @@
                     </div>
                 </div>
             </div>
-
-            <div class="section-separator" aria-hidden="true">
-                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#FAF7F2" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
-                </svg>
-            </div>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════
+             ON THIS PAGE — sticky, horizontally scrolling contents bar
+             ═══════════════════════════════════════════════════════════ -->
+        <div class="bx-toc-holder" id="bxTocHolder">
+            <nav class="bx-toc" id="bxToc" aria-label="On this page">
+                <div class="bx-toc__track" id="bxTocTrack">
+                    <a href="#causes" class="bx-toc__link" data-target="causes">Types</a>
+                    <a href="#recommended" class="bx-toc__link" data-target="recommended">Recommended Treatments</a>
+                    <a href="#treatments" class="bx-toc__link" data-target="treatments">Treatments Explained</a>
+                    <a href="#before-after" class="bx-toc__link" data-target="before-after">Results</a>
+                    <a href="#video-showcase" class="bx-toc__link" data-target="video-showcase">Videos</a>
+                    <a href="#reviews" class="bx-toc__link" data-target="reviews">Reviews</a>
+                    <a href="#faq" class="bx-toc__link" data-target="faq">FAQs</a>
+                </div>
+            </nav>
+        </div>
 
         <!-- ═══════════════════════════════════════════════════════════
              3. TYPES OF PIGMENTATION
@@ -2194,13 +2314,13 @@
                 <!-- Video cards -->
                 <div class="hf-video-grid is-single">
 
-                    <!-- Pigmentation YouTube Short (same as the intro video for now; swap the id 0UK4lztscRs
+                    <!-- Pigmentation YouTube Short (swap the id 2vbew720tLo
                          in data-video, data-external and the poster to show a different Short) -->
                     <article class="hf-vcard hf-vcard--short" data-type="youtube" data-format="short"
                         data-title="Pigmentation at D&rsquo;Zen Derma"
-                        data-video="https://www.youtube-nocookie.com/embed/0UK4lztscRs"
-                        data-external="https://www.youtube.com/shorts/0UK4lztscRs">
-                        <img src="https://i.ytimg.com/vi/0UK4lztscRs/oar2.jpg" alt="Pigmentation at D&rsquo;Zen Derma"
+                        data-video="https://www.youtube-nocookie.com/embed/2vbew720tLo"
+                        data-external="https://www.youtube.com/shorts/2vbew720tLo">
+                        <img src="https://i.ytimg.com/vi/2vbew720tLo/oar2.jpg" alt="Pigmentation at D&rsquo;Zen Derma"
                             class="hf-vcard__poster" loading="lazy" />
                         <div class="hf-vcard__play-wrap">
                             <span class="hf-vcard__play" aria-hidden="true">
@@ -3019,6 +3139,68 @@
                         form.submit();
                     });
             });
+        })();
+    </script>
+    <script>
+        // On-this-page bar: pin under the header, highlight the current section,
+        // keep the active pill in view, and offset anchor jumps for the header + bar.
+        (function () {
+            var holder = document.getElementById('bxTocHolder');
+            var toc = document.getElementById('bxToc');
+            var track = document.getElementById('bxTocTrack');
+            if (!holder || !toc || !track) return;
+            var links = Array.prototype.slice.call(track.querySelectorAll('.bx-toc__link'));
+            var sections = links.map(function (l) { return document.getElementById(l.dataset.target); });
+            var current = null, ticking = false;
+
+            function headerH() {
+                var nav = document.getElementById('pill-nav');
+                return nav ? Math.max(0, nav.getBoundingClientRect().bottom) : 80;
+            }
+
+            function setActive(i) {
+                if (i === current) return;
+                current = i;
+                links.forEach(function (l, k) { l.classList.toggle('is-active', k === i); });
+                if (i < 0) return;
+                var l = links[i];
+                var left = l.offsetLeft - (track.clientWidth - l.offsetWidth) / 2;
+                track.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+            }
+
+            function update() {
+                ticking = false;
+                var top = headerH();
+                toc.style.setProperty('--bx-toc-top', top + 'px');
+                toc.classList.toggle('is-fixed', holder.getBoundingClientRect().top <= top);
+
+                var line = top + toc.offsetHeight + 24;
+                var idx = -1;
+                sections.forEach(function (s, k) {
+                    if (s && s.getBoundingClientRect().top <= line) idx = k;
+                });
+                setActive(idx);
+            }
+
+            function onScroll() {
+                if (!ticking) { ticking = true; requestAnimationFrame(update); }
+            }
+
+            links.forEach(function (l, k) {
+                l.addEventListener('click', function (e) {
+                    var s = sections[k];
+                    if (!s) return;
+                    e.preventDefault();
+                    var y = window.pageYOffset + s.getBoundingClientRect().top - headerH() - toc.offsetHeight + 1;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                    history.replaceState(null, '', '#' + s.id);
+                });
+            });
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            window.addEventListener('load', update);
+            update();
         })();
     </script>
 </body>

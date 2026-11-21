@@ -16172,3 +16172,16 @@ html body .hero-slide.active .hero-content .hero-subline {
         font-size: clamp(0.62rem, 3.1vw, 0.95rem) !important;
     }
 }
+/* ═══════════════════════════════════════════════════════════
+   Section subheadings (small uppercase eyebrows above titles):
+   13px and bold on every page
+   ═══════════════════════════════════════════════════════════ */
+html:root body .hf-eyebrow,
+html:root body .section-subtitle,
+html:root body .doctors-v2__eyebrow,
+html:root body .about-v2__eyebrow,
+html:root body .wt-reg__eyebrow,
+html:root body .thankyou-eyebrow {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+}
