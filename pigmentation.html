@@ -790,6 +790,7 @@
         /* same soft gradient as the other cream sections, so the wave reads */
         #faq {
             background: linear-gradient(to top, #F4EFE8, #FDF8F3) !important;
+            padding-bottom: 50px !important;
         }
 
         .pg-reviews .review-widget {
@@ -1647,6 +1648,43 @@
             padding-bottom: 0 !important;
         }
 
+        /* Related concerns */
+        .dz-page-pigmentation .bx-related-track .hf-related-card {
+            min-height: 0;
+        }
+
+        /* All four cards in one centred row; card content centred */
+        @media (min-width: 992px) {
+            html body.dz-page-pigmentation #related-services .bx-related-track {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 20px;
+                max-width: 1140px;
+                margin: 0 auto;
+                overflow: visible;
+                cursor: default;
+            }
+
+            html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card {
+                flex: none;
+                max-width: none;
+                width: 100%;
+            }
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card {
+            align-items: center;
+            text-align: center;
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card__divider {
+            align-self: stretch;
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card__action {
+            justify-content: center;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 767.98px) {
             .pg-rec-grid {
@@ -1786,6 +1824,8 @@
                     <a href="#video-showcase" class="bx-toc__link" data-target="video-showcase">Videos</a>
                     <a href="#reviews" class="bx-toc__link" data-target="reviews">Reviews</a>
                     <a href="#faq" class="bx-toc__link" data-target="faq">FAQs</a>
+                    <a href="#related-services" class="bx-toc__link" data-target="related-services">Related
+                        Concerns</a>
                 </div>
             </nav>
         </div>
@@ -2759,10 +2799,86 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
+        <!-- ═══════════════════════════════════════════════════════════
+             RELATED CONCERNS (same design as Related Treatments on botox.html)
+             ═══════════════════════════════════════════════════════════ -->
+        <section class="hf-section hf-related-section" id="related-services">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-2">
+                    <span class="hf-eyebrow mb-2">RELATED CONCERNS</span>
+                    <div class="nemonic-separator mx-auto mb-3">
+                        <div class="nemonic-line"></div>
+                        <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
+                        <div class="nemonic-line"></div>
+                    </div>
+                    <h2 class="hf-heading mb-3">Related Concerns at D&rsquo;Zen Derma</h2>
+                </div>
+
+                <div class="hf-related-scroll-container">
+                    <div class="hf-related-track bx-related-track" id="relatedTrack">
+                        <!-- TODO: link each card to its concern page once created -->
+                        <a href="acne-scars.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Acne Scars</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Smooth uneven texture left behind by past breakouts.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Uneven &amp; Dull Skin</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Restore clarity and a more even, radiant tone.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Tanned Skin</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Gently fade sun tan and bring back your natural tone.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Dark Underarms, Neck &amp; Back</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Lighten darker areas for a more even skin tone.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curvy separator: Related Dark → Clinic Locations Cream (#FDF8F3) -->
+            <div class="section-separator" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#FAF7F2" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
+                    <path fill="#FDF8F3" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
                 </svg>
             </div>
         </section>
