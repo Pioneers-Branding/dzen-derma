@@ -7310,7 +7310,7 @@ html body .brand-philosophy-strip-section .section-desc {
     --hf-border: rgba(196, 146, 74, 0.22);
     --hf-shadow: 0 18px 45px rgba(43, 26, 18, 0.06);
     --hf-radius: 20px;
-    --hf-section-py: 56px;
+    --hf-section-py: 50px;
 }
 
 @media (max-width: 991.98px) {
@@ -7389,7 +7389,7 @@ body.hf-page .pnav .pnav__burger span {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -9011,7 +9011,7 @@ body.hf-page:where(.dz-hf-layout) .container {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -11366,7 +11366,7 @@ html body:where(.dz-hf-layout) #related-services .hf-related-card:hover .hf-rela
 
 :where(.dz-hf-layout) #before-after {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 35px 0px 50px;
+    padding: 35px 0px 15px;
     position: relative;
 }
 
@@ -13769,7 +13769,7 @@ html body:where(.dz-page-oxy-facial, .dz-page-mesotherapy, .dz-page-hifu, .dz-pa
 /* Ends on a straight edge into the dark Process band */
 :where(.dz-page-botox) #understanding-botox {
     background: #FAF7F2;
-    padding: 34px 0 60px;
+    padding: 34px 0 50px;
     position: relative;
 }
 
@@ -13800,7 +13800,7 @@ html body:where(.dz-page-botox) #process .hf-minimal-step-desc {
 
 :where(.dz-page-botox) #benefits {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 35px 0 0px;
+    padding: 35px 0 45px;
     position: relative;
 }
 

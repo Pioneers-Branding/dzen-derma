@@ -401,7 +401,7 @@
                 flex-direction: column;
                 flex-wrap: nowrap;
                 align-items: stretch;
-                row-gap: 28px;
+                row-gap: 14px;
             }
 
             .bx-overview-row>* {
@@ -716,7 +716,7 @@
         .lhr-step-media {
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 4.8;
+            aspect-ratio: 4 / 4;
             border-radius: 160px 160px 14px 14px;
             overflow: hidden;
             margin-bottom: 18px;
@@ -806,6 +806,47 @@
             .lhr-step-card {
                 flex: 0 0 clamp(260px, 78vw, 320px);
                 scroll-snap-align: center;
+            }
+
+            /* shorter image on phones/tablets */
+            .lhr-step-media {
+                aspect-ratio: 4 / 3.3;
+                border-radius: 130px 130px 14px 14px;
+            }
+        }
+
+        /* Before & After: 50px bottom padding on every screen size */
+        html body.dz-page-botox section#before-after {
+            padding-bottom: 50px !important;
+        }
+
+        /* drop the gallery's own bottom spacing (mobile slider) so the gap is exactly 50px */
+        html body.dz-page-botox #before-after .rg-gallery-grid {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Watch Botox in Action: 45px bottom padding on every screen size */
+        html body.dz-page-botox section#video-showcase {
+            padding-bottom: 50px !important;
+        }
+
+        /* drop the grid's own bottom spacing so the gap below the video is exactly 45px */
+        html body.dz-page-botox #video-showcase .hf-video-grid {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Quick Treatment Overview: 50px top/bottom padding on phones */
+        @media (max-width: 767.98px) {
+            html body.dz-page-botox section#quick-overview {
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
+            }
+
+            /* the g-4 row's negative top margin was pulling the content up into the padding */
+            html body.dz-page-botox #quick-overview .bx-overview-row {
+                margin-top: 0 !important;
             }
         }
 
@@ -1082,6 +1123,12 @@
             justify-content: center !important;
         }
 
+        /* two Shorts side by side, centred */
+        #video-showcase .hf-video-grid.is-pair {
+            grid-template-columns: repeat(2, minmax(0, 300px)) !important;
+            justify-content: center !important;
+        }
+
         @media (max-width: 991.98px) {
             #video-showcase .hf-vcard.hf-vcard--short {
                 flex: 0 0 clamp(230px, 70vw, 285px) !important;
@@ -1089,6 +1136,29 @@
 
             #video-showcase .hf-video-grid.is-single {
                 justify-content: center !important;
+            }
+
+            /* phones/tablets: swipe slider, about 30% of the second Short peeks in
+               so it's clear there is more to scroll */
+            #video-showcase .hf-video-grid.is-pair {
+                justify-content: flex-start !important;
+                overflow-x: auto !important;
+                gap: 12px !important;
+            }
+
+            #video-showcase .hf-video-grid.is-pair .hf-vcard.hf-vcard--short {
+                flex: 0 0 min(calc((100vw - 32px) / 1.3), 285px) !important;
+                max-width: none !important;
+            }
+
+            #video-showcase .hf-video-grid.is-pair .hf-vcard--short .hf-vcard__play {
+                width: 52px !important;
+                height: 52px !important;
+            }
+
+            #video-showcase .hf-video-grid.is-pair .hf-vcard--short .hf-vcard__play svg {
+                width: 20px !important;
+                height: 20px !important;
             }
         }
 
@@ -1794,9 +1864,9 @@
                             <div class="sig-oval-frame sig-oval-frame--video">
                                 <!-- Poster + play button; the YouTube Short loads in place on click
                                      (same as pigmentation.html, keeps YouTube's title bar off the video) -->
-                                <button type="button" class="pg-video-facade" data-yt="RDJFIsUq8cQ"
+                                <button type="button" class="pg-video-facade" data-yt="SqrMhnt6N8c"
                                     aria-label="Play video: Botox Treatment at D'Zen Derma">
-                                    <img src="https://i.ytimg.com/vi/RDJFIsUq8cQ/oar2.jpg"
+                                    <img src="https://i.ytimg.com/vi/SqrMhnt6N8c/oar2.jpg"
                                         alt="Botox Treatment at D'Zen Derma" loading="lazy" />
                                     <span class="pg-video-play" aria-hidden="true">
                                         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -1861,7 +1931,7 @@
                 <div class="row align-items-center g-4 g-lg-5 bx-overview-row">
                     <!-- Left: Quick Overview Content -->
                     <div class="col-12 bx-overview-content">
-                        <div class="bx-overview-head mb-4">
+                        <div class="bx-overview-head">
                             <span class="hf-eyebrow mb-2">AT A GLANCE</span>
                             <div class="nemonic-separator mb-3">
                                 <div class="nemonic-line"></div>
@@ -1919,7 +1989,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-why-section" id="concerns-addressed" aria-labelledby="address-title">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">CONCERNS ADDRESSED</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
@@ -2027,7 +2097,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-why-section" id="why-dzen" aria-labelledby="why-title">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">Precision. Thoughtful Enhancement</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
@@ -2162,13 +2232,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Curvy separator: Cream → Warm Cream (#FAF7F2) -->
-            <div class="section-separator" aria-hidden="true">
-                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path fill="#FAF7F2" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
-                </svg>
-            </div>
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
@@ -2176,7 +2239,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-section hf-section--alt" id="risks" aria-labelledby="risks-title">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">SAFETY &amp; RECOVERY</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
@@ -2308,7 +2371,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="rg-gallery" id="before-after" aria-labelledby="ba-title">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">CLINICAL RESULTS</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
@@ -2346,7 +2409,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-video-section" id="video-showcase">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-4">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">CLINIC VIDEOS</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
@@ -2362,14 +2425,31 @@
                 </div>
 
                 <!-- Video cards -->
-                <div class="hf-video-grid">
+                <div class="hf-video-grid is-pair">
 
                     <!-- Botox YouTube Short: plays in the pop-up player on click -->
                     <article class="hf-vcard hf-vcard--short" data-type="youtube" data-format="short"
                         data-title="Botox at D&rsquo;Zen Derma"
-                        data-video="https://www.youtube-nocookie.com/embed/2vbew720tLo"
-                        data-external="https://www.youtube.com/shorts/2vbew720tLo">
-                        <img src="https://i.ytimg.com/vi/2vbew720tLo/oar2.jpg" alt="Botox at D&rsquo;Zen Derma"
+                        data-video="https://www.youtube-nocookie.com/embed/mla_frNGxhc"
+                        data-external="https://www.youtube.com/shorts/mla_frNGxhc">
+                        <img src="https://i.ytimg.com/vi/mla_frNGxhc/oar2.jpg" alt="Botox at D&rsquo;Zen Derma"
+                            class="hf-vcard__poster" loading="lazy" />
+                        <div class="hf-vcard__play-wrap">
+                            <span class="hf-vcard__play" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </article>
+
+                    <!-- Botox YouTube Short: plays in the pop-up player on click -->
+                    <article class="hf-vcard hf-vcard--short" data-type="youtube" data-format="short"
+                        data-title="Botox at D&rsquo;Zen Derma"
+                        data-video="https://www.youtube-nocookie.com/embed/DKaiiHT9ato"
+                        data-external="https://www.youtube.com/shorts/DKaiiHT9ato">
+                        <img src="https://i.ytimg.com/vi/DKaiiHT9ato/oar2.jpg" alt="Botox at D&rsquo;Zen Derma"
                             class="hf-vcard__poster" loading="lazy" />
                         <div class="hf-vcard__play-wrap">
                             <span class="hf-vcard__play" aria-hidden="true">
@@ -2677,7 +2757,7 @@
              ═══════════════════════════════════════════════════════════ -->
         <section class="hf-section hf-related-section" id="related-services">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-lg-5">
+                <div class="text-center max-w-3xl mx-auto mb-2">
                     <span class="hf-eyebrow mb-2">RELATED TREATMENTS</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
