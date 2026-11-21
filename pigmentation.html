@@ -288,7 +288,6 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
             column-gap: clamp(32px, 5vw, 72px);
             max-width: 1080px;
-            margin: clamp(28px, 3.5vw, 44px) auto 0;
             padding: 0;
             counter-reset: none;
         }
@@ -673,6 +672,98 @@
             }
         }
 
+        /* Card text at 14px; "Book Now" + "Read More" side by side;
+           Read More (or a click on the "..." text) opens the full description */
+        html body #treatments .dz-card-text {
+            font-size: 14px !important;
+            line-height: 1.5;
+        }
+
+        #treatments .dz-carousel-track {
+            align-items: flex-start;
+        }
+
+        #treatments .dz-treatment-card.is-expanded .dz-card-text,
+        #treatments .dz-treatment-card.is-clamped .dz-card-text {
+            cursor: pointer;
+        }
+
+        #treatments .dz-treatment-card.is-expanded {
+            height: auto !important;
+            max-height: none !important;
+        }
+
+        @media (min-width: 768px) {
+            #treatments .dz-treatment-card.is-expanded .dz-card-media {
+                height: auto;
+                align-self: stretch;
+            }
+        }
+
+        #treatments .dz-treatment-card.is-expanded .dz-card-text {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        #treatments .dz-card-footer {
+            gap: 8px;
+        }
+
+        #treatments .dz-card-footer .dz-card-book-btn,
+        #treatments .dz-card-more-btn {
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto;
+            height: 40px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            gap: 8px;
+            font-size: 13px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        /* Read More: outline pill with a brown nemonic */
+        .dz-card-more-btn,
+        .dz-card-more-btn:hover {
+            text-decoration: none !important;
+        }
+
+        .dz-card-more-btn .btn-icon {
+            width: 12px;
+            height: 12px;
+            object-fit: contain;
+            transition: transform .35s ease, filter .25s ease;
+        }
+
+        .dz-card-more-btn:hover .btn-icon {
+            filter: brightness(0) invert(1);
+            transform: rotate(45deg);
+        }
+
+        .dz-card-more-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid rgba(139, 69, 19, 0.45);
+            color: #8B4513 !important;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+        }
+
+        .dz-card-more-btn:hover {
+            background: #8B4513;
+            border-color: #8B4513;
+            color: #FAF9F6 !important;
+        }
+
         /* Card reached from the "Recommended treatments" list */
         #treatments .dz-treatment-card {
             scroll-margin-top: 120px;
@@ -941,7 +1032,7 @@
         .hf-video-section,
         #video-showcase {
             background: linear-gradient(to top, #F4EFE8, #FDF8F3) !important;
-            padding: 50px 0 0px;
+            padding: 35px 0 50px;
             position: relative;
             overflow: hidden;
         }
@@ -1534,6 +1625,27 @@
             background: #FAF7F2;
         }
 
+        /* Understanding the Treatments: exactly 50px below the cards on every screen size */
+        html body.dz-page-pigmentation section#treatments {
+            padding-bottom: 50px !important;
+        }
+
+        html body.dz-page-pigmentation #treatments .dz-carousel-track-wrapper,
+        html body.dz-page-pigmentation #treatments .dz-carousel-track {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        /* Watch Pigmentation Care in Action: exactly 50px below the video on every screen size */
+        html body.dz-page-pigmentation section#video-showcase {
+            padding-bottom: 50px !important;
+        }
+
+        html body.dz-page-pigmentation #video-showcase .hf-video-grid {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 767.98px) {
             .pg-rec-grid {
@@ -2012,7 +2124,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2036,7 +2152,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2061,7 +2181,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2085,7 +2209,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2110,7 +2238,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2135,7 +2267,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2159,7 +2295,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2184,7 +2324,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2208,7 +2352,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2228,7 +2376,11 @@
                                 </div>
                                 <div class="dz-card-footer">
                                     <a href="contact" class="dz-card-book-btn">
-                                        <span>Book Consultation</span>
+                                        <span>Book Now</span>
+                                        <img src="nemonic1.png" class="btn-icon" alt="" />
+                                    </a>
+                                    <a href="#" class="dz-card-more-btn">
+                                        <span>Read More</span>
                                         <img src="nemonic1.png" class="btn-icon" alt="" />
                                     </a>
                                 </div>
@@ -2284,7 +2436,7 @@
                 </div>
             </div>
 
-            <div class="section-separator" aria-hidden="true" style="margin-top: 40px;">
+            <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <path fill="#FDF8F3" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
                 </svg>
@@ -2366,7 +2518,7 @@
                 <!-- Review Pixel End -->
             </div>
 
-            <div class="dz-cta-wrap" style="justify-content: center; padding-bottom: 30px;">
+            <div class="dz-cta-wrap" style="justify-content: center;">
                 <a href="https://www.google.com/maps/place/D'Zen+Derma+by+Dr.+Aarushi+Passi:+Cosmetic+%26+Integrative+Skin+Clinic+in+Gurgaon/@28.4719351,77.0908131,729m/data=!3m2!1e3!4b1!4m8!3m7!1s0x390d1960b0f6defd:0x3b2b5d165c87cb08!8m2!3d28.4719304!4d77.093388!9m1!1b1!16s%2Fg%2F11ll_3fb86"
                     target="_blank" rel="noopener" class="dz-cta">
                     <span>View All Reviews</span>
@@ -2607,7 +2759,7 @@
                 </div>
             </div>
 
-            <div class="section-separator" aria-hidden="true" style="margin-top: 40px;">
+            <div class="section-separator" aria-hidden="true" style="margin-top: 30px;">
                 <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <path fill="#FAF7F2" d="M0,60 C380,150 1060,-30 1440,60 L1440,120 L0,120 Z"></path>
                 </svg>
@@ -3201,6 +3353,36 @@
             window.addEventListener('resize', onScroll);
             window.addEventListener('load', update);
             update();
+        })();
+    </script>
+    <script>
+        // Treatment cards: a click on the clamped "..." text shows the full description
+        // (click again to fold it back). "Read More" is a plain link to the treatment page.
+        (function () {
+            var cards = document.querySelectorAll('#treatments .dz-treatment-card');
+            function measure() {
+                cards.forEach(function (card) {
+                    if (card.classList.contains('is-expanded')) return;
+                    var txt = card.querySelector('.dz-card-text');
+                    card.classList.toggle('is-clamped', !!txt && txt.scrollHeight > txt.clientHeight + 1);
+                });
+            }
+            cards.forEach(function (card) {
+                var txt = card.querySelector('.dz-card-text');
+                if (!txt) return;
+                txt.addEventListener('click', function () {
+                    if (card.classList.contains('is-expanded')) {
+                        card.classList.remove('is-expanded');
+                        measure();
+                    } else if (card.classList.contains('is-clamped')) {
+                        card.classList.add('is-expanded');
+                        card.classList.remove('is-clamped');
+                    }
+                });
+            });
+            measure();
+            window.addEventListener('load', measure);
+            window.addEventListener('resize', measure);
         })();
     </script>
 </body>
