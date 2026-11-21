@@ -6,6 +6,14 @@
 (function () {
     'use strict';
 
+    // Remember the page the visitor is on, so the thank-you page can send them
+    // back here after a form is submitted (the form service's redirect hides the referrer).
+    try {
+        if (!/thank-you(\.html)?\/?$/i.test(location.pathname)) {
+            sessionStorage.setItem('dzReturnUrl', location.href);
+        }
+    } catch (e) { /* storage blocked: thank-you page falls back to the homepage */ }
+
     // Fallback embedded markup for offline or direct file:/// access where CORS blocks fetch
     const EMBEDDED_HEADER = `<!-- ═══════ Floating Pill Navbar v3 ═══════ -->
 <nav id="pill-nav" class="pnav" aria-label="Main navigation">

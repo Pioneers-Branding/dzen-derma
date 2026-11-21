@@ -257,6 +257,10 @@
                         </a>
                     </div>
 
+                    <p class="thankyou-redirect" id="thankyouRedirect"
+                        style="font-size: 13px !important; color: #8B4513 !important; margin: 18px 0 0;">
+                        Taking you back to the page you were on in <span id="thankyouCount">3</span> seconds&hellip;
+                    </p>
                     <!-- Action Buttons -->
                     <div class="thankyou-actions">
                         <a href="index" class="dz-cta" style="padding: 14px 30px; font-size: 13.5px;">
@@ -276,8 +280,34 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="include/include.js?v=6"></script>
+    <script src="include/include.js?v=7"></script>
     <script src="script.js?v=3.2"></script>
+    <script>
+        // After 3 seconds, send the visitor back to the page they submitted the form from
+        // (saved by include/include.js); otherwise a same-site referrer, otherwise the homepage.
+        (function () {
+            var target = null;
+            try { target = sessionStorage.getItem('dzReturnUrl'); } catch (e) { }
+            if (!target && document.referrer) {
+                try {
+                    var r = new URL(document.referrer);
+                    if (r.origin === location.origin && !/thank-you/i.test(r.pathname)) target = r.href;
+                } catch (e) { }
+            }
+            if (!target) target = 'index';
+
+            var count = document.getElementById('thankyouCount');
+            var left = 3;
+            var timer = setInterval(function () {
+                left -= 1;
+                if (count && left > 0) count.textContent = left;
+                if (left <= 0) {
+                    clearInterval(timer);
+                    location.replace(target);
+                }
+            }, 1000);
+        })();
+    </script>
 
     <!-- Floating Bottom Action Bar -->
     <div class="bottom-action-bar" id="bottomActionBar" aria-label="Quick actions">
