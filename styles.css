@@ -11366,7 +11366,7 @@ html body:where(.dz-hf-layout) #related-services .hf-related-card:hover .hf-rela
 
 :where(.dz-hf-layout) #before-after {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3);
-    padding: 50px 0px 15px;
+    padding: 35px 0px 15px;
     position: relative;
 }
 
@@ -11378,7 +11378,7 @@ html body:where(.dz-hf-layout) #related-services .hf-related-card:hover .hf-rela
 :where(.dz-hf-layout) #video-showcase {
     background: linear-gradient(to top, #F4EFE8, #FDF8F3) !important;
     position: relative;
-    padding: 50px 0 0px;
+    padding: 35px 0 50px !important;
 }
 
 :where(.dz-hf-layout) #faq {
@@ -13769,7 +13769,7 @@ html body:where(.dz-page-oxy-facial, .dz-page-mesotherapy, .dz-page-hifu, .dz-pa
 /* Ends on a straight edge into the dark Process band */
 :where(.dz-page-botox) #understanding-botox {
     background: #FAF7F2;
-    padding: 34px 0 50px;
+    padding: 34px 0 50px !important;
     position: relative;
 }
 
@@ -13871,9 +13871,6 @@ html body:where(.dz-page-botox) #process .hf-minimal-step-desc {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px 28px;
-    margin-bottom: 22px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(75, 43, 32, 0.15);
 }
 
 :where(.dz-page-botox) .bx-benefits-list .hf-result-editorial-item {
