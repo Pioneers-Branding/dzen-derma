@@ -814,6 +814,111 @@
             }
         }
 
+        /* ── Before & After Gallery (Equal Height, Natural Varying Width, No Background Color) ── */
+        #before-after .rg-scroller {
+            position: relative;
+            width: 100%;
+        }
+
+        #before-after .rg-gallery-grid,
+        .rg-gallery .rg-gallery-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            gap: 22px !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 10px 0 24px !important;
+            margin: 0 !important;
+        }
+
+        #before-after .rg-gallery-grid::-webkit-scrollbar,
+        .rg-gallery .rg-gallery-grid::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        #before-after .rg-item,
+        .rg-gallery .rg-item {
+            flex: 0 0 auto !important;
+            height: clamp(340px, 30vw, 410px) !important;
+            width: auto !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            scroll-snap-align: start !important;
+            display: flex !important;
+        }
+
+        #before-after .rg-ba,
+        .rg-gallery .rg-ba {
+            position: relative !important;
+            height: 100% !important;
+            width: auto !important;
+            max-width: none !important;
+            aspect-ratio: auto !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            cursor: default !important;
+        }
+
+        #before-after .rg-ba img,
+        .rg-gallery .rg-ba img {
+            height: 100% !important;
+            width: auto !important;
+            max-width: none !important;
+            object-fit: contain !important;
+            display: block !important;
+            border-radius: 20px !important;
+            border: 1.5px solid rgba(196, 146, 74, 0.32) !important;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.22) !important;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+        }
+
+        #before-after .rg-item:hover .rg-ba img,
+        .rg-gallery .rg-item:hover .rg-ba img {
+            transform: translateY(-5px);
+            border-color: #C4924A !important;
+            box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.32) !important;
+        }
+
+        @media (max-width: 991.98px) {
+
+            #before-after .rg-gallery-grid,
+            .rg-gallery .rg-gallery-grid {
+                gap: 16px !important;
+                padding: 16px 20px 20px !important;
+                margin-left: -16px !important;
+                margin-right: -16px !important;
+                width: calc(100% + 32px) !important;
+                scroll-padding-left: 20px !important;
+                scroll-padding-right: 20px !important;
+                margin-bottom: 14px !important;
+            }
+
+            #before-after .rg-item,
+            .rg-gallery .rg-item {
+                height: clamp(280px, 68vw, 340px) !important;
+                width: auto !important;
+                max-width: none !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #before-after:not(:has(.rg-item:nth-child(4))) .rg-gallery-grid {
+                justify-content: center !important;
+            }
+        }
+
         /* Before & After: 50px bottom padding on every screen size */
         html body.dz-page-botox section#before-after {
             padding-bottom: 50px !important;
@@ -1865,8 +1970,8 @@
                                      (same as pigmentation.html, keeps YouTube's title bar off the video) -->
                                 <button type="button" class="pg-video-facade" data-yt="SqrMhnt6N8c"
                                     aria-label="Play video: Botox Treatment at D'Zen Derma">
-                                    <img src="https://i.ytimg.com/vi/SqrMhnt6N8c/oar2.jpg"
-                                        alt="Botox Treatment at D'Zen Derma" loading="lazy" />
+                                    <img src="images/botox/botox-thumb.webp" alt="Botox Treatment at D'Zen Derma"
+                                        loading="lazy" />
                                     <span class="pg-video-play" aria-hidden="true">
                                         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
                                             <path
@@ -2365,39 +2470,72 @@
 
         <!-- ═══════════════════════════════════════════════════════════
              10. BEFORE & AFTER GALLERY
-             TODO: replace placeholder images with real Botox before/after photos
              ═══════════════════════════════════════════════════════════ -->
-        <section class="rg-gallery" id="before-after" aria-labelledby="ba-title">
+        <section class="rg-gallery" id="before-after" aria-labelledby="ba-title" data-filter="concern">
             <div class="container">
-                <div class="text-center max-w-3xl mx-auto mb-2">
+                <div class="text-center max-w-3xl mx-auto mb-1">
                     <span class="hf-eyebrow mb-2">CLINICAL RESULTS</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
                         <div class="nemonic-line"></div>
                     </div>
-                    <h2 class="hf-heading mb-3" id="ba-title">Before &amp; <span class="scribble">After</span></h2>
+                    <h2 class="hf-heading mb-3" id="ba-title">
+                        Real Results, <span class="scribble">Unretouched</span>
+                    </h2>
+                    <div class="hf-lead">
+                        Same lighting, same angle, authentic clinical transformations.
+                    </div>
                 </div>
 
-                <div class="row g-4 rg-gallery-grid justify-content-lg-center">
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=700&auto=format&fit=crop"
-                                alt="Botox before and after" loading="lazy">
+                <!-- Before / After Results — horizontal scroller -->
+                <div class="rg-scroller">
+                    <div class="rg-gallery-grid" data-grid tabindex="0" aria-label="Before and after results">
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-1.webp"
+                                    alt="Botox before and after clinical result 1" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-2.webp"
+                                    alt="Botox before and after clinical result 2" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-3.webp"
+                                    alt="Botox before and after clinical result 3" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-4.webp"
+                                    alt="Botox before and after clinical result 4" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-5.webp"
+                                    alt="Botox before and after clinical result 5" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/botox/botox-6.webp"
+                                    alt="Botox before and after clinical result 6" loading="lazy">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop"
-                                alt="Botox before and after" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
-                                alt="Botox before and after" loading="lazy">
-                        </div>
-                    </div>
+                </div>
+
+                <!-- Results CTA Strip -->
+                <div class="text-center mt-4 mt-lg-4">
+                    <a href="results" class="dz-cta hf-results-cta-center">
+                        <span>View More Results</span>
+                        <img src="nemonic1.png" class="btn-icon" alt="icon" />
+                    </a>
                 </div>
             </div>
         </section>
@@ -2430,7 +2568,7 @@
                         data-title="Botox at D&rsquo;Zen Derma"
                         data-video="https://www.youtube-nocookie.com/embed/mla_frNGxhc"
                         data-external="https://www.youtube.com/shorts/mla_frNGxhc">
-                        <img src="https://i.ytimg.com/vi/mla_frNGxhc/oar2.jpg" alt="Botox at D&rsquo;Zen Derma"
+                        <img src="images/botox/botox-video-1.webp" alt="Botox at D&rsquo;Zen Derma"
                             class="hf-vcard__poster" loading="lazy" />
                         <div class="hf-vcard__play-wrap">
                             <span class="hf-vcard__play" aria-hidden="true">

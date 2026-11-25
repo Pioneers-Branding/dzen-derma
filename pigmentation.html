@@ -779,6 +779,111 @@
             padding: 50px 0;
         }
 
+        /* ── Before & After Gallery (Equal Height, Natural Varying Width, No Background Color) ── */
+        #before-after .rg-scroller {
+            position: relative;
+            width: 100%;
+        }
+
+        #before-after .rg-gallery-grid,
+        .rg-gallery .rg-gallery-grid {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            align-items: center !important;
+            gap: 22px !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            scroll-snap-type: x mandatory !important;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 10px 0 24px !important;
+            margin: 0 !important;
+        }
+
+        #before-after .rg-gallery-grid::-webkit-scrollbar,
+        .rg-gallery .rg-gallery-grid::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        #before-after .rg-item,
+        .rg-gallery .rg-item {
+            flex: 0 0 auto !important;
+            height: clamp(340px, 30vw, 410px) !important;
+            width: auto !important;
+            max-width: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            scroll-snap-align: start !important;
+            display: flex !important;
+        }
+
+        #before-after .rg-ba,
+        .rg-gallery .rg-ba {
+            position: relative !important;
+            height: 100% !important;
+            width: auto !important;
+            max-width: none !important;
+            aspect-ratio: auto !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            cursor: default !important;
+        }
+
+        #before-after .rg-ba img,
+        .rg-gallery .rg-ba img {
+            height: 100% !important;
+            width: auto !important;
+            max-width: none !important;
+            object-fit: contain !important;
+            display: block !important;
+            border-radius: 20px !important;
+            border: 1.5px solid rgba(196, 146, 74, 0.32) !important;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.22) !important;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+        }
+
+        #before-after .rg-item:hover .rg-ba img,
+        .rg-gallery .rg-item:hover .rg-ba img {
+            transform: translateY(-5px);
+            border-color: #C4924A !important;
+            box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.32) !important;
+        }
+
+        @media (max-width: 991.98px) {
+
+            #before-after .rg-gallery-grid,
+            .rg-gallery .rg-gallery-grid {
+                gap: 16px !important;
+                padding: 16px 20px 20px !important;
+                margin-left: -16px !important;
+                margin-right: -16px !important;
+                width: calc(100% + 32px) !important;
+                scroll-padding-left: 20px !important;
+                scroll-padding-right: 20px !important;
+                margin-bottom: 14px !important;
+            }
+
+            #before-after .rg-item,
+            .rg-gallery .rg-item {
+                height: clamp(280px, 68vw, 340px) !important;
+                width: auto !important;
+                max-width: none !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            #before-after:not(:has(.rg-item:nth-child(4))) .rg-gallery-grid {
+                justify-content: center !important;
+            }
+        }
+
         /* Gallery ends on a wave into the reviews section;
            FAQ ends on a wave into the clinic locations section */
         #before-after,
@@ -1770,7 +1875,7 @@
                                      (keeps YouTube's title bar and channel logo off the video) -->
                                 <button type="button" class="pg-video-facade" data-yt="RDJFIsUq8cQ"
                                     aria-label="Play video: Understanding Pigmentation at D'Zen Derma">
-                                    <img src="https://i.ytimg.com/vi/RDJFIsUq8cQ/oar2.jpg"
+                                    <img src="images/pigmentation/pigmentation-thumb.webp"
                                         alt="Understanding Pigmentation at D'Zen Derma" loading="lazy" />
                                     <span class="pg-video-play" aria-hidden="true">
                                         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -2427,12 +2532,12 @@
         </section>
 
         <!-- ═══════════════════════════════════════════════════════════
-             6. BEFORE & AFTER GALLERY (placeholder images — replace with real cases)
+             6. BEFORE & AFTER RESULTS GALLERY (same as laser-hair-removal.html)
              ═══════════════════════════════════════════════════════════ -->
-        <section class="rg-gallery" id="before-after">
+        <section class="rg-gallery" id="before-after" data-filter="concern">
             <div class="container">
                 <div class="text-center max-w-3xl mx-auto mb-4">
-                    <span class="hf-eyebrow mb-2">BEFORE &amp; AFTER</span>
+                    <span class="hf-eyebrow mb-2">CLINICAL RESULTS</span>
                     <div class="nemonic-separator mx-auto mb-3">
                         <div class="nemonic-line"></div>
                         <img src="logo-header.png" alt="nemonic" class="nemonic-icon" />
@@ -2442,23 +2547,26 @@
                     <p class="hf-lead">Same lighting, same angle, authentic clinical transformations.</p>
                 </div>
 
-                <div class="row g-4 rg-gallery-grid justify-content-lg-center" data-grid>
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=700&auto=format&fit=crop"
-                                alt="Pigmentation treatment result" loading="lazy">
+                <!-- Before / After Results — horizontal scroller -->
+                <div class="rg-scroller">
+                    <div class="rg-gallery-grid" data-grid tabindex="0" aria-label="Before and after results">
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/pigmentation/pigmentation-1.webp"
+                                    alt="Pigmentation treatment clinical result 1" loading="lazy">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=700&auto=format&fit=crop"
-                                alt="Pigmentation treatment result" loading="lazy">
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/pigmentation/pigmentation-2.webp"
+                                    alt="Pigmentation treatment clinical result 2" loading="lazy">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 rg-item">
-                        <div class="rg-ba">
-                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=700&auto=format&fit=crop"
-                                alt="Pigmentation treatment result" loading="lazy">
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/pigmentation/pigmentation-3.webp"
+                                    alt="Pigmentation treatment clinical result 3" loading="lazy">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2507,7 +2615,7 @@
                         data-title="Pigmentation at D&rsquo;Zen Derma"
                         data-video="https://www.youtube-nocookie.com/embed/2vbew720tLo"
                         data-external="https://www.youtube.com/shorts/2vbew720tLo">
-                        <img src="https://i.ytimg.com/vi/2vbew720tLo/oar2.jpg" alt="Pigmentation at D&rsquo;Zen Derma"
+                        <img src="images/pigmentation/pigmentation-video-1.webp" alt="Pigmentation at D&rsquo;Zen Derma"
                             class="hf-vcard__poster" loading="lazy" />
                         <div class="hf-vcard__play-wrap">
                             <span class="hf-vcard__play" aria-hidden="true">
