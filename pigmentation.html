@@ -779,10 +779,11 @@
             padding: 50px 0;
         }
 
-        /* ── Before & After Gallery (Equal Height, Natural Varying Width, No Background Color) ── */
+        /* ── Before & After Gallery (Equal Height, Natural Varying Width, Zero Cropping, No Background Color) ── */
         #before-after .rg-scroller {
             position: relative;
             width: 100%;
+            overflow: visible !important;
         }
 
         #before-after .rg-gallery-grid,
@@ -791,13 +792,14 @@
             flex-direction: row !important;
             flex-wrap: nowrap !important;
             align-items: center !important;
-            gap: 22px !important;
+            justify-content: flex-start !important;
+            gap: 20px !important;
             overflow-x: auto !important;
-            overflow-y: hidden !important;
+            overflow-y: visible !important;
             scroll-snap-type: x mandatory !important;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding: 10px 0 24px !important;
+            padding: 16px 12px 28px !important;
             margin: 0 !important;
         }
 
@@ -809,13 +811,14 @@
         #before-after .rg-item,
         .rg-gallery .rg-item {
             flex: 0 0 auto !important;
-            height: clamp(340px, 30vw, 410px) !important;
+            height: clamp(270px, 24vw, 340px) !important;
             width: auto !important;
             max-width: none !important;
             padding: 0 !important;
             margin: 0 !important;
             scroll-snap-align: start !important;
             display: flex !important;
+            box-sizing: border-box !important;
         }
 
         #before-after .rg-ba,
@@ -828,11 +831,13 @@
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
+            overflow: visible !important;
             margin: 0 !important;
             padding: 0 !important;
             display: flex !important;
             align-items: center !important;
             cursor: default !important;
+            box-sizing: border-box !important;
         }
 
         #before-after .rg-ba img,
@@ -845,6 +850,7 @@
             border-radius: 20px !important;
             border: 1.5px solid rgba(196, 146, 74, 0.32) !important;
             box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.22) !important;
+            box-sizing: border-box !important;
             pointer-events: none;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
         }
@@ -861,7 +867,7 @@
             #before-after .rg-gallery-grid,
             .rg-gallery .rg-gallery-grid {
                 gap: 16px !important;
-                padding: 16px 20px 20px !important;
+                padding: 16px 20px 24px !important;
                 margin-left: -16px !important;
                 margin-right: -16px !important;
                 width: calc(100% + 32px) !important;
@@ -872,15 +878,15 @@
 
             #before-after .rg-item,
             .rg-gallery .rg-item {
-                height: clamp(280px, 68vw, 340px) !important;
+                height: clamp(260px, 66vw, 320px) !important;
                 width: auto !important;
                 max-width: none !important;
             }
         }
 
-        @media (min-width: 992px) {
+        @media (min-width: 1200px) {
             #before-after:not(:has(.rg-item:nth-child(4))) .rg-gallery-grid {
-                justify-content: center !important;
+                justify-content: safe center !important;
             }
         }
 
