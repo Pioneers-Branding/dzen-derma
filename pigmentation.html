@@ -277,45 +277,77 @@
             margin-top: clamp(20px, 2.5vw, 25px);
         }
 
-        /* ── Recommended treatments: numbered list on the dark band ── */
+        /* ── Recommended treatments: 4 Clinical Buckets (Editorial, No Boxes, No Numbers, Compact) ── */
         #recommended {
             padding: 50px 0 0;
         }
 
-        .pg-rec-grid {
-            list-style: none;
+        .pg-buckets-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            column-gap: clamp(32px, 5vw, 72px);
+            column-gap: clamp(36px, 5vw, 68px);
+            row-gap: clamp(28px, 3.5vw, 40px);
             max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .pg-bucket-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pg-bucket-header {
+            margin-bottom: 4px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(232, 201, 154, 0.28);
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .pg-bucket-eyebrow {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #E8C99A;
+        }
+
+        .pg-bucket-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(19px, 1.8vw, 22px);
+            font-weight: 600;
+            line-height: 1.25;
+            color: #FAF9F6;
+            margin: 0;
+        }
+
+        .pg-bucket-list {
+            list-style: none;
             padding: 0;
-            counter-reset: none;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
         }
 
-        .pg-rec-grid li {
-            border-top: 1px solid rgba(232, 201, 154, .28);
+        .pg-bucket-list li {
+            border-bottom: 1px solid rgba(232, 201, 154, 0.2);
         }
 
-        /* closing hairline under the last row of each column */
-        .pg-rec-grid li:nth-last-child(-n+2) {
-            border-bottom: 1px solid rgba(232, 201, 154, .28);
-        }
-
-        .pg-rec-grid a {
+        .pg-bucket-list a {
             position: relative;
             display: flex;
             align-items: center;
-            gap: clamp(16px, 2vw, 26px);
-            /* fill the whole grid row so the hover line sits on the row divider,
-               even when the row in the other column is taller */
-            height: 100%;
-            padding: 20px 6px;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
             text-decoration: none;
-            transition: padding .35s ease;
+            transition: padding 0.3s ease;
         }
 
         /* gold line that sweeps in on hover */
-        .pg-rec-grid a::after {
+        .pg-bucket-list a::after {
             content: '';
             position: absolute;
             left: 0;
@@ -323,49 +355,38 @@
             width: 0;
             height: 1px;
             background: linear-gradient(90deg, #E8C99A, rgba(232, 201, 154, 0));
-            transition: width .5s ease;
+            transition: width 0.35s ease;
         }
 
-        .pg-rec-grid a:hover {
-            padding-left: 14px;
+        .pg-bucket-list a:hover {
+            padding-left: 8px;
         }
 
-        .pg-rec-grid a:hover::after {
+        .pg-bucket-list a:hover::after {
             width: 100%;
-        }
-
-        .pg-rec__num {
-            flex: 0 0 auto;
-            min-width: 44px;
-            font-family: 'Playfair Display', Georgia, serif;
-            font-style: italic;
-            font-size: clamp(26px, 2.6vw, 34px);
-            line-height: 1;
-            color: rgba(232, 201, 154, .55);
-            transition: color .35s ease;
         }
 
         .pg-rec__body {
             flex: 1 1 auto;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 2px;
             min-width: 0;
         }
 
         .pg-rec__tag {
             font-family: 'Inter', system-ui, sans-serif;
-            font-size: 10.5px;
+            font-size: 9.5px;
             font-weight: 600;
-            letter-spacing: .22em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: #E8C99A;
         }
 
         .pg-rec__name {
             font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(17px, 1.6vw, 20px);
-            line-height: 1.3;
+            font-size: clamp(16px, 1.4vw, 18px);
+            line-height: 1.25;
             color: #FAF9F6;
         }
 
@@ -374,16 +395,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            border: 1px solid rgba(232, 201, 154, .45);
+            border: 1px solid rgba(232, 201, 154, 0.45);
             color: #E8C99A;
-            transition: transform .35s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
         }
 
-        .pg-rec-grid a:hover .pg-rec__arrow {
+        .pg-bucket-list a:hover .pg-rec__arrow {
             transform: rotate(45deg);
+            border-color: #E8C99A;
+            background: rgba(232, 201, 154, 0.12);
         }
 
         /* ── Every treatment explained: same horizontal card carousel as treatments.html ── */
@@ -1797,27 +1820,31 @@
         }
 
         /* ── Responsive ── */
-        @media (max-width: 767.98px) {
-            .pg-rec-grid {
+        @media (max-width: 991.98px) {
+            .pg-buckets-grid {
                 grid-template-columns: 1fr;
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .pg-bucket-header {
+                margin-bottom: 2px;
+                padding-bottom: 6px;
             }
 
-            .pg-rec-grid li:nth-last-child(2) {
-                border-bottom: 0;
+            .pg-bucket-list a {
+                padding: 9px 0;
+                gap: 12px;
             }
 
-            .pg-rec-grid a {
-                padding: 16px 2px;
-                gap: 14px;
-            }
-
-            .pg-rec__num {
-                min-width: 34px;
+            .pg-rec__name {
+                font-size: 15.5px;
             }
 
             .pg-rec__arrow {
-                width: 34px;
-                height: 34px;
+                width: 30px;
+                height: 30px;
             }
         }
     </style>
@@ -2066,158 +2093,183 @@
                     </p>
                 </div>
 
-                <ol class="pg-rec-grid">
-                    <li>
-                        <a href="#t-chemical-peels">
-                            <span class="pg-rec__num">01</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Peel</span>
-                                <span class="pg-rec__name">Chemical Peels</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-depigmentation-peels">
-                            <span class="pg-rec__num">02</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Peel</span>
-                                <span class="pg-rec__name">Advanced Depigmentation Peels</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-pigment-laser">
-                            <span class="pg-rec__num">03</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Laser</span>
-                                <span class="pg-rec__name">Advanced Pigment Laser (Nanosecond Technology)</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-resurfacing-laser">
-                            <span class="pg-rec__num">04</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Laser</span>
-                                <span class="pg-rec__name">Skin Resurfacing Laser</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-skin-boosters">
-                            <span class="pg-rec__num">05</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Injectable</span>
-                                <span class="pg-rec__name">Skin Boosters</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-illumine">
-                            <span class="pg-rec__num">06</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Infusion</span>
-                                <span class="pg-rec__name">Illuminé Skin Infusion</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-microneedling">
-                            <span class="pg-rec__num">07</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Collagen Induction</span>
-                                <span class="pg-rec__name">Microneedling with Regenerative Actives</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-biorevive">
-                            <span class="pg-rec__num">08</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Skin Renewal</span>
-                                <span class="pg-rec__name">BioRevive</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-medi-facials">
-                            <span class="pg-rec__num">09</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Facial</span>
-                                <span class="pg-rec__name">Medi-facials</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#t-brightening">
-                            <span class="pg-rec__num">10</span>
-                            <span class="pg-rec__body">
-                                <span class="pg-rec__tag">Skincare</span>
-                                <span class="pg-rec__name">Medical-Grade Skin Brightening</span>
-                            </span>
-                            <span class="pg-rec__arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M7 17 17 7" />
-                                    <path d="M8 7h9v9" />
-                                </svg></span>
-                        </a>
-                    </li>
-                </ol>
+                <div class="pg-buckets-grid">
+                    <!-- Bucket 1: Pigment Correction -->
+                    <div class="pg-bucket-group">
+                        <div class="pg-bucket-header">
+                            <h3 class="pg-bucket-title">Pigment Correction</h3>
+                        </div>
+                        <ul class="pg-bucket-list">
+                            <li>
+                                <a href="#t-chemical-peels">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Peel</span>
+                                        <span class="pg-rec__name">Chemical Peels</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-depigmentation-peels">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Peel</span>
+                                        <span class="pg-rec__name">Advanced Depigmentation Peels</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-pigment-laser">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Laser</span>
+                                        <span class="pg-rec__name">Advanced Pigment Laser (Nanosecond Technology)</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Bucket 2: Resurfacing & Renewal -->
+                    <div class="pg-bucket-group">
+                        <div class="pg-bucket-header">
+                            <h3 class="pg-bucket-title">Resurfacing &amp; Renewal</h3>
+                        </div>
+                        <ul class="pg-bucket-list">
+                            <li>
+                                <a href="#t-resurfacing-laser">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Laser</span>
+                                        <span class="pg-rec__name">Skin Resurfacing Laser</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-biorevive">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Skin Renewal</span>
+                                        <span class="pg-rec__name">BioRevive</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-microneedling">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Collagen Induction</span>
+                                        <span class="pg-rec__name">Microneedling with Regenerative Actives</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Bucket 3: Skin Quality & Radiance -->
+                    <div class="pg-bucket-group">
+                        <div class="pg-bucket-header">
+                            <h3 class="pg-bucket-title">Skin Quality &amp; Radiance</h3>
+                        </div>
+                        <ul class="pg-bucket-list">
+                            <li>
+                                <a href="#t-skin-boosters">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Injectable</span>
+                                        <span class="pg-rec__name">Skin Boosters</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-illumine">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Infusion</span>
+                                        <span class="pg-rec__name">Illuminé Skin Infusion</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#t-medi-facials">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Facial</span>
+                                        <span class="pg-rec__name">Medi-facials</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Bucket 4: Ongoing Skin Management -->
+                    <div class="pg-bucket-group">
+                        <div class="pg-bucket-header">
+                            <h3 class="pg-bucket-title">Ongoing Skin Management</h3>
+                        </div>
+                        <ul class="pg-bucket-list">
+                            <li>
+                                <a href="#t-brightening">
+                                    <span class="pg-rec__body">
+                                        <span class="pg-rec__tag">Skincare</span>
+                                        <span class="pg-rec__name">Medical-Grade Skin Brightening</span>
+                                    </span>
+                                    <span class="pg-rec__arrow"><svg width="15" height="15" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M7 17 17 7" />
+                                            <path d="M8 7h9v9" />
+                                        </svg></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="text-center mt-4 pt-2">
                     <a href="contact" class="dz-cta footer-cta-btn">
