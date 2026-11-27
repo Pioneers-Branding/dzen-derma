@@ -802,115 +802,155 @@
             padding: 50px 0;
         }
 
-        /* ── Before & After Gallery (Equal Height, Natural Varying Width, Zero Cropping, No Background Color) ── */
-        #before-after .rg-scroller {
-            position: relative;
-            width: 100%;
-            overflow: visible !important;
-        }
-
-        #before-after .rg-gallery-grid,
-        .rg-gallery .rg-gallery-grid {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            gap: 20px !important;
-            overflow-x: auto !important;
-            overflow-y: visible !important;
-            scroll-snap-type: x mandatory !important;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding: 16px 12px 28px !important;
-            margin: 0 !important;
-        }
-
-        #before-after .rg-gallery-grid::-webkit-scrollbar,
-        .rg-gallery .rg-gallery-grid::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        #before-after .rg-item,
-        .rg-gallery .rg-item {
-            flex: 0 0 auto !important;
-            height: clamp(270px, 24vw, 340px) !important;
-            width: auto !important;
-            max-width: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            scroll-snap-align: start !important;
-            display: flex !important;
-            box-sizing: border-box !important;
-        }
-
-        #before-after .rg-ba,
-        .rg-gallery .rg-ba {
-            position: relative !important;
-            height: 100% !important;
-            width: auto !important;
-            max-width: none !important;
-            aspect-ratio: auto !important;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            overflow: visible !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: flex !important;
-            align-items: center !important;
-            cursor: default !important;
-            box-sizing: border-box !important;
-        }
-
-        #before-after .rg-ba img,
-        .rg-gallery .rg-ba img {
-            height: 100% !important;
-            width: auto !important;
-            max-width: none !important;
-            object-fit: contain !important;
-            display: block !important;
-            border-radius: 20px !important;
-            border: 1.5px solid rgba(196, 146, 74, 0.32) !important;
-            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.22) !important;
-            box-sizing: border-box !important;
-            pointer-events: none;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
-        }
-
-        #before-after .rg-item:hover .rg-ba img,
-        .rg-gallery .rg-item:hover .rg-ba img {
-            transform: translateY(-5px);
-            border-color: #C4924A !important;
-            box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.32) !important;
-        }
-
+        /* ── Before/After Gallery (exact same design as laser-hair-removal.html) ── */
         @media (max-width: 991.98px) {
 
             #before-after .rg-gallery-grid,
-            .rg-gallery .rg-gallery-grid {
+            .rg-gallery .rg-gallery-grid,
+            #before-after [data-grid] {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-padding-left: 20px !important;
+                scroll-padding-right: 20px !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
                 gap: 16px !important;
-                padding: 16px 20px 24px !important;
+                padding: 0px 20px 24px !important;
                 margin-left: -16px !important;
                 margin-right: -16px !important;
                 width: calc(100% + 32px) !important;
-                scroll-padding-left: 20px !important;
-                scroll-padding-right: 20px !important;
                 margin-bottom: 14px !important;
+            }
+
+            #before-after .rg-gallery-grid::-webkit-scrollbar,
+            .rg-gallery .rg-gallery-grid::-webkit-scrollbar,
+            #before-after [data-grid]::-webkit-scrollbar {
+                display: none !important;
             }
 
             #before-after .rg-item,
             .rg-gallery .rg-item {
-                height: clamp(260px, 66vw, 320px) !important;
-                width: auto !important;
+                /* 1 full card + 20% of the next peeking */
+                flex: 0 0 calc((100% + 4px) / 1.2) !important;
+                scroll-snap-align: start !important;
                 max-width: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            #before-after .rg-ba,
+            .rg-gallery .rg-ba {
+                aspect-ratio: 16 / 10 !important;
+                min-height: auto !important;
+                border-radius: 20px !important;
             }
         }
 
-        @media (min-width: 1200px) {
-            #before-after:not(:has(.rg-item:nth-child(4))) .rg-gallery-grid {
-                justify-content: safe center !important;
+        #before-after .rg-scroller {
+            position: relative;
+        }
+
+        #before-after .rg-ba {
+            aspect-ratio: 1000 /1000 !important;
+            background: #4b2b20;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.22);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        #before-after .rg-item:hover .rg-ba {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.32);
+        }
+
+        #before-after .rg-ba img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        @media (min-width: 992px) {
+            #before-after .rg-gallery-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 24px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                padding: 10px 0 24px;
+                cursor: grab;
             }
+
+            #before-after .rg-gallery-grid.is-dragging {
+                cursor: grabbing;
+                scroll-behavior: auto;
+            }
+
+            #before-after .rg-gallery-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            #before-after .rg-item {
+                /* 3 full cards + 20% of the 4th peeking (3 gaps of 24px) */
+                flex: 0 0 calc((100% - 72px) / 3.2);
+                scroll-snap-align: start;
+            }
+        }
+
+        /* Pigmentation: every card has the SAME HEIGHT and takes its width
+           from its own photo, so nothing is cropped or stretched. */
+        #before-after .rg-gallery-grid {
+            align-items: flex-start !important;
+        }
+
+        #before-after .rg-gallery-grid .rg-item {
+            flex: 0 0 auto !important;
+            width: auto !important;
+            height: var(--rg-h) !important;
+        }
+
+        #before-after .rg-gallery-grid .rg-ba {
+            aspect-ratio: auto !important;
+            height: 100% !important;
+            width: auto !important;
+            min-height: 0 !important;
+        }
+
+        #before-after .rg-gallery-grid .rg-ba img {
+            height: 100% !important;
+            width: auto !important;
+            max-width: none !important;
+            object-fit: contain !important;
+        }
+
+        #before-after {
+            --rg-h: min(68vw, 360px);
+        }
+
+        @media (min-width: 992px) {
+            #before-after {
+                --rg-h: clamp(320px, 26vw, 420px);
+            }
+        }
+
+        #before-after {
+            background: linear-gradient(to top, #F4EFE8, #FDF8F3);
+            padding: 35px 0px 50px;
+            position: relative;
+        }
+
+        .hf-results-cta-center {
+            margin: 0 auto;
+            display: inline-flex;
         }
 
         /* Gallery ends on a wave into the reviews section;
@@ -2626,6 +2666,12 @@
                                     alt="Pigmentation treatment clinical result 3" loading="lazy">
                             </div>
                         </div>
+                        <div class="rg-item">
+                            <div class="rg-ba">
+                                <img src="images/before-after/pigmentation/pigmentation-4.webp"
+                                    alt="Pigmentation treatment clinical result 4" loading="lazy">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2978,7 +3024,6 @@
 
                 <div class="hf-related-scroll-container">
                     <div class="hf-related-track bx-related-track" id="relatedTrack">
-                        <!-- TODO: link each card to its concern page once created -->
                         <a href="acne-scars.html" class="hf-related-card">
                             <h3 class="hf-related-card__title">Acne Scars</h3>
                             <div class="hf-related-card__divider"></div>
@@ -2993,7 +3038,7 @@
                             </span>
                         </a>
                         <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Uneven &amp; Dull Skin</h3>
+                            <h3 class="hf-related-card__title">Dull Skin</h3>
                             <div class="hf-related-card__divider"></div>
                             <p class="hf-related-card__desc">Restore clarity and a more even, radiant tone.</p>
                             <span class="hf-related-card__action">
@@ -3006,9 +3051,10 @@
                             </span>
                         </a>
                         <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Tanned Skin</h3>
+                            <h3 class="hf-related-card__title">Hair Thinning</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Gently fade sun tan and bring back your natural tone.</p>
+                            <p class="hf-related-card__desc">Doctor-led care for thinning hair and reduced hair density.
+                            </p>
                             <span class="hf-related-card__action">
                                 <span>Learn More</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3018,10 +3064,11 @@
                                 </svg>
                             </span>
                         </a>
-                        <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Dark Underarms, Neck &amp; Back</h3>
+                        <a href="under-eye-darkness.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Under Eyes</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Lighten darker areas for a more even skin tone.</p>
+                            <p class="hf-related-card__desc">Soften under-eye darkness and hollowness for a fresher
+                                look.</p>
                             <span class="hf-related-card__action">
                                 <span>Learn More</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3660,6 +3707,68 @@
             measure();
             window.addEventListener('load', measure);
             window.addEventListener('resize', measure);
+        })();
+    </script>
+    <script>
+        // Before/After Gallery Desktop Grab & Scroll + Mouse Wheel (like laser-hair-removal.html)
+        (function () {
+            var track = document.querySelector('#before-after .rg-gallery-grid');
+            if (!track) return;
+
+            var isDown = false;
+            var startX = 0;
+            var scrollLeft = 0;
+            var hasDragged = false;
+
+            track.addEventListener('dragstart', function (e) {
+                e.preventDefault();
+            });
+
+            track.addEventListener('mousedown', function (e) {
+                if (e.button !== 0) return;
+                isDown = true;
+                hasDragged = false;
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+                track.classList.add('is-dragging');
+            });
+
+            window.addEventListener('mousemove', function (e) {
+                if (!isDown) return;
+                var x = e.pageX - track.offsetLeft;
+                var walk = (x - startX);
+                if (Math.abs(walk) > 5) {
+                    hasDragged = true;
+                }
+                track.scrollLeft = scrollLeft - walk;
+            });
+
+            window.addEventListener('mouseup', function () {
+                if (isDown) {
+                    isDown = false;
+                    track.classList.remove('is-dragging');
+                }
+            });
+
+            track.addEventListener('click', function (e) {
+                if (hasDragged) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    hasDragged = false;
+                }
+            }, true);
+
+            track.addEventListener('wheel', function (e) {
+                if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                    var maxScroll = track.scrollWidth - track.clientWidth;
+                    var canScrollLeft = track.scrollLeft > 0 && e.deltaY < 0;
+                    var canScrollRight = track.scrollLeft < maxScroll && e.deltaY > 0;
+                    if (canScrollLeft || canScrollRight) {
+                        e.preventDefault();
+                        track.scrollLeft += e.deltaY * 1.1;
+                    }
+                }
+            }, { passive: false });
         })();
     </script>
 </body>

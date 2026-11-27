@@ -1993,6 +1993,64 @@
         :where(.dz-hf-layout) .hf-why-minimal-grid {
             grid-template-columns: repeat(3, 1fr);
         }
+
+        /* Related cards: centre-align content */
+        html body #related-services .hf-related-card {
+            align-items: center;
+            text-align: center;
+        }
+
+        html body #related-services .hf-related-card__title,
+        html body #related-services .hf-related-card h3 {
+            justify-content: center;
+            text-align: center;
+        }
+
+        html body #related-services .hf-related-card__divider {
+            align-self: stretch;
+        }
+
+        html body #related-services .hf-related-card__action,
+        html body #related-services .hf-related-card span.hf-related-card__action {
+            justify-content: center;
+        }
+        /* Related concerns: same 4-column centred grid as pigmentation.html */
+        .dz-page-pigmentation .bx-related-track .hf-related-card {
+            min-height: 0;
+        }
+
+        /* All four cards in one centred row; card content centred */
+        @media (min-width: 992px) {
+            html body.dz-page-pigmentation #related-services .bx-related-track {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 20px;
+                max-width: 1140px;
+                margin: 0 auto;
+                overflow: visible;
+                cursor: default;
+            }
+
+            html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card {
+                flex: none;
+                max-width: none;
+                width: 100%;
+            }
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card {
+            align-items: center;
+            text-align: center;
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card__divider {
+            align-self: stretch;
+        }
+
+        html body.dz-page-pigmentation #related-services .bx-related-track .hf-related-card__action {
+            justify-content: center;
+        }
+
     </style>
 
 </head>
@@ -3122,64 +3180,50 @@
                 </div>
 
                 <div class="hf-related-scroll-container">
-                    <div class="hf-related-track" id="relatedTrack">
+                    <div class="hf-related-track bx-related-track" id="relatedTrack">
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Double Chin</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Refine fullness under the chin for a more defined jawline.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Bulky Face</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Contour and balance facial fullness with personalised treatments.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="concerns.html" class="hf-related-card">
+                            <h3 class="hf-related-card__title">Fine Lines &amp; Wrinkles</h3>
+                            <div class="hf-related-card__divider"></div>
+                            <p class="hf-related-card__desc">Soften expression lines and creases for smoother-looking skin.</p>
+                            <span class="hf-related-card__action">
+                                <span>Learn More</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </span>
+                        </a>
                         <a href="pigmentation.html" class="hf-related-card">
                             <h3 class="hf-related-card__title">Pigmentation</h3>
                             <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Even skin tone and fade stubborn marks with doctor-led
-                                protocols.</p>
-                            <span class="hf-related-card__action">
-                                <span>Learn More</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </span>
-                        </a>
-                        <a href="acne-scars.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Acne Scars</h3>
-                            <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Smooth uneven texture left behind by past breakouts.</p>
-                            <span class="hf-related-card__action">
-                                <span>Learn More</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </span>
-                        </a>
-                        <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Uneven &amp; Dull Skin</h3>
-                            <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Restore clarity and a more even, radiant tone.</p>
-                            <span class="hf-related-card__action">
-                                <span>Learn More</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </span>
-                        </a>
-                        <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Tanned Skin</h3>
-                            <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Gently fade sun tan and bring back your natural tone.</p>
-                            <span class="hf-related-card__action">
-                                <span>Learn More</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m12 5 7 7-7 7" />
-                                </svg>
-                            </span>
-                        </a>
-                        <a href="concerns.html" class="hf-related-card">
-                            <h3 class="hf-related-card__title">Dark Underarms, Neck &amp; Back</h3>
-                            <div class="hf-related-card__divider"></div>
-                            <p class="hf-related-card__desc">Lighten darker areas for a more even skin tone.</p>
+                            <p class="hf-related-card__desc">Even skin tone and fade stubborn marks with doctor-led protocols.</p>
                             <span class="hf-related-card__action">
                                 <span>Learn More</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
