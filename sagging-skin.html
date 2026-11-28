@@ -3935,66 +3935,147 @@
             }, { passive: false });
         })();
     </script>
+    <!-- Before/After slider: smooth drag + momentum (same feel as the Treatments slider) -->
+    <style>
+        #before-after .rg-gallery-grid {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #before-after .rg-gallery-grid img {
+            -webkit-user-drag: none;
+        }
+
+        @media (min-width: 992px) {
+            #before-after .rg-gallery-grid.ba-can-drag {
+                cursor: grab;
+            }
+        }
+
+        #before-after .rg-gallery-grid.is-dragging,
+        #before-after .rg-gallery-grid.is-gliding {
+            scroll-snap-type: none !important;
+            scroll-behavior: auto !important;
+        }
+
+        #before-after .rg-gallery-grid.is-dragging {
+            cursor: grabbing !important;
+        }
+
+        #before-after .rg-gallery-grid.is-dragging .rg-item,
+        #before-after .rg-gallery-grid.is-dragging .rg-ba {
+            pointer-events: none;
+        }
+    </style>
     <script>
-        // Before/After Gallery Desktop Grab & Scroll + Mouse Wheel (like laser-hair-removal.html)
         (function () {
-            var track = document.querySelector('#before-after .rg-gallery-grid');
-            if (!track) return;
+            function initBeforeAfterDrag(track) {
+                if (!track || track.dataset.baDrag) return;
+                track.dataset.baDrag = '1';
 
-            var isDown = false;
-            var startX = 0;
-            var scrollLeft = 0;
-            var hasDragged = false;
+                var isDown = false, hasDragged = false;
+                var startX = 0, scrollStart = 0;
+                var lastX = 0, lastTime = 0, velocity = 0;
+                var glideId = null;
 
-            track.addEventListener('dragstart', function (e) {
-                e.preventDefault();
-            });
+                function canScroll() { return track.scrollWidth - track.clientWidth > 2; }
+                function updateCursor() { track.classList.toggle('ba-can-drag', canScroll()); }
+                updateCursor();
+                window.addEventListener('resize', updateCursor);
+                window.addEventListener('load', updateCursor);
 
-            track.addEventListener('mousedown', function (e) {
-                if (e.button !== 0) return;
-                isDown = true;
-                hasDragged = false;
-                startX = e.pageX - track.offsetLeft;
-                scrollLeft = track.scrollLeft;
-                track.classList.add('is-dragging');
-            });
-
-            window.addEventListener('mousemove', function (e) {
-                if (!isDown) return;
-                var x = e.pageX - track.offsetLeft;
-                var walk = (x - startX);
-                if (Math.abs(walk) > 5) {
-                    hasDragged = true;
+                function stopGlide() {
+                    if (glideId) cancelAnimationFrame(glideId);
+                    glideId = null;
+                    track.classList.remove('is-gliding');
                 }
-                track.scrollLeft = scrollLeft - walk;
-            });
 
-            window.addEventListener('mouseup', function () {
-                if (isDown) {
+                track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+                track.addEventListener('mousedown', function (e) {
+                    if (e.button !== 0 || !canScroll()) return;
+                    stopGlide();
+                    isDown = true;
+                    hasDragged = false;
+                    startX = lastX = e.pageX;
+                    scrollStart = track.scrollLeft;
+                    lastTime = performance.now();
+                    velocity = 0;
+                    track.classList.add('is-dragging');
+                    e.preventDefault();
+                });
+
+                window.addEventListener('mousemove', function (e) {
+                    if (!isDown) return;
+                    var walk = e.pageX - startX;
+                    if (Math.abs(walk) > 5) hasDragged = true;
+                    track.scrollLeft = scrollStart - walk;
+
+                    var now = performance.now();
+                    var dt = now - lastTime;
+                    if (dt > 0) {
+                        // smoothed velocity in px per ms
+                        velocity = 0.8 * ((e.pageX - lastX) / dt) + 0.2 * velocity;
+                        lastX = e.pageX;
+                        lastTime = now;
+                    }
+                });
+
+                window.addEventListener('mouseup', function () {
+                    if (!isDown) return;
                     isDown = false;
                     track.classList.remove('is-dragging');
-                }
-            });
 
-            track.addEventListener('click', function (e) {
-                if (hasDragged) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    hasDragged = false;
-                }
-            }, true);
+                    // no momentum if the pointer stopped before release
+                    if (performance.now() - lastTime > 80) velocity = 0;
 
-            track.addEventListener('wheel', function (e) {
-                if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                    var maxScroll = track.scrollWidth - track.clientWidth;
-                    var canScrollLeft = track.scrollLeft > 0 && e.deltaY < 0;
-                    var canScrollRight = track.scrollLeft < maxScroll && e.deltaY > 0;
-                    if (canScrollLeft || canScrollRight) {
+                    if (Math.abs(velocity) > 0.15) {
+                        var speed = velocity * 16;
+                        track.classList.add('is-gliding');
+                        var glide = function () {
+                            var before = track.scrollLeft;
+                            track.scrollLeft -= speed;
+                            speed *= 0.93;
+                            if (Math.abs(speed) < 0.5 || track.scrollLeft === before) {
+                                stopGlide(); // snap re-engages and settles smoothly
+                                return;
+                            }
+                            glideId = requestAnimationFrame(glide);
+                        };
+                        glideId = requestAnimationFrame(glide);
+                    }
+                });
+
+                // don't open links / lightboxes after a drag
+                track.addEventListener('click', function (e) {
+                    if (hasDragged) {
                         e.preventDefault();
+                        e.stopPropagation();
+                        hasDragged = false;
+                    }
+                }, true);
+
+                // vertical mouse wheel scrolls the slider horizontally until it reaches an end
+                track.addEventListener('wheel', function (e) {
+                    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || !canScroll()) return;
+                    var max = track.scrollWidth - track.clientWidth;
+                    if ((e.deltaY < 0 && track.scrollLeft > 0) || (e.deltaY > 0 && track.scrollLeft < max)) {
+                        e.preventDefault();
+                        stopGlide();
                         track.scrollLeft += e.deltaY * 1.1;
                     }
-                }
-            }, { passive: false });
+                }, { passive: false });
+            }
+
+            function initAll() {
+                document.querySelectorAll('#before-after .rg-gallery-grid').forEach(initBeforeAfterDrag);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAll);
+            } else {
+                initAll();
+            }
         })();
     </script>
 </body>
