@@ -4200,6 +4200,54 @@
             }
         }
 
+        /* Laptop/desktop: 3 full cards + ~20% of the 4th, same width, whole photo visible */
+        @media (min-width: 992px) {
+            html body #before-after .rg-gallery-grid:not(.row) {
+                display: flex !important;
+                flex-wrap: nowrap !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+                gap: 24px !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                padding: 10px 0 24px !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            html body #before-after .rg-gallery-grid:not(.row)::-webkit-scrollbar {
+                display: none;
+            }
+
+            html body #before-after .rg-gallery-grid:not(.row) .rg-item {
+                flex: 0 0 calc((100% - 72px) / 3.2) !important;
+                width: auto !important;
+                max-width: none !important;
+                height: auto !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                scroll-snap-align: start !important;
+            }
+
+            html body #before-after .rg-gallery-grid:not(.row) .rg-ba {
+                aspect-ratio: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 0 !important;
+            }
+
+            html body #before-after .rg-gallery-grid:not(.row) .rg-ba img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                object-fit: contain !important;
+            }
+        }
+
         #before-after .rg-gallery-grid.is-dragging,
         #before-after .rg-gallery-grid.is-gliding {
             scroll-snap-type: none !important;
